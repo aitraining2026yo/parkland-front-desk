@@ -1,5 +1,13 @@
 /* Parkland front desk toolkit — desktop only */
 
+const STORAGE_KEY = "parkland-front-desk-drafts-v1";
+
+const EMOJI_QUICK = [
+  "😊", "🙂", "😅", "🙏", "‼️", "✅", "✔️", "❌",
+  "👍", "👌", "🎉", "✨", "⚠️", "📌", "🔔", "💬",
+  "❤️", "🎵", "📝", "💰", "📅", "🕐", "🏫",
+];
+
 const state = {
   tab: "templates",
   templates: [],
@@ -7,6 +15,9 @@ const state = {
   assets: null,
   groupFilter: "全部",
   originals: new Map(), // id -> original body
+  drafts: new Map(),
+  lastFocusedTa: null,
+  saveTimer: null,
 };
 
 const $ = (sel, el = document) => el.querySelector(sel);
@@ -172,13 +183,104 @@ function matchSearch(text, q) {
   return (text || "").toLowerCase().includes(q);
 }
 
+/* ---------- Local save (this browser only) ---------- */
+function loadDraftsFromStorage() {
+  state.drafts = new Map();
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return;
+    const obj = JSON.parse(raw);
+    Object.entries(obj).forEach(([id, body]) => {
+      if (typeof body === "string") state.drafts.set(id, body);
+    });
+  } catch (e) {
+    console.warn("load drafts failed", e);
+  }
+}
+
+function persistDrafts() {
+  try {
+    const obj = {};
+    state.drafts.forEach((body, id) => {
+      const original = state.originals.get(id);
+      // only store if different from original (keeps storage small)
+      if (original !== undefined && body !== original) obj[id] = body;
+    });
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(obj));
+    const n = Object.keys(obj).length;
+    const el = $("#save-status");
+    if (el) {
+      el.textContent = n
+        ? `已儲存 ${n} 條修改（本機）`
+        : "未有修改 · 改字會自動儲存";
+      el.classList.add("flash");
+      setTimeout(() => el.classList.remove("flash"), 600);
+    }
+  } catch (e) {
+    console.warn("persist failed", e);
+    toast("儲存失敗（瀏覽器可能禁咗本機儲存）", true);
+  }
+}
+
+function saveDrafts() {
+  if (!state.drafts) state.drafts = new Map();
+  state.templates.forEach((t) => {
+    const ta = $(`#ta-${t.id}`);
+    if (ta) state.drafts.set(t.id, ta.value);
+  });
+  clearTimeout(state.saveTimer);
+  state.saveTimer = setTimeout(persistDrafts, 250);
+}
+
+function insertEmoji(emoji) {
+  let ta = state.lastFocusedTa;
+  if (!ta || !document.body.contains(ta)) {
+    ta = $("#panel-templates textarea");
+  }
+  if (!ta) {
+    toast("請先撳一下要改嘅文字框", true);
+    return;
+  }
+  ta.focus();
+  const start = ta.selectionStart ?? ta.value.length;
+  const end = ta.selectionEnd ?? start;
+  const before = ta.value.slice(0, start);
+  const after = ta.value.slice(end);
+  ta.value = before + emoji + after;
+  const pos = start + emoji.length;
+  ta.setSelectionRange(pos, pos);
+  state.lastFocusedTa = ta;
+  saveDrafts();
+}
+
 /* ---------- Templates ---------- */
 function renderTemplates() {
   const root = $("#panel-templates");
   const q = searchQuery();
   const groups = ["全部", ...new Set(state.templates.map((t) => t.group))];
+  const draftCount = [...state.drafts.entries()].filter(
+    ([id, body]) => body !== state.originals.get(id)
+  ).length;
 
-  let html = `<div class="group-row" id="group-chips">`;
+  let html = `
+    <div class="tpl-toolbar">
+      <div class="save-row">
+        <span id="save-status" class="save-status">${
+          draftCount
+            ? `已儲存 ${draftCount} 條修改（本機）`
+            : "未有修改 · 改字會自動儲存"
+        }</span>
+        <span class="save-hint">只保存在呢部電腦嘅呢個瀏覽器；換電腦唔會跟住</span>
+      </div>
+      <div class="emoji-bar" title="撳文字框後再揀 emoji">
+        <span class="emoji-label">Emoji</span>
+        ${EMOJI_QUICK.map(
+          (e) =>
+            `<button type="button" class="emoji-btn" data-emoji="${escapeAttr(e)}">${e}</button>`
+        ).join("")}
+      </div>
+    </div>
+    <div class="group-row" id="group-chips">`;
   for (const g of groups) {
     html += `<button type="button" class="chip ${state.groupFilter === g ? "active" : ""}" data-group="${g}">${g}</button>`;
   }
@@ -186,7 +288,8 @@ function renderTemplates() {
 
   const list = state.templates.filter((t) => {
     if (state.groupFilter !== "全部" && t.group !== state.groupFilter) return false;
-    const hay = [t.title, t.body, t.group, ...(t.tags || [])].join(" ");
+    const body = state.drafts.get(t.id) ?? t.body;
+    const hay = [t.title, body, t.group, ...(t.tags || [])].join(" ");
     return matchSearch(hay, q);
   });
 
@@ -194,19 +297,22 @@ function renderTemplates() {
     html += `<div class="empty">搵唔到模板</div>`;
   } else {
     for (const t of list) {
-      const current = state.originals.has(t.id)
-        ? ($(`#ta-${t.id}`)?.value ?? t.body)
-        : t.body;
       if (!state.originals.has(t.id)) state.originals.set(t.id, t.body);
+      const body = state.drafts.get(t.id) ?? t.body;
+      const dirty = body !== state.originals.get(t.id);
       html += `
         <article class="card" data-id="${t.id}">
           <div class="card-head">
             <div>
-              <div class="card-title">${escapeHtml(t.title)}</div>
+              <div class="card-title">${escapeHtml(t.title)}${
+                dirty ? ` <span class="dirty-tag">已改</span>` : ""
+              }</div>
               <div class="card-meta">${escapeHtml(t.group)}</div>
             </div>
           </div>
-          <textarea id="ta-${t.id}" spellcheck="false">${escapeHtml(t.body)}</textarea>
+          <textarea id="ta-${t.id}" class="emoji-text" spellcheck="false" lang="zh-HK">${escapeHtml(
+            body
+          )}</textarea>
           <div class="card-actions">
             <button type="button" class="btn btn-primary" data-copy-text="${t.id}">複製文字</button>
             <button type="button" class="btn btn-ghost" data-reset="${t.id}">還原原文</button>
@@ -217,18 +323,10 @@ function renderTemplates() {
   html += `</div>`;
   root.innerHTML = html;
 
-  // restore edits if re-render wiped — store live values before re-render is hard;
-  // on first paint bodies are originals. For filter re-render we lose edits — keep simple:
-  // re-apply from originals map only on reset; for filter we re-set from template body.
-  // Better: keep draft map
-  for (const t of list) {
-    const ta = $(`#ta-${t.id}`);
-    if (ta && state.drafts?.has(t.id)) ta.value = state.drafts.get(t.id);
-  }
-
   root.querySelectorAll(".chip").forEach((chip) => {
     chip.addEventListener("click", () => {
       saveDrafts();
+      persistDrafts();
       state.groupFilter = chip.dataset.group;
       renderTemplates();
     });
@@ -238,6 +336,7 @@ function renderTemplates() {
       const id = btn.dataset.copyText;
       const ta = $(`#ta-${id}`);
       saveDrafts();
+      persistDrafts();
       copyText(ta.value);
     });
   });
@@ -246,20 +345,25 @@ function renderTemplates() {
       const id = btn.dataset.reset;
       const ta = $(`#ta-${id}`);
       ta.value = state.originals.get(id) || "";
-      if (state.drafts) state.drafts.delete(id);
-      toast("已還原");
+      state.drafts.set(id, ta.value);
+      persistDrafts();
+      toast("已還原原文（本機修改已清）");
+      renderTemplates();
     });
   });
   root.querySelectorAll("textarea").forEach((ta) => {
-    ta.addEventListener("input", () => saveDrafts());
+    ta.addEventListener("focus", () => {
+      state.lastFocusedTa = ta;
+    });
+    ta.addEventListener("input", () => {
+      const id = ta.id.replace(/^ta-/, "");
+      state.drafts.set(id, ta.value);
+      saveDrafts();
+    });
   });
-}
-
-function saveDrafts() {
-  if (!state.drafts) state.drafts = new Map();
-  state.templates.forEach((t) => {
-    const ta = $(`#ta-${t.id}`);
-    if (ta) state.drafts.set(t.id, ta.value);
+  root.querySelectorAll("[data-emoji]").forEach((btn) => {
+    btn.addEventListener("mousedown", (e) => e.preventDefault()); // keep textarea focus
+    btn.addEventListener("click", () => insertEmoji(btn.dataset.emoji));
   });
 }
 
@@ -429,7 +533,7 @@ async function init() {
   state.policySnippets = tplData.policySnippets;
   state.assets = await assetRes.json();
   state.templates.forEach((t) => state.originals.set(t.id, t.body));
-  state.drafts = new Map();
+  loadDraftsFromStorage();
 
   $$(".tab").forEach((btn) => {
     btn.addEventListener("click", () => setTab(btn.dataset.tab));

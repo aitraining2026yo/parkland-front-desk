@@ -11,7 +11,11 @@
   --warn: #ffb020;
   --danger: #ff6b6b;
   --radius: 12px;
-  --font: "Segoe UI", "PingFang HK", "Microsoft JhengHei", sans-serif;
+  --font: "Segoe UI", "PingFang HK", "Hiragino Sans GB", "Microsoft JhengHei",
+    "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Twemoji Mozilla",
+    sans-serif;
+  --emoji-font: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji", "Twemoji Mozilla", "Android Emoji", sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -198,7 +202,8 @@ main {
   color: var(--muted);
   font-size: 12px;
 }
-.card textarea {
+.card textarea,
+.card textarea.emoji-text {
   width: 100%;
   min-height: 120px;
   resize: vertical;
@@ -207,12 +212,82 @@ main {
   border: 1px solid var(--border);
   background: var(--panel2);
   color: var(--text);
-  font-family: inherit;
-  font-size: 14px;
-  line-height: 1.5;
+  font-family: var(--font);
+  font-size: 15px;
+  line-height: 1.55;
   outline: none;
+  /* help color emoji render on Windows / macOS */
+  font-variant-emoji: emoji;
 }
 .card textarea:focus { border-color: var(--accent); }
+
+.dirty-tag {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #c4b5ff;
+  background: #2a2440;
+  border: 1px solid #3d3560;
+  vertical-align: middle;
+}
+
+.tpl-toolbar {
+  margin-bottom: 12px;
+  padding: 10px 12px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.save-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+.save-status {
+  font-size: 12px;
+  color: var(--ok);
+  font-weight: 600;
+}
+.save-status.flash { color: #7dffb8; }
+.save-hint {
+  font-size: 11px;
+  color: var(--muted);
+}
+.emoji-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+.emoji-label {
+  font-size: 11px;
+  color: var(--muted);
+  margin-right: 4px;
+  letter-spacing: 0.04em;
+}
+.emoji-btn {
+  appearance: none;
+  border: 1px solid transparent;
+  background: var(--panel2);
+  border-radius: 8px;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  font-family: var(--emoji-font);
+  transition: border-color 0.12s, background 0.12s;
+}
+.emoji-btn:hover {
+  border-color: var(--accent);
+  background: #241f3a;
+}
 .card-actions {
   display: flex;
   gap: 8px;
