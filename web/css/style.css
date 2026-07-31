@@ -69,18 +69,39 @@ body {
 }
 .meta-right {
   margin-left: auto;
-  text-align: right;
-  line-height: 1.3;
-  white-space: nowrap;
   flex-shrink: 0;
-  opacity: 0.55;
-}
-.meta-by,
-.meta-ver,
-.meta-update {
-  font-size: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 2px;
+  white-space: nowrap;
+  font-size: 11px;
   font-weight: 400;
-  color: var(--muted);
+  letter-spacing: 0.04em;
+  color: #6b7385;
+  font-variant-numeric: tabular-nums;
+}
+.meta-by {
+  font-style: italic;
+  font-weight: 500;
+  color: #8b93a7;
+  letter-spacing: 0.02em;
+}
+.meta-dot {
+  color: #3d4558;
+  font-weight: 300;
+  user-select: none;
+}
+.meta-ver {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  color: #757e92;
+}
+.meta-update {
+  font-size: 10.5px;
+  letter-spacing: 0.03em;
+  color: #5c6478;
 }
 
 /* Tabs */
