@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Parkland 前台工具箱</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Parkland <span>前台工具箱</span></div>
+    <div class="search-wrap">
+      <input id="search" type="search" placeholder="搜尋：請假、學費、結他、古箏…" autocomplete="off" />
+    </div>
+    <div class="hint">電腦版 · 複製後貼去 WhatsApp</div>
+  </header>
+
+  <div id="file-warning" class="hidden" style="background:#3a2010;color:#ffb020;padding:10px 20px;font-size:13px;border-bottom:1px solid #5a3a10">
+    ⚠ 請用網頁網址開啟（GitHub Pages），唔好雙擊本機檔案。複製圖片需要 https。
+  </div>
+
+  <nav class="tabs">
+    <button type="button" class="tab active" data-tab="templates">回覆模板</button>
+    <button type="button" class="tab" data-tab="promos">送樂器推廣</button>
+    <button type="button" class="tab" data-tab="fees">學費表</button>
+    <button type="button" class="tab" data-tab="rules">守則政策</button>
+  </nav>
+
+  <main>
+    <section id="panel-templates" class="panel active"></section>
+    <section id="panel-promos" class="panel"></section>
+    <section id="panel-fees" class="panel"></section>
+    <section id="panel-rules" class="panel"></section>
+  </main>
+
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="關閉">×</button>
+    <img id="lightbox-img" alt="預覽" />
+  </div>
+
+  <div id="toast" class="toast" role="status"></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

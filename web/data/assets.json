@@ -1,0 +1,326 @@
+{
+  "promos": [
+    {
+      "id": "promo_01",
+      "file": "../04-推廣_8堂送樂器/01_KONIX_電子琴_PJ61Z_$2838.jpeg",
+      "title": "KONIX 電子琴 PJ61Z",
+      "price": "$2,838",
+      "priceRaw": 2838,
+      "search": "KONIX 電子琴 PJ61Z 2838"
+    },
+    {
+      "id": "promo_02",
+      "file": "../04-推廣_8堂送樂器/02_敦煌牌_琵琶_M597_$3670.jpeg",
+      "title": "敦煌牌 琵琶 M597",
+      "price": "$3,670",
+      "priceRaw": 3670,
+      "search": "敦煌牌 琵琶 M597 3670"
+    },
+    {
+      "id": "promo_03",
+      "file": "../04-推廣_8堂送樂器/03_SQOE_低音電結他_W-BASS-4_$2940.jpeg",
+      "title": "SQOE 低音電結他 W-BASS-4",
+      "price": "$2,940",
+      "priceRaw": 2940,
+      "search": "SQOE 低音電結他 W-BASS-4 2940"
+    },
+    {
+      "id": "promo_04",
+      "file": "../04-推廣_8堂送樂器/04_星海牌_揚琴_P402_$6420.jpeg",
+      "title": "星海牌 揚琴 P402",
+      "price": "$6,420",
+      "priceRaw": 6420,
+      "search": "星海牌 揚琴 P402 6420"
+    },
+    {
+      "id": "promo_05",
+      "file": "../04-推廣_8堂送樂器/05_LEHO_夏威夷小結他_MLUS-2M_$2370.jpeg",
+      "title": "LEHO 夏威夷小結他 MLUS-2M",
+      "price": "$2,370",
+      "priceRaw": 2370,
+      "search": "LEHO 夏威夷小結他 MLUS-2M 2370"
+    },
+    {
+      "id": "promo_06",
+      "file": "../04-推廣_8堂送樂器/06_NUX_電子鼓_DM210_$6350.jpeg",
+      "title": "NUX 電子鼓 DM210",
+      "price": "$6,350",
+      "priceRaw": 6350,
+      "search": "NUX 電子鼓 DM210 6350"
+    },
+    {
+      "id": "promo_07",
+      "file": "../04-推廣_8堂送樂器/07_JADA_木結他_M-40_$2840.jpeg",
+      "title": "JADA 木結他 M-40",
+      "price": "$2,840",
+      "priceRaw": 2840,
+      "search": "JADA 木結他 M-40 2840"
+    },
+    {
+      "id": "promo_08",
+      "file": "../04-推廣_8堂送樂器/08_WALTER_木箱鼓_WL-560_$2740.jpeg",
+      "title": "WALTER 木箱鼓 WL-560",
+      "price": "$2,740",
+      "priceRaw": 2740,
+      "search": "WALTER 木箱鼓 WL-560 2740"
+    },
+    {
+      "id": "promo_09",
+      "file": "../04-推廣_8堂送樂器/09_NUX_電子琴_NEK-100_$3460.jpeg",
+      "title": "NUX 電子琴 NEK-100",
+      "price": "$3,460",
+      "priceRaw": 3460,
+      "search": "NUX 電子琴 NEK-100 3460"
+    },
+    {
+      "id": "promo_10",
+      "file": "../04-推廣_8堂送樂器/10_ROLAND_數碼鋼琴_FP30X_$6230.jpeg",
+      "title": "ROLAND 數碼鋼琴 FP30X",
+      "price": "$6,230",
+      "priceRaw": 6230,
+      "search": "ROLAND 數碼鋼琴 FP30X 6230"
+    },
+    {
+      "id": "promo_11",
+      "file": "../04-推廣_8堂送樂器/11_PUKANALA_夏威夷小結他_PK-PHS_$2080.jpeg",
+      "title": "PUKANALA 夏威夷小結他 PK-PHS",
+      "price": "$2,080",
+      "priceRaw": 2080,
+      "search": "PUKANALA 夏威夷小結他 PK-PHS 2080"
+    },
+    {
+      "id": "promo_12",
+      "file": "../04-推廣_8堂送樂器/12_AVATAR_電子鼓_SD51-1_$4088.jpeg",
+      "title": "AVATAR 電子鼓 SD51-1",
+      "price": "$4,088",
+      "priceRaw": 4088,
+      "search": "AVATAR 電子鼓 SD51-1 4088"
+    },
+    {
+      "id": "promo_13",
+      "file": "../04-推廣_8堂送樂器/13_敦煌牌_柳琴_M654_$3020.jpeg",
+      "title": "敦煌牌 柳琴 M654",
+      "price": "$3,020",
+      "priceRaw": 3020,
+      "search": "敦煌牌 柳琴 M654 3020"
+    },
+    {
+      "id": "promo_14",
+      "file": "../04-推廣_8堂送樂器/14_敦煌牌_古箏_M696D_$5770.jpeg",
+      "title": "敦煌牌 古箏 M696D",
+      "price": "$5,770",
+      "priceRaw": 5770,
+      "search": "敦煌牌 古箏 M696D 5770"
+    },
+    {
+      "id": "promo_15",
+      "file": "../04-推廣_8堂送樂器/15_長鳴牌_笛子_M932_$1550.jpeg",
+      "title": "長鳴牌 笛子 M932",
+      "price": "$1,550",
+      "priceRaw": 1550,
+      "search": "長鳴牌 笛子 M932 1550"
+    },
+    {
+      "id": "promo_16",
+      "file": "../04-推廣_8堂送樂器/16_敦煌牌_二胡_M04A_$2630.jpeg",
+      "title": "敦煌牌 二胡 M04A",
+      "price": "$2,630",
+      "priceRaw": 2630,
+      "search": "敦煌牌 二胡 M04A 2630"
+    },
+    {
+      "id": "promo_17",
+      "file": "../04-推廣_8堂送樂器/17_星海牌_中阮_S6241_$3450.jpeg",
+      "title": "星海牌 中阮 S6241",
+      "price": "$3,450",
+      "priceRaw": 3450,
+      "search": "星海牌 中阮 S6241 3450"
+    },
+    {
+      "id": "promo_18",
+      "file": "../04-推廣_8堂送樂器/18_LIBERTY_長笛_FL-650_$3648.jpeg",
+      "title": "LIBERTY 長笛 FL-650",
+      "price": "$3,648",
+      "priceRaw": 3648,
+      "search": "LIBERTY 長笛 FL-650 3648"
+    },
+    {
+      "id": "promo_19",
+      "file": "../04-推廣_8堂送樂器/19_JLEVIA_木箱鼓_ZOCO2.0_$3540.jpeg",
+      "title": "JLEVIA 木箱鼓 ZOCO2.0",
+      "price": "$3,540",
+      "priceRaw": 3540,
+      "search": "JLEVIA 木箱鼓 ZOCO2.0 3540"
+    },
+    {
+      "id": "promo_20",
+      "file": "../04-推廣_8堂送樂器/20_NUVO_單簧管_CLARINEO2.0_$2948.jpeg",
+      "title": "NUVO 單簧管 CLARINEO2.0",
+      "price": "$2,948",
+      "priceRaw": 2948,
+      "search": "NUVO 單簧管 CLARINEO2.0 2948"
+    },
+    {
+      "id": "promo_21",
+      "file": "../04-推廣_8堂送樂器/21_TAGIMA_低音電結他_TW-65_$3840.jpeg",
+      "title": "TAGIMA 低音電結他 TW-65",
+      "price": "$3,840",
+      "priceRaw": 3840,
+      "search": "TAGIMA 低音電結他 TW-65 3840"
+    },
+    {
+      "id": "promo_22",
+      "file": "../04-推廣_8堂送樂器/22_GYSEN_木結他_GS-4000_$2480.jpeg",
+      "title": "GYSEN 木結他 GS-4000",
+      "price": "$2,480",
+      "priceRaw": 2480,
+      "search": "GYSEN 木結他 GS-4000 2480"
+    },
+    {
+      "id": "promo_23",
+      "file": "../04-推廣_8堂送樂器/23_NUVO_長笛_JFLUTE2.0_$2928.jpeg",
+      "title": "NUVO 長笛 JFLUTE2.0",
+      "price": "$2,928",
+      "priceRaw": 2928,
+      "search": "NUVO 長笛 JFLUTE2.0 2928"
+    },
+    {
+      "id": "promo_24",
+      "file": "../04-推廣_8堂送樂器/24_LIBERTY_中音色士風_LAS82Z_$5408.jpeg",
+      "title": "LIBERTY 中音色士風 LAS82Z",
+      "price": "$5,408",
+      "priceRaw": 5408,
+      "search": "LIBERTY 中音色士風 LAS82Z 5408"
+    },
+    {
+      "id": "promo_25",
+      "file": "../04-推廣_8堂送樂器/25_LIBERTY_單簧管_LCL-600_$3748.jpeg",
+      "title": "LIBERTY 單簧管 LCL-600",
+      "price": "$3,748",
+      "priceRaw": 3748,
+      "search": "LIBERTY 單簧管 LCL-600 3748"
+    },
+    {
+      "id": "promo_26",
+      "file": "../04-推廣_8堂送樂器/26_NUVO_色士風_JSAX2.0_$2528.jpeg",
+      "title": "NUVO 色士風 JSAX2.0",
+      "price": "$2,528",
+      "priceRaw": 2528,
+      "search": "NUVO 色士風 JSAX2.0 2528"
+    },
+    {
+      "id": "promo_27",
+      "file": "../04-推廣_8堂送樂器/27_SHURE_咪高峰+NUX音箱_SM58_$4480.jpeg",
+      "title": "SHURE 咪高峰+NUX音箱 SM58",
+      "price": "$4,480",
+      "priceRaw": 4480,
+      "search": "SHURE 咪高峰+NUX音箱 SM58 4480"
+    },
+    {
+      "id": "promo_28",
+      "file": "../04-推廣_8堂送樂器/28_INTERLAKEN_小提琴_ITL-50_$2508.jpeg",
+      "title": "INTERLAKEN 小提琴 ITL-50",
+      "price": "$2,508",
+      "priceRaw": 2508,
+      "search": "INTERLAKEN 小提琴 ITL-50 2508"
+    },
+    {
+      "id": "promo_29",
+      "file": "../04-推廣_8堂送樂器/29_SUPERLUX_咪高峰+NUX音箱_D-107A_$3660.jpeg",
+      "title": "SUPERLUX 咪高峰+NUX音箱 D-107A",
+      "price": "$3,660",
+      "priceRaw": 3660,
+      "search": "SUPERLUX 咪高峰+NUX音箱 D-107A 3660"
+    },
+    {
+      "id": "promo_30",
+      "file": "../04-推廣_8堂送樂器/30_TAGIMA_電結他_TG-530_$3300.jpeg",
+      "title": "TAGIMA 電結他 TG-530",
+      "price": "$3,300",
+      "priceRaw": 3300,
+      "search": "TAGIMA 電結他 TG-530 3300"
+    },
+    {
+      "id": "promo_31",
+      "file": "../04-推廣_8堂送樂器/31_CARLO_小提琴_VS-01_$3008.jpeg",
+      "title": "CARLO 小提琴 VS-01",
+      "price": "$3,008",
+      "priceRaw": 3008,
+      "search": "CARLO 小提琴 VS-01 3008"
+    }
+  ],
+  "feeImages": [
+    {
+      "id": "01_爵士鋼琴_色士風_長笛_單簧管_小號等",
+      "file": "../03-課程學費表/01_爵士鋼琴_色士風_長笛_單簧管_小號等.jpeg",
+      "title": "爵士鋼琴 色士風 長笛 單簧管 小號等",
+      "search": "01 爵士鋼琴 色士風 長笛 單簧管 小號等"
+    },
+    {
+      "id": "02_中樂_琵琶二胡古箏等",
+      "file": "../03-課程學費表/02_中樂_琵琶二胡古箏等.jpeg",
+      "title": "中樂 琵琶二胡古箏等",
+      "search": "02 中樂 琵琶二胡古箏等"
+    },
+    {
+      "id": "03_古典音樂_鋼琴小提琴大提琴聲樂等",
+      "file": "../03-課程學費表/03_古典音樂_鋼琴小提琴大提琴聲樂等.jpeg",
+      "title": "古典音樂 鋼琴小提琴大提琴聲樂等",
+      "search": "03 古典音樂 鋼琴小提琴大提琴聲樂等"
+    },
+    {
+      "id": "04_古典結他",
+      "file": "../03-課程學費表/04_古典結他.jpeg",
+      "title": "古典結他",
+      "search": "04 古典結他"
+    },
+    {
+      "id": "05_流行音樂_流行歌唱",
+      "file": "../03-課程學費表/05_流行音樂_流行歌唱.jpeg",
+      "title": "流行音樂 流行歌唱",
+      "search": "05 流行音樂 流行歌唱"
+    },
+    {
+      "id": "06_流行鋼琴鼓口琴_樂理作曲錄音",
+      "file": "../03-課程學費表/06_流行鋼琴鼓口琴_樂理作曲錄音.jpeg",
+      "title": "流行鋼琴鼓口琴 樂理作曲錄音",
+      "search": "06 流行鋼琴鼓口琴 樂理作曲錄音"
+    },
+    {
+      "id": "07_樂隊訓練_體驗班",
+      "file": "../03-課程學費表/07_樂隊訓練_體驗班.jpeg",
+      "title": "樂隊訓練 體驗班",
+      "search": "07 樂隊訓練 體驗班"
+    },
+    {
+      "id": "08_豎琴_無伴奏合唱_樂團_樂理",
+      "file": "../03-課程學費表/08_豎琴_無伴奏合唱_樂團_樂理.jpeg",
+      "title": "豎琴 無伴奏合唱 樂團 樂理",
+      "search": "08 豎琴 無伴奏合唱 樂團 樂理"
+    },
+    {
+      "id": "09_流行興趣班_beatbox_聖樂等",
+      "file": "../03-課程學費表/09_流行興趣班_beatbox_聖樂等.jpeg",
+      "title": "流行興趣班 beatbox 聖樂等",
+      "search": "09 流行興趣班 beatbox 聖樂等"
+    }
+  ],
+  "pdfs": {
+    "feeFull": {
+      "title": "完整課程表 (2026-01-17)",
+      "file": "../03-課程學費表/完整課程表_2026-01-17.pdf"
+    },
+    "rulesZh": {
+      "title": "學生守則（中文）",
+      "file": "../02-學生守則與政策/學生守則_中文_2025-07.pdf"
+    },
+    "rulesEn": {
+      "title": "學生守則（英文）",
+      "file": "../02-學生守則與政策/學生守則_英文_2025-07.pdf"
+    }
+  },
+  "weatherImage": {
+    "title": "颱風及暴雨警告守則",
+    "file": "../02-學生守則與政策/颱風暴雨警告守則.jpeg"
+  }
+}

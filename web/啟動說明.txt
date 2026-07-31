@@ -1,0 +1,11 @@
+Parkland 前台工具箱 — 電腦版
+
+【正式用法】開 GitHub Pages：
+  https://aitraining2026yo.github.io/parkland-front-desk/
+
+【點用】
+· 回覆模板：改完字 → 撳「複製文字」→ WhatsApp 貼上
+· 送樂器／學費圖／天氣圖：撳「複製圖片」→ WhatsApp 貼上（唔使下載）
+· 學生守則 PDF：試「複製 PDF」；唔得就「開啟」再傳
+
+用 Chrome / Edge。

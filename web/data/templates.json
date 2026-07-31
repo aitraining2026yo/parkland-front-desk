@@ -1,0 +1,141 @@
+{
+  "templates": [
+    {
+      "id": "pay-regular",
+      "group": "交學費",
+      "title": "1. 交學費（恆常課程）",
+      "tags": ["學費", "過數", "FPS", "PayMe", "轉帳", "續費"],
+      "body": "提提你,要交 10-11 月學費,共$2285(9 堂),已減$100\n\n舊生優惠 (以完整月份計算)\n*凡於每月 1-20 號繳交下期學費優惠如下* 連續交 2 個月減$100 / 連續交 3 個月送一堂\n*凡於每月 21 至 31 日號繳交下期學費優惠如下* 連續交 2 個月減$50 / 連續交三個月減$100\n\n銀行轉帳 Bank transfer *HSBC 848-048997-001*\n*Parkland Music Limited*\n轉數快 FPS ID:115869901\n\n下面係 payme link\nhttps://qr.payme.hsbc.com.hk/2/DzprTZEXkv7CjyrxrrEZr\n過數後 請去我的帳戶 撳一下條數 再截張圖\nThanks\n\n入數後請提供全名及轉帳記錄，以便儘快為你安排課堂\n* 轉帳記錄 gif 圖不接受 *"
+    },
+    {
+      "id": "pay-interest",
+      "group": "交學費",
+      "title": "2. 交學費（興趣班）",
+      "tags": ["學費", "興趣班", "過數", "FPS", "PayMe"],
+      "body": "提提你,要交 10-11 月學費,共$2285(9 堂)\n\n可於上堂時在分店交 Eps /Alipay /WeChat pay 都可以\n每次續報需最少 8 堂(以完整月份計算)\n\n銀行轉帳 Bank transfer *HSBC 848-048997-001*\n*Parkland Music Limited*\n轉數快 FPS ID:115869901\n\n下面係 payme link\nhttps://qr.payme.hsbc.com.hk/2/DzprTZEXkv7CjyrxrrEZr\n過數後 請去我的帳戶 撳一下條數 再截張圖\nThanks"
+    },
+    {
+      "id": "leave-same-day",
+      "group": "請假補堂",
+      "title": "3. 即日請假",
+      "tags": ["請假", "即日", "醫生紙", "扣堂"],
+      "body": "唔好意思呀 請假或更改上課時間,需要 *上課時間前一日的營業時間內通知喔*‼️ 如少於二十四小時前通知或即日取消課堂會扣堂呀 但即日請假提供醫生紙可以安排補堂 請問會有醫生紙嗎? 如有請今日內提供喔"
+    },
+    {
+      "id": "abs-followup",
+      "group": "請假補堂",
+      "title": "4. 點解 ABS",
+      "tags": ["ABS", "缺席", "跟進", "醫生紙"],
+      "body": "家長/同學您好 想了解今日小朋友/同學未能上堂的原因 如因生病等特殊原因未能及時請假，提供到醫生紙等證明記錄我哋可以酌情安排番補堂"
+    },
+    {
+      "id": "certificate",
+      "group": "證書文件",
+      "title": "5. PARKLAND 證書",
+      "tags": ["證書", "修讀證明", "修讀證書"],
+      "body": "我地 Parkland有2 種修讀證明文件\n\n*修讀證明* - 一封信 $0 (no need money)\n*修讀證書* - 彩色證書 $100\n\n申請需時大概要 7 至 14 個工作天\n如要申請修讀證明，請提供小朋友中英文全名 &HKID頭4 個字\n如要申請修讀證書，請提供小朋友英文全名 &$100"
+    },
+    {
+      "id": "leave-policy",
+      "group": "請假補堂",
+      "title": "6. 請假安排（詳細）",
+      "tags": ["請假", "補堂", "政策", "二人班", "小組"],
+      "body": "請假安排\n\n為確保所有同學及老師，如同學需要更改上課時間或課堂，*請於上課時間前一日的營業時間內通知本中心，並得到本中心確認* 請假的課堂會以 *補堂形式* 處理, 所有課堂不接受任何原因順延。 如少於二十四小時前通知或即日取消課堂會扣堂,即日請假需要提供醫生紙‼️\n\n補堂形式\n- 約過老師另一日\n- 於其後課堂加時補堂\n\n除農曆初一,二,三外,所有公眾假期照常營業\n二人班，如果一人請假另外一人繼續上堂，將不設補堂\n3 至 6 人班請假不設補堂喔\n\n最終決定權仍以本中心決定為準。"
+    },
+    {
+      "id": "leave-policy-en",
+      "group": "請假補堂",
+      "title": "6b. Leave policy (English)",
+      "tags": ["leave", "makeup", "english"],
+      "body": "Important notes\n\nWe operate normally during public holidays (Except for the first, second and third day of the Chinese Lunar New Year Holiday). Student must notify the center for leave permit at least one day in advance during business hours. No make-up classes will be available for ad-hoc leave. (Except for those with doctor’s note).\n\nAll classes that ask for leave will be arranged in the form of make-up lessons:\n- Either arranging makeup lessons on alternate days\n- Or extension of classes\n\nGroup of 2: if student A takes leave and student B continues to attend class, there will be no make-up class\nGroup of 3-6: no make-up class"
+    },
+    {
+      "id": "monthly-billing",
+      "group": "交學費",
+      "title": "7. 解釋按月收費",
+      "tags": ["按月", "四堂", "五堂", "收費"],
+      "body": "因為我哋係按月收費，視乎返個個月有幾多個星期而去收費，四個星期就會收取四堂，五個星期就會收取五堂。因為公司電腦都已經自動 set 好左堂數，所以我哋都冇辦法去刪除或者改動任何堂數，希望家長可以明白"
+    },
+    {
+      "id": "payme-white",
+      "group": "交學費",
+      "title": "8. PayMe 白色截圖",
+      "tags": ["PayMe", "截圖", "cap"],
+      "body": "請問可以 cap 白色背景個頁俾我哋嗎？"
+    },
+    {
+      "id": "on-the-way",
+      "group": "其他",
+      "title": "9. 問學生去到邊",
+      "tags": ["遲到", "嚟緊", "去到邊"],
+      "body": "你好，請問係唔係嚟緊呀？"
+    },
+    {
+      "id": "course-fee-preset",
+      "group": "課程推介",
+      "title": "10. 課程收費（Pre-Grade / Regular preset）",
+      "tags": ["學費", "pre-grade", "報價", "新生"],
+      "body": "收費如下\n\n單人(Private class)\n$180/30Mins\n$250/45Mins\n$310/60Mins\n\n小組 (Group for 2)\n$190/60Mins (2 人小組每位，需自組)\n\n小組 (Group for 3-6)\n$150/60Mins (3-6 人小組每位，需自組)\n\n最少需報讀四堂\n新生報讀任何課程 將收取一次報名費$100"
+    },
+    {
+      "id": "room-rental",
+      "group": "租房",
+      "title": "11. 租房",
+      "tags": ["租房", "琴房", "鼓房", "結他房", "套票"],
+      "body": "租用鼓房/琴房/結他房收費\n\n本校學生: $70/小時 ($35/半小時)\n非本校學生: $80/小時 ($40/半小時)\n\n十小時套票 (設有 9 折優惠)\n本校學生: $630 / 10 小時\n非本校學生: $720 / 10 小時\n\n[使用套票注意事項]\n需提早至少 24 小時預約（視乎實際情況而定）\n需 逐次預約 下次使用日期\n(需於三個月內使用)"
+    },
+    {
+      "id": "monthly-pass",
+      "group": "租房",
+      "title": "12. 月票",
+      "tags": ["月票", "租房", "練習"],
+      "body": "Parkland 學生租鼓房/琴房/結他房$500 一個月任玩\n\n購買 30 日月票可在全線分校使用練習房\n需提早至少 24 小時預約（視乎實際情況而定）\n每日只可預約一次一小時\n每次租房需出示收據"
+    },
+    {
+      "id": "curious4",
+      "group": "課程推介",
+      "title": "13. Curious 4 體驗課程",
+      "tags": ["Curious", "體驗", "試堂", "新生"],
+      "body": "*全新 Curious 4 體驗課程*\nCurious 4 體驗課程 $750/4 堂\n\n- 結他 小結他 鋼琴 唱歌\n- 豎琴 (+90 蚊一堂，要去指定分校上：旺角/太古/屯門柏麗/朗屏)\n- 流行鼓\n\n每堂 30 分鐘\n唱歌/豎琴只能二選一 及只能選一堂\n只限初級學生\n贈送$100 現金券\n所有新生第一次報名都需要付$100 行政費\n\n共 4 堂，每一堂體驗一種樂器，每一堂 30 分鐘 可以揀二至四種樂器，請問你會揀咩樂器？"
+    },
+    {
+      "id": "referral",
+      "group": "優惠",
+      "title": "14. 舊生介紹新生",
+      "tags": ["介紹", "舊生", "優惠", "referral"],
+      "body": "舊生 成功介紹新生報讀 2 個月或者 3 個月，舊生於下期學費可享優惠\n\n舊生\n報讀 __ 個月可 free __ 堂\n報讀 __ 個月可 free __ 堂\n\n新生 係報名時提供舊生學生全名及電話號碼，都可享有優惠:\n報讀 __ 個月可 free __ 堂\n報讀 __ 個月可 free __ 堂\n\n新舊生必須要同一間分校\n舊生必須是在學的學生\n此優惠不能與其他優惠同時使用\n新生必需在報名時提供舊生全名及電話，資料不能後補\n每位小組新生只能有一位小組舊生介紹人\n優惠受條款及細則約束\n興趣班不適用"
+    }
+  ],
+  "policySnippets": [
+    {
+      "id": "leave-1day",
+      "title": "請假要提前",
+      "body": "請假／改堂需於上課前一日營業時間內通知並獲確認；即日請假（非病假連醫生紙）會扣堂、不設補堂。"
+    },
+    {
+      "id": "makeup-1month",
+      "title": "補堂期限",
+      "body": "每期最多請假一次；補堂需於請假日起 30 天／1 個月內完成，逾期當放棄。"
+    },
+    {
+      "id": "group-no-makeup",
+      "title": "小組唔補堂",
+      "body": "3–6 人小組缺席不設補堂（導師請假除外）。二人班若一人請假另一人照上，亦不設補堂。"
+    },
+    {
+      "id": "payment-no-cash",
+      "title": "學費付款方式",
+      "body": "學費可銀行轉帳、轉數快、八達通、支付寶、PayMe 或信用卡；不接受支票／EPS／現金。"
+    },
+    {
+      "id": "weather-t8-black",
+      "title": "八號／黑雨",
+      "body": "八號或以上風球、黑色暴雨生效時，原定及進行中課堂停課／取消，本校安排補課。詳情見天氣圖。"
+    },
+    {
+      "id": "admin-fee",
+      "title": "新生行政費",
+      "body": "新學員報讀需繳交行政費 $100（一次）。"
+    }
+  ]
+}
