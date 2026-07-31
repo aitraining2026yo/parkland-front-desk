@@ -518,6 +518,30 @@ function render() {
   else if (state.tab === "rules") renderRules();
 }
 
+async function loadMyIp() {
+  const el = $("#my-ip");
+  const btn = $("#copy-ip");
+  if (!el) return;
+  try {
+    const res = await fetch("https://api.ipify.org?format=json");
+    if (!res.ok) throw new Error("bad status");
+    const data = await res.json();
+    const ip = (data && data.ip) || "";
+    if (!ip) throw new Error("empty");
+    el.textContent = ip;
+    el.classList.remove("err");
+    if (btn) {
+      btn.hidden = false;
+      btn.onclick = () => copyText(ip);
+    }
+  } catch (e) {
+    console.warn(e);
+    el.textContent = "未能讀取";
+    el.classList.add("err");
+    if (btn) btn.hidden = true;
+  }
+}
+
 async function init() {
   // Secure context check for clipboard
   if (location.protocol === "file:") {
@@ -547,6 +571,7 @@ async function init() {
   });
 
   setTab("templates");
+  loadMyIp();
 }
 
 init().catch((e) => {
