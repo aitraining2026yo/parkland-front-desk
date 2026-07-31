@@ -476,3 +476,29 @@ main {
 }
 
 .hidden { display: none !important; }
+
+/* Footer */
+.site-footer {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px 12px;
+  border-top: 1px solid var(--border);
+  background: var(--panel);
+  font-size: 11px;
+  color: #5c6478;
+}
+.ip-link {
+  color: #8b93a7;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  border-bottom: 1px solid transparent;
+}
+.ip-link:hover {
+  color: #c4b5ff;
+  border-bottom-color: #6b5b9e;
+}
+.footer-sep { color: #3d4558; }
+.footer-note { color: #4a5163; }
