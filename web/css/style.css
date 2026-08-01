@@ -1,17 +1,17 @@
-/* 青碧舒眼配色：背景微綠 + 主色淺藍（只改外觀） */
+/* 亮綠舒眼配色：淺亮綠底 + 淺藍強調（只改外觀） */
 :root {
-  --bg: #0e1412;          /* 微綠深底，減眼累 */
-  --panel: #15201c;
-  --panel2: #1c2a26;
-  --border: #2d3f38;
-  --text: #eef6f4;
-  --muted: #8eaaa2;
-  --accent: #7dd3fc;      /* 淺藍 */
-  --accent2: #5eead4;     /* 青綠薄荷，同背景呼應 */
-  --accent-soft: #bae6fd; /* 更淺的天藍高亮 */
-  --ok: #4ade80;
-  --warn: #fbbf24;
-  --danger: #f87171;
+  --bg: #e8f5e9;          /* 亮淺綠底 */
+  --panel: #ffffff;
+  --panel2: #f1f8f2;
+  --border: #b7d9bc;
+  --text: #1a2e24;
+  --muted: #5a7564;
+  --accent: #0284c7;      /* 清晰淺藍（淺底上夠對比） */
+  --accent2: #059669;     /* 實心綠 */
+  --accent-soft: #0ea5e9; /* 天藍 */
+  --ok: #16a34a;
+  --warn: #d97706;
+  --danger: #dc2626;
   --radius: 12px;
   --font: "Segoe UI", "PingFang HK", "Hiragino Sans GB", "Microsoft JhengHei",
     "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Twemoji Mozilla",
@@ -25,8 +25,8 @@ html, body {
   margin: 0;
   height: 100%;
   background:
-    radial-gradient(ellipse at 50% 0%, rgba(45, 110, 85, 0.18), transparent 55%),
-    radial-gradient(ellipse at 100% 100%, rgba(30, 90, 80, 0.12), transparent 50%),
+    radial-gradient(ellipse at 20% 0%, rgba(134, 239, 172, 0.55), transparent 50%),
+    radial-gradient(ellipse at 90% 100%, rgba(167, 243, 208, 0.4), transparent 45%),
     var(--bg);
   color: var(--text);
   font-family: var(--font);
@@ -61,9 +61,8 @@ body:not(.locked) .auth-gate { display: none !important; }
   align-items: center;
   justify-content: center;
   background:
-    radial-gradient(ellipse at 30% 20%, rgba(125, 211, 252, 0.14), transparent 52%),
-    radial-gradient(ellipse at 70% 80%, rgba(94, 234, 212, 0.12), transparent 48%),
-    radial-gradient(ellipse at 50% 0%, rgba(52, 120, 90, 0.12), transparent 45%),
+    radial-gradient(ellipse at 30% 20%, rgba(134, 239, 172, 0.65), transparent 50%),
+    radial-gradient(ellipse at 70% 80%, rgba(125, 211, 252, 0.35), transparent 48%),
     var(--bg);
   padding: 24px;
 }
@@ -124,11 +123,11 @@ body:not(.locked) .auth-gate { display: none !important; }
 .auth-meta {
   margin: 18px 0 0;
   font-size: 11px;
-  color: #7a968c;
+  color: #5a7564;
   text-align: center;
   letter-spacing: 0.03em;
 }
-.footer-sep { color: #3d524a; margin: 0 2px; }
+.footer-sep { color: #9ab8a0; margin: 0 2px; }
 
 /* Sticky stack: weather bar + topbar */
 .sticky-header {
@@ -195,9 +194,9 @@ body:not(.locked) .auth-gate { display: none !important; }
 /* severity colours — 紅／黃條 */
 .weather-bar--loading,
 .weather-bar--idle {
-  background: #1e2433;
-  color: #aeb6c8;
-  border-bottom-color: #2a3040;
+  background: #d1fae5;
+  color: #065f46;
+  border-bottom-color: #6ee7b7;
 }
 .weather-bar--ok {
   background: linear-gradient(90deg, #0f3d2a, #145c3a);
@@ -218,9 +217,9 @@ body:not(.locked) .auth-gate { display: none !important; }
 }
 .weather-bar--red .weather-bar-meta { color: rgba(255, 248, 248, 0.9); }
 .weather-bar--error {
-  background: #2a2e3a;
-  color: #ffb020;
-  border-bottom-color: #4a4030;
+  background: #fef3c7;
+  color: #92400e;
+  border-bottom-color: #fbbf24;
 }
 
 /* Header */
@@ -269,17 +268,17 @@ body:not(.locked) .auth-gate { display: none !important; }
   font-size: 11px;
   font-weight: 400;
   letter-spacing: 0.04em;
-  color: #7a968c;
+  color: #5a7564;
   font-variant-numeric: tabular-nums;
 }
 .meta-by {
   font-style: italic;
   font-weight: 500;
-  color: #bae6fd;
+  color: #047857;
   letter-spacing: 0.02em;
 }
 .meta-dot {
-  color: #3d524a;
+  color: #9ab8a0;
   font-weight: 300;
   user-select: none;
 }
@@ -287,12 +286,12 @@ body:not(.locked) .auth-gate { display: none !important; }
   font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   font-size: 10.5px;
   letter-spacing: 0.06em;
-  color: #7dd3fc;
+  color: #0284c7;
 }
 .meta-update {
   font-size: 10.5px;
   letter-spacing: 0.03em;
-  color: #7a968c;
+  color: #5a7564;
 }
 
 /* Tabs */
@@ -361,7 +360,7 @@ main {
 .chip:hover, .chip.active {
   border-color: var(--accent);
   color: var(--text);
-  background: #1a3030;
+  background: #dcfce7;
 }
 
 .template-list {
@@ -416,9 +415,9 @@ main {
   border-radius: 999px;
   font-size: 11px;
   font-weight: 600;
-  color: #bae6fd;
-  background: #1a2e32;
-  border: 1px solid #3d6a70;
+  color: #0284c7;
+  background: #e0f2fe;
+  border: 1px solid #7dd3fc;
   vertical-align: middle;
 }
 
@@ -441,7 +440,7 @@ main {
   color: var(--ok);
   font-weight: 600;
 }
-.save-status.flash { color: #86efac; }
+.save-status.flash { color: #15803d; }
 .save-hint {
   font-size: 11px;
   color: var(--muted);
@@ -474,7 +473,7 @@ main {
 }
 .emoji-btn:hover {
   border-color: var(--accent);
-  background: #1a3030;
+  background: #dcfce7;
 }
 .card-actions {
   display: flex;
@@ -495,13 +494,13 @@ main {
   font-weight: 600;
   font-size: 13px;
 }
-.btn:hover { border-color: #4a6a60; }
+.btn:hover { border-color: #6bb87a; }
 .btn-primary {
   background: linear-gradient(135deg, var(--accent), var(--accent2));
   border: none;
-  color: #0a1412;
+  color: #ffffff;
   font-weight: 700;
-  box-shadow: 0 4px 16px rgba(125, 211, 252, 0.28);
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
 }
 .btn-primary:hover { filter: brightness(1.08); }
 .btn-ghost { background: transparent; }
@@ -523,7 +522,7 @@ main {
 }
 .img-card .thumb {
   aspect-ratio: 1;
-  background: #111;
+  background: #e8f0ea;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -534,7 +533,7 @@ main {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  background: #151820;
+  background: #f0f7f2;
 }
 .img-card.wide .thumb { aspect-ratio: 3/4; }
 .img-card .body {
@@ -581,9 +580,9 @@ main {
   width: 14px;
   height: 14px;
   border-radius: 4px;
-  background: linear-gradient(135deg, #7dd3fc, #5eead4);
-  border: 1px solid #7dd3fc;
-  box-shadow: 0 0 0 1px rgba(125, 211, 252, 0.3);
+  background: linear-gradient(135deg, #38bdf8, #34d399);
+  border: 1px solid #0ea5e9;
+  box-shadow: 0 0 0 1px rgba(14, 165, 233, 0.25);
 }
 .hours-table-wrap {
   overflow-x: auto;
@@ -619,7 +618,7 @@ main {
   border-bottom: none;
 }
 .hours-table tbody tr:hover td {
-  background: rgba(125, 211, 252, 0.07);
+  background: rgba(16, 185, 129, 0.08);
 }
 .hours-name {
   font-weight: 600;
@@ -628,19 +627,19 @@ main {
 }
 /* 非常規時間：淺青 highlight，唔使文字註明 */
 .hours-cell-hi {
-  background: linear-gradient(90deg, rgba(94, 234, 212, 0.28), rgba(125, 211, 252, 0.14));
-  color: #a5f3fc;
+  background: linear-gradient(90deg, rgba(52, 211, 153, 0.35), rgba(14, 165, 233, 0.15));
+  color: #0f766e;
   font-weight: 700;
   border-radius: 4px;
-  box-shadow: inset 0 0 0 1px rgba(125, 211, 252, 0.4);
+  box-shadow: inset 0 0 0 1px rgba(16, 185, 129, 0.45);
 }
 .hours-row-hi .hours-name {
-  color: #99f6e4;
+  color: #047857;
 }
 .hours-source {
   margin: 4px 0 20px;
   font-size: 11px;
-  color: #7a968c;
+  color: #5a7564;
 }
 
 /* PDF / policy */
@@ -772,9 +771,9 @@ main {
   bottom: 24px;
   left: 50%;
   transform: translateX(-50%) translateY(20px);
-  background: #1a2330;
+  background: #ecfdf5;
   border: 1px solid var(--ok);
-  color: var(--ok);
+  color: #166534;
   padding: 12px 20px;
   border-radius: 999px;
   font-weight: 700;
@@ -809,15 +808,15 @@ main {
   border-top: 1px solid var(--border);
   background: var(--panel);
   font-size: 11px;
-  color: #7a968c;
+  color: #5a7564;
 }
-.footer-note { color: #5a7068; }
+.footer-note { color: #6b8575; }
 .my-ip {
   font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.04em;
-  color: #bae6fd;
+  color: #0284c7;
   user-select: all;
 }
 .my-ip.err { color: #f87171; font-weight: 500; }
@@ -825,7 +824,7 @@ main {
   appearance: none;
   border: 1px solid var(--border);
   background: var(--panel2);
-  color: #8eaaa2;
+  color: #5a7564;
   font-size: 10px;
   padding: 3px 8px;
   border-radius: 6px;
@@ -833,5 +832,5 @@ main {
 }
 .copy-ip-btn:hover {
   color: var(--text);
-  border-color: #4a6a60;
+  border-color: #6bb87a;
 }
