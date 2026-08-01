@@ -35,7 +35,7 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
-  min-width: 960px;
+  min-width: 0;
 }
 body.locked {
   min-width: 0;
@@ -48,7 +48,7 @@ body:not(.locked) .auth-gate { display: none !important; }
   flex-direction: column;
   flex: 1;
   min-height: 0;
-  min-width: 960px;
+  min-width: 0;
 }
 .app-shell main { flex: 1; overflow: auto; }
 

@@ -1,0 +1,307 @@
+/**
+ * 響應式：同一網址，電腦／手機自動 layout
+ * 載入順序：theme-*.css 之後
+ */
+
+/* —— 平板及以下 —— */
+@media (max-width: 960px) {
+  html, body {
+    min-width: 0;
+    width: 100%;
+    overflow-x: hidden;
+    font-size: 14px;
+  }
+
+  body {
+    min-width: 0;
+  }
+
+  .app-shell {
+    min-width: 0;
+    width: 100%;
+  }
+
+  /* 頂欄：可換行 */
+  .topbar {
+    flex-wrap: wrap;
+    gap: 10px 12px;
+    padding: 10px 12px;
+    align-items: center;
+  }
+
+  .topbar .brand {
+    font-size: 15px;
+    order: 1;
+  }
+
+  .topbar .theme-toggle {
+    order: 2;
+    margin-left: auto;
+  }
+
+  .topbar .meta-right {
+    order: 4;
+    width: 100%;
+    margin-left: 0;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    font-size: 10px;
+    gap: 4px;
+  }
+
+  .topbar .search-wrap {
+    order: 3;
+    flex: 1 1 100%;
+    max-width: none;
+    width: 100%;
+  }
+
+  .search-wrap input {
+    font-size: 16px; /* iOS 唔會自動 zoom */
+    padding: 11px 12px;
+  }
+
+  /* 天氣條 */
+  .weather-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+
+  .weather-bar-meta {
+    flex-wrap: wrap;
+    white-space: normal;
+    gap: 6px 8px;
+    font-size: 11px;
+  }
+
+  .weather-bar-text {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  /* Tabs：橫向滑動 */
+  .tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 4px;
+    padding: 8px 10px 0;
+    scrollbar-width: thin;
+  }
+
+  .tab {
+    flex: 0 0 auto;
+    padding: 9px 12px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  main {
+    padding: 12px 12px 28px;
+  }
+
+  .section-title {
+    font-size: 12px;
+    margin: 14px 0 8px;
+  }
+
+  /* 模板卡 */
+  .card {
+    padding: 12px;
+  }
+
+  .card textarea {
+    min-height: 120px;
+    font-size: 15px;
+  }
+
+  .card-actions {
+    flex-direction: column;
+  }
+
+  .card-actions .btn,
+  .card-actions a.btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .tpl-toolbar {
+    padding: 8px;
+  }
+
+  .emoji-bar {
+    flex-wrap: wrap;
+  }
+
+  .group-row {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+  }
+
+  .chip {
+    flex: 0 0 auto;
+  }
+
+  /* 圖片格：單欄 */
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .img-card.wide .thumb {
+    aspect-ratio: 3 / 4;
+    max-height: 70vh;
+  }
+
+  /* PDF / 連結 */
+  .pdf-row,
+  .video-row {
+    flex-direction: column;
+  }
+
+  .pdf-card,
+  .video-card {
+    max-width: none;
+    min-width: 0;
+    width: 100%;
+  }
+
+  .links-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .snippet-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* 分校時間：橫向滑表 + 固定首欄 */
+  .hours-table-wrap {
+    margin-left: -4px;
+    margin-right: -4px;
+    border-radius: 10px;
+  }
+
+  .hours-table {
+    font-size: 12px;
+  }
+
+  .hours-table th,
+  .hours-table td {
+    padding: 8px 10px;
+  }
+
+  .hours-table th:first-child,
+  .hours-table td.hours-name {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    background: var(--panel);
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.06);
+  }
+
+  .hours-table th:first-child {
+    background: var(--panel2);
+    z-index: 3;
+  }
+
+  .hours-addr {
+    max-width: 200px;
+  }
+
+  .hours-legend {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  /* Footer */
+  .site-footer {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px 12px 14px;
+  }
+
+  /* Auth */
+  .auth-gate {
+    padding: 16px;
+    align-items: flex-start;
+    padding-top: 12vh;
+  }
+
+  .auth-card {
+    max-width: 100%;
+    padding: 22px 18px 18px;
+  }
+
+  .auth-title {
+    font-size: 20px;
+  }
+
+  .auth-form input[type="password"] {
+    font-size: 16px;
+  }
+
+  /* Lightbox */
+  .lightbox img {
+    max-width: 96vw;
+    max-height: 85vh;
+  }
+
+  .meta-update {
+    display: none; /* 慳位 */
+  }
+}
+
+/* —— 手機直向 —— */
+@media (max-width: 560px) {
+  .topbar .meta-right {
+    display: none; /* 更慳位；版本可喺登入頁睇 */
+  }
+
+  .brand span {
+    display: inline;
+  }
+
+  .weather-bar-source,
+  .weather-bar-sep {
+    display: none;
+  }
+
+  .theme-toggle .theme-toggle-label {
+    /* 保留文字較清楚 */
+  }
+
+  .hours-table td.hours-addr {
+    min-width: 10em;
+    max-width: 160px;
+  }
+
+  /* 按鈕主操作更大觸控 */
+  .btn {
+    min-height: 42px;
+    padding: 10px 14px;
+  }
+}
+
+/* 安全區（劉海機） */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .site-footer {
+    padding-bottom: max(12px, env(safe-area-inset-bottom));
+  }
+
+  .tabs {
+    padding-left: max(10px, env(safe-area-inset-left));
+    padding-right: max(10px, env(safe-area-inset-right));
+  }
+
+  main {
+    padding-left: max(12px, env(safe-area-inset-left));
+    padding-right: max(12px, env(safe-area-inset-right));
+  }
+}

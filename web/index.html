@@ -2,7 +2,7 @@
 <html lang="zh-HK">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Parkland 前台工具箱</title>
   <!-- 先讀本機主題，避免閃一下錯誤 mode -->
   <script>
@@ -22,17 +22,18 @@
   <link
     id="theme-stylesheet"
     rel="stylesheet"
-    href="css/theme-light.css?v=1.14.0"
+    href="css/theme-light.css?v=1.15.0"
   />
   <script>
     (function () {
       var t = window.__PARKLAND_THEME__ || "light";
       var link = document.getElementById("theme-stylesheet");
       if (link && t === "dark") {
-        link.href = "css/theme-dark.css?v=1.14.0";
+        link.href = "css/theme-dark.css?v=1.15.0";
       }
     })();
   </script>
+  <link rel="stylesheet" href="css/responsive.css?v=1.15.0" />
 </head>
 <body class="locked">
   <!-- 登入門 -->
@@ -59,7 +60,7 @@
           <span class="theme-toggle-label">深色</span>
         </button>
       </div>
-      <p class="auth-meta">by Barry · v1.14.0</p>
+      <p class="auth-meta">by Barry · v1.15.0</p>
     </div>
   </div>
 
@@ -94,10 +95,10 @@
           <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
           <span class="theme-toggle-label">深色</span>
         </button>
-        <div class="meta-right" title="by Barry · Version 1.14.0 · 深色=青橘 v1.8 · 淺色=亮綠 v1.11">
+        <div class="meta-right" title="by Barry · Version 1.15.0 · 深色=青橘 v1.8 · 淺色=亮綠 v1.11">
           <span class="meta-by">by Barry</span>
           <span class="meta-dot" aria-hidden="true">·</span>
-          <span class="meta-ver">v1.14.0</span>
+          <span class="meta-ver">v1.15.0</span>
           <span class="meta-dot" aria-hidden="true">·</span>
           <span class="meta-update">updated 01 Aug 2026</span>
         </div>
@@ -144,9 +145,9 @@
     </footer>
   </div>
 
-  <script src="js/config.js?v=1.14.0"></script>
-  <script src="js/branches-data.js?v=1.14.0"></script>
-  <script src="js/links-data.js?v=1.14.0"></script>
-  <script src="js/app.js?v=1.14.0"></script>
+  <script src="js/config.js?v=1.15.0"></script>
+  <script src="js/branches-data.js?v=1.15.0"></script>
+  <script src="js/links-data.js?v=1.15.0"></script>
+  <script src="js/app.js?v=1.15.0"></script>
 </body>
 </html>
