@@ -944,3 +944,21 @@ main {
   min-width: 12em;
 }
 
+
+/* 臨界天氣：黑雨／八號+ → 全頁邊框閃（背景 tab 靠 document.title 閃） */
+body.weather-alert-mode {
+  animation: weather-alert-edge 0.8s infinite;
+}
+@keyframes weather-alert-edge {
+  0%, 100% { box-shadow: inset 0 0 0 0 transparent; }
+  50% { box-shadow: inset 0 0 0 6px #e53935; }
+}
+#weather-bar[data-critical="1"] {
+  animation: weather-bar-pulse 0.8s infinite;
+  font-weight: 800;
+}
+@keyframes weather-bar-pulse {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.25); }
+}
+

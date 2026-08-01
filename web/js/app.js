@@ -2,7 +2,7 @@
 
 const STORAGE_KEY = "parkland-front-desk-drafts-v2";
 const THEME_KEY = "parkland-theme";
-const THEME_CSS_VER = "1.15.0";
+const THEME_CSS_VER = "1.16.0";
 const THEME_CSS = {
   light: `css/theme-light.css?v=${THEME_CSS_VER}`, // v1.11 亮綠
   dark: `css/theme-dark.css?v=${THEME_CSS_VER}`, // v1.8 青橘
@@ -78,8 +78,17 @@ const HKO_WARNSUM_URL =
   "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=warnsum&lang=tc";
 const HKO_WARNING_INFO_URL =
   "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=warningInfo&lang=tc";
-const HKO_REFRESH_MS = 5 * 60 * 1000;
+/** 臨界天氣要快啲知：每 60 秒 scan（同 hko-rain-monitor） */
+const HKO_REFRESH_MS = 60 * 1000;
 const HKO_FETCH_TIMEOUT_MS = 10000;
+const PAGE_TITLE_BASE = "Parkland 前台工具箱";
+
+/** 臨界 = 黑雨 或 八號／九號／十號（參考 hko-rain-monitor） */
+let hkoLastCritical = false;
+let hkoTitleTimer = null;
+let hkoTitleFlip = false;
+let hkoTitleA = "⚠️⚠️ 臨界警報！";
+let hkoTitleB = "!!!! ALERT !!!!";
 
 const HKO_CODE_NAME = {
   WFIRE: "火災危險警告",
@@ -172,6 +181,90 @@ function hkoSeverity(item) {
   if (code === "WTMW" || name.includes("海嘯")) return "red";
   if (code === "WFNTSA" || name.includes("水浸")) return "yellow";
   return "yellow";
+}
+
+/**
+ * 臨界警報原因（只有黑雨 + 八號或以上；參考 hko-rain-monitor）
+ * @returns {string[]}
+ */
+function detectCriticalReasons(items) {
+  const reasons = [];
+  for (const it of items || []) {
+    const code = (it.code || "").toUpperCase();
+    const type = String(it.type || "").toUpperCase();
+    const name = it.name || "";
+    const blob = `${code} ${type} ${name}`;
+
+    // 黑色暴雨
+    if (code === "WRAIN" || name.includes("暴雨")) {
+      if (/WRAINB|BLACK|黑色/.test(blob)) {
+        reasons.push("黑色暴雨警告");
+      }
+    }
+    // 熱帶氣旋 8 / 9 / 10
+    if (code === "WTCSGNL" || name.includes("熱帶氣旋") || /TC\d/.test(type)) {
+      if (/TC10|十號/.test(blob)) reasons.push("十號颶風信號");
+      else if (/TC9|九號/.test(blob)) reasons.push("九號烈風或暴風風力增強信號");
+      else if (/TC8|八號/.test(blob)) reasons.push("八號烈風或暴風信號");
+    }
+  }
+  return [...new Set(reasons)];
+}
+
+function criticalShortLabel(reasons) {
+  const t = (reasons || []).join("、");
+  if (t.includes("十號")) return "十號風球";
+  if (t.includes("九號")) return "九號風球";
+  if (t.includes("八號")) return "八號風球";
+  if (t.includes("黑色")) return "黑色暴雨";
+  return "臨界警報";
+}
+
+/** 分頁標題閃爍（背景 tab 都睇到；唔靠 Chrome 系統通知） */
+function startTitleFlash(a, b) {
+  hkoTitleA = a;
+  hkoTitleB = b;
+  if (hkoTitleTimer) return;
+  hkoTitleTimer = setInterval(() => {
+    hkoTitleFlip = !hkoTitleFlip;
+    document.title = hkoTitleFlip ? hkoTitleA : hkoTitleB;
+  }, 700);
+}
+
+function stopTitleFlash() {
+  if (hkoTitleTimer) {
+    clearInterval(hkoTitleTimer);
+    hkoTitleTimer = null;
+  }
+  document.title = PAGE_TITLE_BASE;
+}
+
+/**
+ * 臨界時：標題閃 + 全頁邊框閃（同 hko-rain-monitor 思路）
+ * 唔依賴 Notification API（Windows Chrome 分頁背景都得）
+ */
+function applyCriticalAlert(critical, reasons) {
+  const reasonText = (reasons && reasons.length ? reasons : ["臨界天氣警報"]).join("、");
+  if (critical) {
+    document.body.classList.add("weather-alert-mode");
+    const short = criticalShortLabel(reasons);
+    startTitleFlash(`⚠️⚠️ ${short}！`, "!!!! ALERT !!!!");
+    // 頂部條文字已由 setWeatherBar 處理；加 aria 提示
+    const bar = document.getElementById("weather-bar");
+    if (bar) {
+      bar.setAttribute("data-critical", "1");
+      bar.title = `臨界警報：${reasonText}（分頁標題會閃爍）`;
+    }
+  } else {
+    document.body.classList.remove("weather-alert-mode");
+    stopTitleFlash();
+    const bar = document.getElementById("weather-bar");
+    if (bar) {
+      bar.removeAttribute("data-critical");
+      bar.title = "資料來源：香港天文台 Open Data";
+    }
+  }
+  hkoLastCritical = critical;
 }
 
 function formatHkoTime(iso) {
@@ -299,23 +392,28 @@ async function refreshWeatherBar({ manual = false } = {}) {
   const btn = document.getElementById("weather-bar-refresh");
   if (btn) btn.disabled = true;
 
-  // 每次都顯示 loading，避免卡喺舊狀態
-  setWeatherBar({
-    level: "loading",
-    text: manual ? "正在重新讀取天文台天氣警告…" : "正在讀取天文台天氣警告…",
-    updatedLabel: "更新中…",
-  });
+  // 手動刷新先顯示 loading；自動 refresh 唔清畫面（避免每 60 秒閃）
+  if (manual || !document.getElementById("weather-bar-text")?.textContent) {
+    setWeatherBar({
+      level: "loading",
+      text: manual ? "正在重新讀取天文台天氣警告…" : "正在讀取天文台天氣警告…",
+      updatedLabel: "更新中…",
+    });
+  }
 
   try {
     const items = await fetchHkoWarnings();
     const fetchedAt = formatLocalNow();
+    const critReasons = detectCriticalReasons(items);
+    const critical = critReasons.length > 0;
 
     if (!items.length) {
       setWeatherBar({
         level: "ok",
         text: "而家冇天氣警告（香港天文台）",
-        updatedLabel: `已更新 ${fetchedAt} · 每 5 分鐘自動更新`,
+        updatedLabel: `已更新 ${fetchedAt} · 每 1 分鐘掃描臨界天氣`,
       });
+      applyCriticalAlert(false, []);
       return;
     }
 
@@ -328,8 +426,10 @@ async function refreshWeatherBar({ manual = false } = {}) {
       return name;
     });
 
-    const severities = items.map(hkoSeverity);
-    const level = severities.includes("red") ? "red" : "yellow";
+    // 臨界一定用紅條；其餘跟 severity
+    let level = "yellow";
+    if (critical) level = "red";
+    else if (items.map(hkoSeverity).includes("red")) level = "red";
 
     let hkoUpdated = "";
     for (const it of items) {
@@ -339,19 +439,25 @@ async function refreshWeatherBar({ manual = false } = {}) {
       }
     }
 
+    const prefix = critical ? "🚨 臨界警報：" : "生效警告：";
     setWeatherBar({
       level,
-      text: `生效警告：${labels.join("　·　")}`,
+      text: `${prefix}${labels.join("　·　")}`,
       updatedLabel: hkoUpdated
-        ? `天文台 ${hkoUpdated} · 本機 ${fetchedAt} · 每 5 分鐘`
-        : `已更新 ${fetchedAt} · 每 5 分鐘自動更新`,
+        ? `天文台 ${hkoUpdated} · 本機 ${fetchedAt} · 每 1 分鐘`
+        : `已更新 ${fetchedAt} · 每 1 分鐘掃描`,
     });
+
+    applyCriticalAlert(critical, critReasons);
   } catch (e) {
     console.warn("HKO weather fetch failed", e);
+    // 網絡失敗：唔取消已有臨界閃爍（避免誤以為解除）
     setWeatherBar({
-      level: "error",
-      text: "未能讀取天文台警告（網絡／VPN 可能攔截；以天文台最新公布為準）",
-      updatedLabel: `失敗 ${formatLocalNow()} · 5 分鐘後再試`,
+      level: hkoLastCritical ? "red" : "error",
+      text: hkoLastCritical
+        ? "未能更新天氣（仍維持臨界警示顯示；請以天文台為準）"
+        : "未能讀取天文台警告（網絡／VPN 可能攔截；以天文台最新公布為準）",
+      updatedLabel: `失敗 ${formatLocalNow()} · 1 分鐘後再試`,
     });
   } finally {
     if (btn) btn.disabled = false;
@@ -866,7 +972,7 @@ function loadBranchesData() {
     return Promise.resolve(state.branches);
   }
 
-  return fetch(`data/branches.json?v=1.15.0`, { cache: "no-store" })
+  return fetch(`data/branches.json?v=1.16.0`, { cache: "no-store" })
     .then((res) => {
       if (!res.ok) throw new Error(`branches.json HTTP ${res.status}`);
       return res.json();
