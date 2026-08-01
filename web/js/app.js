@@ -771,10 +771,33 @@ function renderRules() {
 }
 
 /* ---------- 各分校開工收工時間 ---------- */
-function renderHours() {
-  const root = $("#panel-hours");
-  const data = state.branches;
+function branchesReady() {
+  return (
+    state.branches &&
+    Array.isArray(state.branches.branches) &&
+    state.branches.branches.length > 0
+  );
+}
+
+async function loadBranchesData() {
+  const res = await fetch(`data/branches.json?v=${Date.now()}`, {
+    cache: "no-store",
+  });
+  if (!res.ok) throw new Error(`branches.json HTTP ${res.status}`);
+  const data = await res.json();
   if (!data || !Array.isArray(data.branches)) {
+    throw new Error("branches.json 格式不正確");
+  }
+  state.branches = data;
+  return data;
+}
+
+function paintHoursTable() {
+  const root = document.getElementById("panel-hours");
+  if (!root) return;
+
+  const data = state.branches;
+  if (!branchesReady()) {
     root.innerHTML = `<div class="empty">未有分校時間資料</div>`;
     return;
   }
@@ -788,7 +811,6 @@ function renderHours() {
     )
   );
 
-  // 按地區分組
   const regions = [];
   const byRegion = new Map();
   for (const b of list) {
@@ -807,7 +829,7 @@ function renderHours() {
     </div>`;
 
   if (!list.length) {
-    html += `<div class="empty">搵唔到分校</div>`;
+    html += `<div class="empty">搵唔到分校（試下清空頂部搜尋）</div>`;
     root.innerHTML = html;
     return;
   }
@@ -837,8 +859,39 @@ function renderHours() {
     html += `</tbody></table></div>`;
   }
 
-  html += `<p class="hours-source">來源：parklandmusic.com.hk 聯絡我們　·　更新 ${escapeHtml(data.updated || "")}　·　24 小時制</p>`;
+  html += `<p class="hours-source">來源：parklandmusic.com.hk 聯絡我們　·　更新 ${escapeHtml(data.updated || "")}　·　24 小時制　·　共 ${data.branches.length} 間</p>`;
   root.innerHTML = html;
+}
+
+function renderHours() {
+  const root = document.getElementById("panel-hours");
+  if (!root) {
+    console.warn("panel-hours missing");
+    return;
+  }
+
+  // 已有資料 → 即畫表（唔使等）
+  if (branchesReady()) {
+    paintHoursTable();
+    return;
+  }
+
+  // 未有資料 → 顯示載入，再開 tab 時再抓（唔依賴 init 是否成功）
+  root.innerHTML = `<div class="empty">載入分校開工收工時間…</div>`;
+  loadBranchesData()
+    .then(() => {
+      if (state.tab === "hours") paintHoursTable();
+    })
+    .catch((e) => {
+      console.warn("load branches failed", e);
+      if (state.tab !== "hours") return;
+      root.innerHTML = `<div class="empty">載入失敗：${escapeHtml(
+        e.message || String(e)
+      )}<br/><button type="button" class="btn btn-primary" id="hours-retry" style="margin-top:12px">再試</button></div>`;
+      document.getElementById("hours-retry")?.addEventListener("click", () => {
+        renderHours();
+      });
+    });
 }
 
 /* ---------- POS 教學（PDF + 短片預留） ---------- */
@@ -1039,21 +1092,18 @@ async function initApp() {
     $("#file-warning")?.classList.remove("hidden");
   }
 
-  const [tplRes, assetRes, branchRes] = await Promise.all([
+  const [tplRes, assetRes] = await Promise.all([
     fetch("data/templates.json"),
     fetch("data/assets.json"),
-    fetch("data/branches.json"),
   ]);
+  if (!tplRes.ok) throw new Error(`templates.json HTTP ${tplRes.status}`);
+  if (!assetRes.ok) throw new Error(`assets.json HTTP ${assetRes.status}`);
   const tplData = await tplRes.json();
   state.templates = tplData.templates;
   state.policySnippets = tplData.policySnippets;
   state.assets = await assetRes.json();
-  try {
-    state.branches = await branchRes.json();
-  } catch (e) {
-    console.warn("branches.json load failed", e);
-    state.branches = { branches: [] };
-  }
+  // 分校時間：背景預載，失敗唔阻其他 tab；開 hours tab 會再試
+  loadBranchesData().catch((e) => console.warn("preload branches failed", e));
   state.templates.forEach((t) => state.originals.set(t.id, t.body));
   loadDraftsFromStorage();
 
