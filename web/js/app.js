@@ -1,6 +1,6 @@
 /* Parkland front desk toolkit — desktop only */
 
-const STORAGE_KEY = "parkland-front-desk-drafts-v1";
+const STORAGE_KEY = "parkland-front-desk-drafts-v2";
 
 const EMOJI_QUICK = [
   "😊", "🙂", "😅", "🙏", "‼️", "✅", "✔️", "❌",
@@ -488,6 +488,70 @@ function renderRules() {
   bindPdfButtons(root);
 }
 
+/* ---------- POS 教學（PDF + 短片預留） ---------- */
+function renderPos() {
+  const root = $("#panel-pos");
+  const pos = state.assets.pos || { pdfs: [], videos: [] };
+  const q = searchQuery();
+
+  const pdfs = (pos.pdfs || []).filter((it) =>
+    matchSearch([it.title, it.desc, it.search].filter(Boolean).join(" "), q)
+  );
+  const videos = (pos.videos || []).filter((it) =>
+    matchSearch([it.title, it.desc, it.search].filter(Boolean).join(" "), q)
+  );
+
+  let html = `
+    <div class="section-title">POS 教學 PDF</div>
+    <div class="pdf-row" id="pos-pdf-row">`;
+
+  if (!pdfs.length) {
+    html += `<div class="empty">未有 PDF（將檔案放入 05-POS教學/ 後更新 assets.json）</div>`;
+  } else {
+    for (const p of pdfs) {
+      const fname = (p.file || "").split("/").pop() || "pos.pdf";
+      html += `
+        <div class="pdf-card">
+          <h3>${escapeHtml(p.title)}</h3>
+          <p>${escapeHtml(p.desc || "POS 操作教學")}</p>
+          <div class="card-actions">
+            <button type="button" class="btn btn-primary" data-copy-pdf="${escapeAttr(p.file)}" data-pdf-name="${escapeAttr(fname)}">複製 PDF</button>
+            <button type="button" class="btn" data-open="${escapeAttr(p.file)}">開啟</button>
+          </div>
+        </div>`;
+    }
+  }
+  html += `</div>`;
+
+  html += `
+    <div class="section-title">短片教學</div>
+    <div class="video-row" id="pos-video-row">`;
+
+  if (!videos.length) {
+    html += `
+      <div class="pdf-card pos-placeholder">
+        <h3>稍後加入短片</h3>
+        <p>將 <code>.mp4</code> / <code>.webm</code> 放入 <code>05-POS教學/</code>，喺 <code>web/data/assets.json</code> 嘅 <code>pos.videos</code> 加一筆即可。</p>
+      </div>`;
+  } else {
+    for (const v of videos) {
+      html += `
+        <div class="video-card">
+          <h3>${escapeHtml(v.title)}</h3>
+          ${v.desc ? `<p class="video-desc">${escapeHtml(v.desc)}</p>` : ""}
+          <video controls preload="metadata" playsinline src="${escapeAttr(v.file)}"></video>
+          <div class="card-actions">
+            <button type="button" class="btn" data-open="${escapeAttr(v.file)}">新分頁開啟</button>
+          </div>
+        </div>`;
+    }
+  }
+  html += `</div>`;
+
+  root.innerHTML = html;
+  bindPdfButtons(root);
+}
+
 function bindPdfButtons(root) {
   root.querySelectorAll("[data-copy-pdf]").forEach((btn) => {
     btn.addEventListener("click", () =>
@@ -516,6 +580,7 @@ function render() {
   else if (state.tab === "promos") renderPromos();
   else if (state.tab === "fees") renderFees();
   else if (state.tab === "rules") renderRules();
+  else if (state.tab === "pos") renderPos();
 }
 
 async function loadMyIp() {

@@ -322,5 +322,17 @@
   "weatherImage": {
     "title": "颱風及暴雨警告守則",
     "file": "../02-學生守則與政策/颱風暴雨警告守則.jpeg"
+  },
+  "pos": {
+    "pdfs": [
+      {
+        "id": "pos-overpaid",
+        "title": "POS：開 overpaid 的單",
+        "desc": "教學 PDF — 點樣喺 POS 開 overpaid 單（3 頁）",
+        "file": "../05-POS教學/POS_開overpaid單.pdf",
+        "search": "POS overpaid 多付 退款 教學"
+      }
+    ],
+    "videos": []
   }
 }

@@ -485,6 +485,50 @@ main {
   font-size: 13px;
   flex: 1;
 }
+.pdf-card code {
+  font-size: 12px;
+  color: var(--accent2);
+  background: var(--panel2);
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+.pos-placeholder {
+  max-width: 520px;
+}
+
+/* POS videos */
+.video-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.video-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  min-width: 300px;
+  max-width: 480px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.video-card h3 {
+  margin: 0;
+  font-size: 15px;
+}
+.video-card .video-desc {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+.video-card video {
+  width: 100%;
+  max-height: 320px;
+  border-radius: 8px;
+  background: #000;
+}
 
 .snippet-grid {
   display: grid;

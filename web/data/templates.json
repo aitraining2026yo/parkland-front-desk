@@ -4,106 +4,209 @@
       "id": "pay-regular",
       "group": "交學費",
       "title": "1. 交學費（恆常課程）",
-      "tags": ["學費", "過數", "FPS", "PayMe", "轉帳", "續費", "恆常"],
-      "body": "提提你,要交 10-11 月學費,共$2285(9 堂),已減$100\n\n舊生優惠（以完整月份計算）\n\n*凡於每月 1-20 號繳交下期學費優惠如下* 連續交 2 個月減$100 / 連續交 3 個月送一堂\n\n*凡於每月 21 至 31 日號繳交下期學費優惠如下* 連續交 2 個月減$50 / 連續交三個月減$100\n\n銀行轉帳 Bank transfer *HSBC 848-048997-001*\n*Parkland Music Limited*\n\n轉數快 FPS ID:115869901\n\n下面係 payme link\nhttps://qr.payme.hsbc.com.hk/2/DzprTZEXkv7CjyrxrrEZr\na 過數後 請去我的帳戶 撳一下條數 再截張圖\nThanks\n\n入數後請提供全名及轉帳記錄，以便儘快為你安排課堂\n* 轉帳記錄 gif 圖不接受 *"
+      "tags": [
+        "學費",
+        "過數",
+        "FPS",
+        "PayMe",
+        "轉帳",
+        "續費",
+        "恆常"
+      ],
+      "body": "提提你,要交10-11月學費,共$2285(9堂),已減$100🙏🏻😊\n舊生優惠😆🥳(以完整月份計算)\n*凡於每月1-20號繳交下期學費優惠如下* 連續交2個月減$100 / 連續交3個月送一堂\n*凡於每月21至31日號繳交下期學費優惠如下* 連續交2個月減$50 / 連續交三個月減$100\n\n🏧銀行轉帳Bank transfer *HSBC 848-048997-001* *Parkland Music Limited*\n🔢轉數快 FPS ID:115869901\n\n⭕下面係payme link https://qr.payme.hsbc.com.hk/2/DzprTZEXkv7CjyrxrrEZr\na 過數後 請去我的帳戶 撳一下條數 再截張圖🙏🏻 Thanks☺️\n\n入數後請提供全名及轉帳記錄，以便儘快為你安排課堂🙏 *❌轉帳記錄gif 圖不接受❌*"
     },
     {
       "id": "pay-interest",
       "group": "交學費",
       "title": "2. 交學費（興趣班）",
-      "tags": ["學費", "興趣班", "過數", "FPS", "PayMe"],
-      "body": "提提你,要交 10-11 月學費,共$2285(9 堂)\n\n可於上堂時在分店交 Eps /Alipay /WeChat pay 都可以\n\n每次續報需最少 8 堂(以完整月份計算)\n\n銀行轉帳 Bank transfer *HSBC 848-048997-001*\n*Parkland Music Limited*\n\n轉數快 FPS ID:115869901\n\n下面係 payme link\nhttps://qr.payme.hsbc.com.hk/2/DzprTZEXkv7CjyrxrrEZr\na 過數後 請去我的帳戶 撳一下條數 再截張圖\nThanks"
+      "tags": [
+        "學費",
+        "興趣班",
+        "過數",
+        "FPS",
+        "PayMe"
+      ],
+      "body": "提提你,要交10-11月學費,共$2285(9堂)🙏🏻😊\n可於上堂時在分店交Eps /Alipay /WeChat pay都可以👍\n⭐每次續報需最少8堂(以完整月份計算)\n🏧銀行轉帳Bank transfer *HSBC 848-048997-001* *Parkland Music Limited*\n🔢轉數快 FPS ID:115869901\n\n⭕下面係payme link https://qr.payme.hsbc.com.hk/2/DzprTZEXkv7CjyrxrrEZr\na 過數後 請去我的帳戶 撳一下條數 再截張圖🙏🏻 Thanks☺️"
     },
     {
       "id": "leave-same-day",
       "group": "請假補堂",
       "title": "3. 即日請假",
-      "tags": ["請假", "即日", "醫生紙", "扣堂"],
-      "body": "唔好意思呀 請假或更改上課時間,需要 *上課時間前一日的營業時間內通知喔*‼️ 如少於二十四小時前通知或即日取消課堂會扣堂呀 但即日請假提供醫生紙可以安排補堂 請問會有醫生紙嗎? 如有請今日內提供喔"
+      "tags": [
+        "請假",
+        "即日",
+        "醫生紙",
+        "扣堂"
+      ],
+      "body": "唔好意思呀🙏🏻🙌🏻 請假或更改上課時間,需要 *上課時間前一日的營業時間內通知喔*‼️ 如少於二十四小時前通知或即日取消課堂會扣堂呀🥹🥹 但即日請假提供醫生紙可以安排補堂❤️ 請問會有醫生紙嗎? 🙏🏻 如有請今日內提供喔💜"
     },
     {
       "id": "abs-followup",
       "group": "請假補堂",
       "title": "4. 點解 ABS",
-      "tags": ["ABS", "缺席", "跟進", "醫生紙"],
-      "body": "家長/同學您好 想了解今日小朋友/同學未能上堂的原因 如因生病等特殊原因未能及時請假，提供到醫生紙等證明記錄我哋可以酌情安排番補堂"
+      "tags": [
+        "ABS",
+        "缺席",
+        "跟進",
+        "醫生紙"
+      ],
+      "body": "家長/同學您好💕 想了解今日小朋友/同學未能上堂的原因🙏 如因生病等特殊原因未能及時請假，提供到醫生紙等證明記錄我哋可以酌情安排番補堂"
     },
     {
       "id": "certificate",
       "group": "證書文件",
       "title": "5. PARKLAND 證書",
-      "tags": ["證書", "修讀證明", "修讀證書"],
-      "body": "我地 Parkland有2 種修讀證明文件\n\n*修讀證明* - 一封信 $0 (no need money)\n\n*修讀證書* - 彩色證書 $100\n\n申請需時大概要 7 至 14 個工作天\n\n如要申請修讀證明，請提供小朋友中英文全名 &HKID頭4 個字\n\n如要申請修讀證書，請提供小朋友英文全名 &$100"
+      "tags": [
+        "證書",
+        "修讀證明",
+        "修讀證書"
+      ],
+      "body": "我地Parkland有2種修讀證明文件\n1️⃣ *修讀證明* - 一封信 $0 (no need money)\n2️⃣ *修讀證書* - 彩色證書 $100\n⭐申請需時大概要7至14個工作天\n⭐如要申請修讀證明，請提供小朋友中英文全名 &HKID頭4個字\n⭐如要申請修讀證書，請提供小朋友英文全名 &$100"
     },
     {
       "id": "leave-policy",
       "group": "請假補堂",
-      "title": "6. 請假安排（中文）",
-      "tags": ["請假", "補堂", "政策", "二人班", "小組"],
-      "body": "請假安排\n\n為確保所有同學及老師，如同學需要更改上課時間或課堂，*請於上課時間前一日的營業時間內通知本中心，並得到本中心確認* 請假的課堂會以 *補堂形式* 處理, 所有課堂不接受任何原因順延。 如少於二十四小時前通知或即日取消課堂會扣堂,即日請假需要提供醫生紙‼️\n\n補堂形式\n約過老師另一日\n於其後課堂加時補堂\n\n除農曆初一,二,三外,所有公眾假期照常營業\n\n二人班，如果一人請假另外一人繼續上堂，將不設補堂\n\n3 至 6 人班請假不設補堂喔\n\n最終決定權仍以本中心決定為準。"
-    },
-    {
-      "id": "leave-policy-en",
-      "group": "請假補堂",
-      "title": "6b. Leave policy (English)",
-      "tags": ["leave", "makeup", "english", "Important notes"],
-      "body": "Important notes\n\nWe operate normally during public holidays (Except for the first, second and third day of the Chinese Lunar New Year Holiday). Student must notify the center for leave permit at least one day in advanced during business hours. No make-up classes will be available for ad-hoc leave. (Except for those with doctor’s note).\n\nAll classes that ask for leave will be arranged in the form of make-up lessons\nEither arranging makeup lessons on alternate days\nOr extension of classes\n\nWe operate normally during public holidays (Except for the first, second and third day of the Chinese Lunar New Year Holiday).\n\ngroup of 2 : if student A takes leave and student B continues to attend class, there will be no make-up class\ngroup of 3-6 : no make-up class"
+      "title": "6. 請假安排",
+      "tags": [
+        "請假",
+        "補堂",
+        "政策",
+        "二人班",
+        "小組"
+      ],
+      "body": "💌請假安排💌\n為確保所有同學及老師，如同學需要更改上課時間或課堂，*請於上課時間前一日的營業時間內通知本中心， 並得到本中心確認* 請假的課堂會以 *補堂形式* 處理,所有課堂不接受任何原因順延。 如少於二十四小時前通知或即日取消課堂會扣堂,即日請假需要提供醫生紙‼️\n📒補堂形式📒\n1️⃣約過老師另一日\n2️⃣於其後課堂加時補堂\n⚠️除農曆初一,二,三外,所有公眾假期照常營業⚠️\n⚠️二人班，如果一人請假另外一人繼續上堂，將不設補堂⚠️\n⚠️3至6人班請假不設補堂喔⚠️\n最終決定權仍以本中心決定為準。\n💌Important notes💌\nWe operate normally during public holidays (Except for the first, second and third day of the Chinese Lunar New Year Holiday). Student must notify the center for leave permit at least one day in advanced during business hours. No make-up classes will be available for ad-hoc leave. (Except for those with doctor’s note).\nAll classes that ask for leave will be arranged in the form of make-up lessons\n1️⃣Either arranging makeup lessons on alternate days\n2️⃣Or extension of classes\n⚠️We operate normally during public holidays (Except for the first, second and third day of the Chinese Lunar New Year Holiday).⚠️\n⚠️group of 2 : if student A takes leave and student B continues to attend class, there will be no make-up class⚠️\n⚠️group of 3-6 : no make-up class⚠️"
     },
     {
       "id": "monthly-billing",
       "group": "交學費",
       "title": "7. 解釋按月收費",
-      "tags": ["按月", "四堂", "五堂", "收費"],
-      "body": "因為我哋係按月收費，視乎返個個月有幾多個星期而去收費，四個星期就會收取四堂，五個星期就會收取五堂。因為公司電腦都已經自動 set 好左堂數，所以我哋都冇辦法去刪除或者改動任何堂數，希望家長可以明白"
+      "tags": [
+        "按月",
+        "四堂",
+        "五堂",
+        "收費"
+      ],
+      "body": "因為我哋係按月收費，視乎返個個月有幾多個星期而去收費，四個星期就會收取四堂，五個星期就會收取五堂。因為公司電腦都已經自動set好左堂數，所以我哋都冇辦法去刪除或者改動任何堂數，希望家長可以明白🙏🏻"
     },
     {
       "id": "payme-white",
       "group": "交學費",
       "title": "8. PAYME 白色 cap 圖",
-      "tags": ["PayMe", "截圖", "cap", "白色"],
-      "body": "請問可以 cap 白色背景個頁俾我哋嗎？"
+      "tags": [
+        "PayMe",
+        "截圖",
+        "cap",
+        "白色"
+      ],
+      "body": "請問可以cap白色背景個頁俾我哋嗎？🙏🙏🙏"
     },
     {
       "id": "on-the-way",
       "group": "其他",
       "title": "9. 問學生去到邊",
-      "tags": ["遲到", "嚟緊", "去到邊"],
-      "body": "你好，請問係唔係嚟緊呀？"
-    },
-    {
-      "id": "course-fee-preset",
-      "group": "課程推介",
-      "title": "10. 課程收費（Preset regular / pre grade）",
-      "tags": ["學費", "pre-grade", "報價", "新生", "regular"],
-      "body": "收費如下\n\n單人(Private class)\n$180/30Mins\n$250/45Mins\n$310/60Mins\n\n小組 (Group for 2)\n$190/60Mins (2 人小組每位，需自組)\n\n小組 (Group for 3-6)\n$150/60Mins (3-6 人小組每位，需自組)\n\n最少需報讀四堂\n新生報讀任何課程 將收取一次報名費$100"
+      "tags": [
+        "遲到",
+        "嚟緊",
+        "去到邊"
+      ],
+      "body": "你好，請問係唔係嚟緊呀？😁"
     },
     {
       "id": "room-rental",
       "group": "租房",
-      "title": "11. 租房",
-      "tags": ["租房", "琴房", "鼓房", "結他房", "套票"],
-      "body": "租用鼓房/琴房/結他房收費\n\n本校學生: $70/小時 ($35/半小時)\n非本校學生: $80/小時 ($40/半小時)\n\n十小時套票 (設有 9 折優惠)\n本校學生: $630 / 10 小時\n非本校學生: $720 / 10 小時\n\n[使用套票注意事項]\n需提早至少 24 小時預約（視乎實際情況而定）\n需 逐次預約 下次使用日期\n(需於三個月內使用)"
+      "title": "10. 租房",
+      "tags": [
+        "租房",
+        "琴房",
+        "鼓房",
+        "結他房",
+        "套票"
+      ],
+      "body": "✨✨租用鼓房/琴房/結他房收費✨✨\n本校學生: $70/小時    ($35/半小時)\n非本校學生: $80/小時  ($40/半小時)\n\n十小時套票 (設有9折優惠)\n本校學生: $630 / 10小時\n非本校學生: $720 / 10小時\n\n[使用套票注意事項]\n⭐需提早至少24小時預約（視乎實際情況而定）\n⭐需 逐次預約 下次使用日期\n⭐課室只能一人練習使用 不可作教學用途\n (需於三個月內使用)"
     },
     {
       "id": "monthly-pass",
       "group": "租房",
-      "title": "12. 月票",
-      "tags": ["月票", "租房", "練習"],
-      "body": "Parkland 學生租鼓房/琴房/結他房$500 一個月任玩\n\n購買 30 日月票可在全線分校使用練習房\n需提早至少 24 小時預約（視乎實際情況而定）\n每日只可預約一次一小時\n每次租房需出示收據"
+      "title": "11. 月票",
+      "tags": [
+        "月票",
+        "租房",
+        "練習"
+      ],
+      "body": "Parkland學生租鼓房/琴房/結他房$500一個月任玩\n⭐購買30日月票可在全線分校使用練習房\n⭐需提早至少24小時預約（視乎實際情況而定）\n⭐每日只可預約一次一小時\n⭐每次租房需出示收據\n⭐課室只能一人練習使用 不可作教學用途"
     },
     {
       "id": "curious4",
       "group": "課程推介",
-      "title": "13. Curious 4 體驗課程",
-      "tags": ["Curious", "體驗", "試堂", "新生"],
-      "body": "*全新 Curious 4 體驗課程* Curious 4 體驗課程\n$750/4 堂\n\n結他　小結他　鋼琴　唱歌\n豎琴 (+90 蚊一堂，要去指定分校上：旺角/太古/屯門柏麗/朗屏)\n流行鼓\n\n每堂 30 分鐘\n唱歌/豎琴只能二選一 及只能選一堂\n只限初級學生\n贈送$100 現金券\n所有新生第一次報名都需要付$100 行政費\n\n共 4 堂，每一堂體驗一種樂器，每一堂 30 分鐘 可以揀二至四種樂器，請問你會揀咩樂器？"
+      "title": "12. Curious 4 體驗課程",
+      "tags": [
+        "Curious",
+        "體驗",
+        "試堂",
+        "新生"
+      ],
+      "body": "*全新Curious 4 體驗課程* Curious 4體驗課程🥳 $750/4堂\n1️⃣結他 2️⃣小結他 3️⃣鋼琴 4️⃣唱歌\n5️⃣豎琴 (+90蚊一堂，要去指定分校上：旺角/太古/屯門柏麗/朗屏)\n6️⃣流行鼓\n⭐每堂30分鐘\n⭐唱歌/豎琴只能二選一 及只能選一堂\n⭐只限初級學生\n⭐贈送$100現金券\n⭐所有新生第一次報名都需要付$100行政費\n📌 共4堂，每一堂體驗一種樂器，每一堂30分鐘 可以揀二至四種樂器，請問你會揀咩樂器？"
     },
     {
       "id": "referral",
       "group": "優惠",
-      "title": "14. 舊生介紹新生",
-      "tags": ["介紹", "舊生", "優惠", "referral"],
-      "body": "舊生 成功介紹新生報讀 2 個月或者 3 個月，舊生於下期學費可享優惠\n\n舊生\n報讀　個月可 free　堂\n報讀　個月可 free　堂\n\n新生 係報名時提供舊生學生全名及電話號碼，都可享有優惠:\n報讀　個月可 free　堂\n報讀　個月可 free　堂\n\n新舊生必須要同一間分校\n舊生必須是在學的學生\n此優惠不能與其他優惠同時使用\n新生必需在報名時提供舊生全名及電話，資料不能後補\n每位小組新生只能有一位小組舊生介紹人\n優惠受條款及細則約束\n興趣班不適用"
+      "title": "13. 舊生介紹新生",
+      "tags": [
+        "介紹",
+        "舊生",
+        "優惠",
+        "referral"
+      ],
+      "body": "舊生👩‍🎓成功介紹新生報讀2個月或者3個月，舊生於下期學費可享優惠\n舊生👩‍🎓\n報讀2️⃣個月可free2️⃣堂\n報讀3️⃣個月可free3️⃣堂\n新生🧑‍🎓係報名時提供舊生學生全名及電話號碼，都可享有優惠:\n報讀2️⃣個月可free2️⃣堂\n報讀3️⃣個月可free3️⃣堂\n💜新舊生必須要同一間分校\n💜舊生必須是在學的學生\n💜此優惠不能與其他優惠同時使用\n💜新生必需在報名時提供舊生全名及電話，資料不能後補\n💜每位小組新生只能有一位小組舊生介紹人\n💜優惠受條款及細則約束\n💜興趣班不適用"
+    },
+    {
+      "id": "remind-teacher",
+      "group": "內部通知",
+      "title": "14. 提老師上堂",
+      "tags": [
+        "老師",
+        "提醒",
+        "上堂",
+        "part-time"
+      ],
+      "body": "你好老師我係part-time同事,\n按電腦時間表提提你明天上堂時間\n有錯漏請話我知 🙏"
+    },
+    {
+      "id": "remind-student",
+      "group": "內部通知",
+      "title": "15. 提學生上堂",
+      "tags": [
+        "學生",
+        "提醒",
+        "上堂",
+        "聽日"
+      ],
+      "body": "Hello Hello~!提提你聽日上堂喔😆\n聽日上堂時間係:"
+    },
+    {
+      "id": "confirm-new-student",
+      "group": "內部通知",
+      "title": "16. Confirm 新生",
+      "tags": [
+        "新生",
+        "confirmed",
+        "確認",
+        "首堂"
+      ],
+      "body": "Confirmed:\n學生姓名:\n科目和時長:\n上課時間:\n首堂日期:\n備註:"
+    },
+    {
+      "id": "teacher-contract",
+      "group": "內部通知",
+      "title": "17. 老師簽約",
+      "tags": [
+        "老師",
+        "簽約",
+        "合約",
+        "POS",
+        "HR"
+      ],
+      "body": "提提老師，都會有個簡單分校簽約儀式🙏🏻\n\n請老師提供:\n姓名:\n身份證號碼:\n電話號碼:\n電子郵件(E-Mail):\n開始於分校任教日期:\n\nHR同事會EMAIL電子合約,完成後請回覆我地~\n我地先幫到導師開 POS ACCOUNT 🫶🏻"
     }
   ],
   "policySnippets": [
@@ -115,17 +218,17 @@
     {
       "id": "makeup-1month",
       "title": "補堂形式",
-      "body": "補堂形式：約過老師另一日；或於其後課堂加時補堂。"
+      "body": "補堂形式：\n1️⃣約過老師另一日\n2️⃣於其後課堂加時補堂"
     },
     {
       "id": "group-no-makeup",
       "title": "小組唔補堂",
-      "body": "二人班若一人請假另一人照上 → 不設補堂。\n3 至 6 人班請假不設補堂喔。"
+      "body": "⚠️二人班，如果一人請假另外一人繼續上堂，將不設補堂⚠️\n⚠️3至6人班請假不設補堂喔⚠️"
     },
     {
       "id": "payment-no-cash",
       "title": "學費付款方式",
-      "body": "銀行轉帳 *HSBC 848-048997-001*\n*Parkland Music Limited*\n轉數快 FPS ID:115869901"
+      "body": "🏧銀行轉帳 Bank transfer *HSBC 848-048997-001* *Parkland Music Limited*\n🔢轉數快 FPS ID:115869901"
     },
     {
       "id": "weather-t8-black",
@@ -135,7 +238,12 @@
     {
       "id": "admin-fee",
       "title": "新生行政費",
-      "body": "所有新生第一次報名都需要付$100 行政費"
+      "body": "⭐所有新生第一次報名都需要付$100行政費"
+    },
+    {
+      "id": "room-solo",
+      "title": "租房用途限制",
+      "body": "⭐課室只能一人練習使用 不可作教學用途"
     }
   ]
 }
