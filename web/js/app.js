@@ -779,17 +779,33 @@ function branchesReady() {
   );
 }
 
-async function loadBranchesData() {
-  const res = await fetch(`data/branches.json?v=${Date.now()}`, {
-    cache: "no-store",
-  });
-  if (!res.ok) throw new Error(`branches.json HTTP ${res.status}`);
-  const data = await res.json();
-  if (!data || !Array.isArray(data.branches)) {
-    throw new Error("branches.json 格式不正確");
+/** 優先用內嵌 js/branches-data.js（唔使 fetch）；再 fallback 拉 JSON */
+function loadBranchesData() {
+  // already have
+  if (branchesReady()) return Promise.resolve(state.branches);
+
+  // embedded bundle (loaded via <script src="js/branches-data.js">)
+  if (
+    window.PARKLAND_BRANCHES &&
+    Array.isArray(window.PARKLAND_BRANCHES.branches) &&
+    window.PARKLAND_BRANCHES.branches.length
+  ) {
+    state.branches = window.PARKLAND_BRANCHES;
+    return Promise.resolve(state.branches);
   }
-  state.branches = data;
-  return data;
+
+  return fetch(`data/branches.json?v=1.6.2`, { cache: "no-store" })
+    .then((res) => {
+      if (!res.ok) throw new Error(`branches.json HTTP ${res.status}`);
+      return res.json();
+    })
+    .then((data) => {
+      if (!data || !Array.isArray(data.branches) || !data.branches.length) {
+        throw new Error("branches.json 格式不正確或空白");
+      }
+      state.branches = data;
+      return data;
+    });
 }
 
 function paintHoursTable() {
@@ -870,13 +886,20 @@ function renderHours() {
     return;
   }
 
-  // 已有資料 → 即畫表（唔使等）
+  // 同步先試內嵌資料（最快、唔受 cache/fetch 影響）
+  if (
+    !branchesReady() &&
+    window.PARKLAND_BRANCHES &&
+    Array.isArray(window.PARKLAND_BRANCHES.branches)
+  ) {
+    state.branches = window.PARKLAND_BRANCHES;
+  }
+
   if (branchesReady()) {
     paintHoursTable();
     return;
   }
 
-  // 未有資料 → 顯示載入，再開 tab 時再抓（唔依賴 init 是否成功）
   root.innerHTML = `<div class="empty">載入分校開工收工時間…</div>`;
   loadBranchesData()
     .then(() => {
