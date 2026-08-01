@@ -1,6 +1,77 @@
 /* Parkland front desk toolkit — desktop only */
 
 const STORAGE_KEY = "parkland-front-desk-drafts-v2";
+const THEME_KEY = "parkland-theme";
+const THEME_CSS_VER = "1.12.0";
+const THEME_CSS = {
+  light: `css/theme-light.css?v=${THEME_CSS_VER}`, // v1.11 亮綠
+  dark: `css/theme-dark.css?v=${THEME_CSS_VER}`, // v1.8 青橘
+};
+
+/** 淺色 = v1.11 亮綠；深色 = v1.8 青橘 */
+function getTheme() {
+  const t =
+    document.documentElement.getAttribute("data-theme") ||
+    window.__PARKLAND_THEME__ ||
+    "light";
+  return t === "dark" ? "dark" : "light";
+}
+
+function applyTheme(mode, { persist = true } = {}) {
+  const theme = mode === "dark" ? "dark" : "light";
+  document.documentElement.setAttribute("data-theme", theme);
+  window.__PARKLAND_THEME__ = theme;
+  const link = document.getElementById("theme-stylesheet");
+  if (link) link.href = THEME_CSS[theme];
+  if (persist) {
+    try {
+      localStorage.setItem(THEME_KEY, theme);
+    } catch (e) {
+      /* ignore */
+    }
+  }
+  syncThemeToggleUI();
+}
+
+function syncThemeToggleUI() {
+  const theme = getTheme();
+  // 掣顯示「可以切去邊個」：而家淺色 → 顯示深色；而家深色 → 顯示淺色
+  const nextIsDark = theme !== "dark";
+  document.querySelectorAll("[data-theme-toggle]").forEach((btn) => {
+    const icon = btn.querySelector(".theme-toggle-icon");
+    const label = btn.querySelector(".theme-toggle-label");
+    if (icon) icon.textContent = nextIsDark ? "🌙" : "☀️";
+    if (label) label.textContent = nextIsDark ? "深色" : "淺色";
+    btn.setAttribute(
+      "title",
+      nextIsDark ? "切換至深色（青橘 v1.8）" : "切換至淺色（亮綠 v1.11）"
+    );
+    btn.setAttribute("aria-label", nextIsDark ? "切換至深色模式" : "切換至淺色模式");
+  });
+}
+
+function toggleTheme() {
+  applyTheme(getTheme() === "dark" ? "light" : "dark");
+}
+
+function bindThemeToggles() {
+  document.querySelectorAll("[data-theme-toggle]").forEach((btn) => {
+    if (btn.dataset.boundTheme) return;
+    btn.dataset.boundTheme = "1";
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      toggleTheme();
+    });
+  });
+  syncThemeToggleUI();
+}
+
+// 登入頁都用得到：DOM ready 即綁
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", bindThemeToggles);
+} else {
+  bindThemeToggles();
+}
 
 /** 香港天文台 Open Data — 天氣警告（每 5 分鐘 refresh；主 API + 備用） */
 const HKO_WARNSUM_URL =
@@ -794,7 +865,7 @@ function loadBranchesData() {
     return Promise.resolve(state.branches);
   }
 
-  return fetch(`data/branches.json?v=1.11.0`, { cache: "no-store" })
+  return fetch(`data/branches.json?v=1.12.0`, { cache: "no-store" })
     .then((res) => {
       if (!res.ok) throw new Error(`branches.json HTTP ${res.status}`);
       return res.json();
