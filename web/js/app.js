@@ -36,6 +36,7 @@ const state = {
   templates: [],
   policySnippets: [],
   assets: null,
+  branches: null,
   groupFilter: "全部",
   originals: new Map(), // id -> original body
   drafts: new Map(),
@@ -769,6 +770,77 @@ function renderRules() {
   bindPdfButtons(root);
 }
 
+/* ---------- 各分校開工收工時間 ---------- */
+function renderHours() {
+  const root = $("#panel-hours");
+  const data = state.branches;
+  if (!data || !Array.isArray(data.branches)) {
+    root.innerHTML = `<div class="empty">未有分校時間資料</div>`;
+    return;
+  }
+
+  const q = searchQuery();
+  const std = data.standard || {};
+  const list = data.branches.filter((b) =>
+    matchSearch(
+      [b.name, b.region, b.mf, b.sat, b.sun, b.search].filter(Boolean).join(" "),
+      q
+    )
+  );
+
+  // 按地區分組
+  const regions = [];
+  const byRegion = new Map();
+  for (const b of list) {
+    const r = b.region || "其他";
+    if (!byRegion.has(r)) {
+      byRegion.set(r, []);
+      regions.push(r);
+    }
+    byRegion.get(r).push(b);
+  }
+
+  let html = `
+    <div class="hours-legend">
+      <span class="hours-legend-std">常見　一至五 ${escapeHtml(std.mf || "12:00–21:00")}　·　六／日 ${escapeHtml(std.sat || "09:00–18:00")}</span>
+      <span class="hours-legend-hi">非常規格</span>
+    </div>`;
+
+  if (!list.length) {
+    html += `<div class="empty">搵唔到分校</div>`;
+    root.innerHTML = html;
+    return;
+  }
+
+  for (const region of regions) {
+    const rows = byRegion.get(region);
+    html += `<div class="section-title">${escapeHtml(region)}（${rows.length}）</div>`;
+    html += `<div class="hours-table-wrap"><table class="hours-table">
+      <thead>
+        <tr>
+          <th>分校</th>
+          <th>一至五</th>
+          <th>六</th>
+          <th>日</th>
+        </tr>
+      </thead>
+      <tbody>`;
+    for (const b of rows) {
+      const rowHi = b.mfHi || b.satHi || b.sunHi;
+      html += `<tr class="${rowHi ? "hours-row-hi" : ""}">
+        <td class="hours-name">${escapeHtml(b.name)}</td>
+        <td class="${b.mfHi ? "hours-cell-hi" : ""}">${escapeHtml(b.mf)}</td>
+        <td class="${b.satHi ? "hours-cell-hi" : ""}">${escapeHtml(b.sat)}</td>
+        <td class="${b.sunHi ? "hours-cell-hi" : ""}">${escapeHtml(b.sun)}</td>
+      </tr>`;
+    }
+    html += `</tbody></table></div>`;
+  }
+
+  html += `<p class="hours-source">來源：parklandmusic.com.hk 聯絡我們　·　更新 ${escapeHtml(data.updated || "")}　·　24 小時制</p>`;
+  root.innerHTML = html;
+}
+
 /* ---------- POS 教學（PDF + 短片預留） ---------- */
 function renderPos() {
   const root = $("#panel-pos");
@@ -861,6 +933,7 @@ function render() {
   else if (state.tab === "promos") renderPromos();
   else if (state.tab === "fees") renderFees();
   else if (state.tab === "rules") renderRules();
+  else if (state.tab === "hours") renderHours();
   else if (state.tab === "pos") renderPos();
 }
 
@@ -966,14 +1039,21 @@ async function initApp() {
     $("#file-warning")?.classList.remove("hidden");
   }
 
-  const [tplRes, assetRes] = await Promise.all([
+  const [tplRes, assetRes, branchRes] = await Promise.all([
     fetch("data/templates.json"),
     fetch("data/assets.json"),
+    fetch("data/branches.json"),
   ]);
   const tplData = await tplRes.json();
   state.templates = tplData.templates;
   state.policySnippets = tplData.policySnippets;
   state.assets = await assetRes.json();
+  try {
+    state.branches = await branchRes.json();
+  } catch (e) {
+    console.warn("branches.json load failed", e);
+    state.branches = { branches: [] };
+  }
   state.templates.forEach((t) => state.originals.set(t.id, t.body));
   loadDraftsFromStorage();
 
