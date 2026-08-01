@@ -22,14 +22,14 @@
   <link
     id="theme-stylesheet"
     rel="stylesheet"
-    href="css/theme-light.css?v=1.12.0"
+    href="css/theme-light.css?v=1.13.0"
   />
   <script>
     (function () {
       var t = window.__PARKLAND_THEME__ || "light";
       var link = document.getElementById("theme-stylesheet");
       if (link && t === "dark") {
-        link.href = "css/theme-dark.css?v=1.12.0";
+        link.href = "css/theme-dark.css?v=1.13.0";
       }
     })();
   </script>
@@ -59,7 +59,7 @@
           <span class="theme-toggle-label">深色</span>
         </button>
       </div>
-      <p class="auth-meta">by Barry · v1.12.0</p>
+      <p class="auth-meta">by Barry · v1.13.0</p>
     </div>
   </div>
 
@@ -94,10 +94,10 @@
           <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
           <span class="theme-toggle-label">深色</span>
         </button>
-        <div class="meta-right" title="by Barry · Version 1.12.0 · 深色=青橘 v1.8 · 淺色=亮綠 v1.11">
+        <div class="meta-right" title="by Barry · Version 1.13.0 · 深色=青橘 v1.8 · 淺色=亮綠 v1.11">
           <span class="meta-by">by Barry</span>
           <span class="meta-dot" aria-hidden="true">·</span>
-          <span class="meta-ver">v1.12.0</span>
+          <span class="meta-ver">v1.13.0</span>
           <span class="meta-dot" aria-hidden="true">·</span>
           <span class="meta-update">updated 01 Aug 2026</span>
         </div>
@@ -114,6 +114,7 @@
       <button type="button" class="tab" data-tab="fees">學費表</button>
       <button type="button" class="tab" data-tab="rules">守則政策</button>
       <button type="button" class="tab" data-tab="hours">各分校開工收工時間</button>
+      <button type="button" class="tab" data-tab="links">常用連結</button>
       <button type="button" class="tab" data-tab="pos">POS 教學</button>
     </nav>
 
@@ -123,6 +124,7 @@
       <section id="panel-fees" class="panel"></section>
       <section id="panel-rules" class="panel"></section>
       <section id="panel-hours" class="panel"></section>
+      <section id="panel-links" class="panel"></section>
       <section id="panel-pos" class="panel"></section>
     </main>
 
@@ -142,8 +144,9 @@
     </footer>
   </div>
 
-  <script src="js/config.js?v=1.12.0"></script>
-  <script src="js/branches-data.js?v=1.12.0"></script>
-  <script src="js/app.js?v=1.12.0"></script>
+  <script src="js/config.js?v=1.13.0"></script>
+  <script src="js/branches-data.js?v=1.13.0"></script>
+  <script src="js/links-data.js?v=1.13.0"></script>
+  <script src="js/app.js?v=1.13.0"></script>
 </body>
 </html>

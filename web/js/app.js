@@ -2,7 +2,7 @@
 
 const STORAGE_KEY = "parkland-front-desk-drafts-v2";
 const THEME_KEY = "parkland-theme";
-const THEME_CSS_VER = "1.12.0";
+const THEME_CSS_VER = "1.13.0";
 const THEME_CSS = {
   light: `css/theme-light.css?v=${THEME_CSS_VER}`, // v1.11 亮綠
   dark: `css/theme-dark.css?v=${THEME_CSS_VER}`, // v1.8 青橘
@@ -108,6 +108,7 @@ const state = {
   policySnippets: [],
   assets: null,
   branches: null,
+  links: null,
   groupFilter: "全部",
   originals: new Map(), // id -> original body
   drafts: new Map(),
@@ -988,6 +989,87 @@ function renderHours() {
     });
 }
 
+/* ---------- 常用連結 ---------- */
+function linksReady() {
+  return state.links && Array.isArray(state.links.links) && state.links.links.length > 0;
+}
+
+function ensureLinksData() {
+  if (linksReady()) return;
+  if (
+    window.PARKLAND_LINKS &&
+    Array.isArray(window.PARKLAND_LINKS.links) &&
+    window.PARKLAND_LINKS.links.length
+  ) {
+    state.links = window.PARKLAND_LINKS;
+  }
+}
+
+function renderLinks() {
+  const root = document.getElementById("panel-links");
+  if (!root) return;
+  ensureLinksData();
+
+  if (!linksReady()) {
+    root.innerHTML = `<div class="empty">未有常用連結資料</div>`;
+    return;
+  }
+
+  const q = searchQuery();
+  const list = state.links.links.filter((it) =>
+    matchSearch(
+      [it.title, it.desc, it.url, it.group, it.search].filter(Boolean).join(" "),
+      q
+    )
+  );
+
+  // group
+  const groups = [];
+  const byG = new Map();
+  for (const it of list) {
+    const g = it.group || "其他";
+    if (!byG.has(g)) {
+      byG.set(g, []);
+      groups.push(g);
+    }
+    byG.get(g).push(it);
+  }
+
+  let html = `<div class="section-title">常用連結（撳開啟或複製網址）</div>`;
+  if (!list.length) {
+    html += `<div class="empty">搵唔到連結（試下清空搜尋）</div>`;
+    root.innerHTML = html;
+    return;
+  }
+
+  for (const g of groups) {
+    html += `<div class="section-title">${escapeHtml(g)}（${byG.get(g).length}）</div>`;
+    html += `<div class="links-grid">`;
+    for (const it of byG.get(g)) {
+      html += `
+        <article class="link-card">
+          <h3 class="link-title">${escapeHtml(it.title)}</h3>
+          ${it.desc ? `<p class="link-desc">${escapeHtml(it.desc)}</p>` : ""}
+          <p class="link-url" title="${escapeAttr(it.url)}">${escapeHtml(it.url)}</p>
+          <div class="card-actions">
+            <a class="btn btn-primary" href="${escapeAttr(it.url)}" target="_blank" rel="noopener noreferrer">開啟</a>
+            <button type="button" class="btn" data-copy-url="${escapeAttr(it.url)}">複製連結</button>
+          </div>
+        </article>`;
+    }
+    html += `</div>`;
+  }
+
+  html += `<p class="hours-source">來源：常用連結.rtf　·　更新 ${escapeHtml(
+    state.links.updated || ""
+  )}　·　共 ${state.links.links.length} 條</p>`;
+  root.innerHTML = html;
+
+  root.querySelectorAll("[data-copy-url]").forEach((btn) => {
+    btn.addEventListener("click", () => copyText(btn.dataset.copyUrl));
+  });
+}
+
 /* ---------- POS 教學（PDF + 短片預留） ---------- */
 function renderPos() {
   const root = $("#panel-pos");
@@ -1081,6 +1163,7 @@ function render() {
   else if (state.tab === "fees") renderFees();
   else if (state.tab === "rules") renderRules();
   else if (state.tab === "hours") renderHours();
+  else if (state.tab === "links") renderLinks();
   else if (state.tab === "pos") renderPos();
 }
 
@@ -1198,6 +1281,7 @@ async function initApp() {
   state.assets = await assetRes.json();
   // 分校時間：背景預載，失敗唔阻其他 tab；開 hours tab 會再試
   loadBranchesData().catch((e) => console.warn("preload branches failed", e));
+  ensureLinksData();
   state.templates.forEach((t) => state.originals.set(t.id, t.body));
   loadDraftsFromStorage();
 
