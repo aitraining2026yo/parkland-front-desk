@@ -471,7 +471,7 @@ main {
 }
 .emoji-btn:hover {
   border-color: var(--accent);
-  background: #3a2438;
+  background: #163038;
 }
 .card-actions {
   display: flex;
