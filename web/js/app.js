@@ -2,7 +2,7 @@
 
 const STORAGE_KEY = "parkland-front-desk-drafts-v2";
 const THEME_KEY = "parkland-theme";
-const THEME_CSS_VER = "1.16.0";
+const THEME_CSS_VER = "1.16.1";
 const THEME_CSS = {
   light: `css/theme-light.css?v=${THEME_CSS_VER}`, // v1.11 亮綠
   dark: `css/theme-dark.css?v=${THEME_CSS_VER}`, // v1.8 青橘
@@ -78,8 +78,8 @@ const HKO_WARNSUM_URL =
   "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=warnsum&lang=tc";
 const HKO_WARNING_INFO_URL =
   "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=warningInfo&lang=tc";
-/** 臨界天氣要快啲知：每 60 秒 scan（同 hko-rain-monitor） */
-const HKO_REFRESH_MS = 60 * 1000;
+/** 天氣／臨界警報：每 5 分鐘 scan 一次 */
+const HKO_REFRESH_MS = 5 * 60 * 1000;
 const HKO_FETCH_TIMEOUT_MS = 10000;
 const PAGE_TITLE_BASE = "Parkland 前台工具箱";
 
@@ -411,7 +411,7 @@ async function refreshWeatherBar({ manual = false } = {}) {
       setWeatherBar({
         level: "ok",
         text: "而家冇天氣警告（香港天文台）",
-        updatedLabel: `已更新 ${fetchedAt} · 每 1 分鐘掃描臨界天氣`,
+        updatedLabel: `已更新 ${fetchedAt} · 每 5 分鐘自動更新`,
       });
       applyCriticalAlert(false, []);
       return;
@@ -444,8 +444,8 @@ async function refreshWeatherBar({ manual = false } = {}) {
       level,
       text: `${prefix}${labels.join("　·　")}`,
       updatedLabel: hkoUpdated
-        ? `天文台 ${hkoUpdated} · 本機 ${fetchedAt} · 每 1 分鐘`
-        : `已更新 ${fetchedAt} · 每 1 分鐘掃描`,
+        ? `天文台 ${hkoUpdated} · 本機 ${fetchedAt} · 每 5 分鐘`
+        : `已更新 ${fetchedAt} · 每 5 分鐘自動更新`,
     });
 
     applyCriticalAlert(critical, critReasons);
@@ -457,7 +457,7 @@ async function refreshWeatherBar({ manual = false } = {}) {
       text: hkoLastCritical
         ? "未能更新天氣（仍維持臨界警示顯示；請以天文台為準）"
         : "未能讀取天文台警告（網絡／VPN 可能攔截；以天文台最新公布為準）",
-      updatedLabel: `失敗 ${formatLocalNow()} · 1 分鐘後再試`,
+      updatedLabel: `失敗 ${formatLocalNow()} · 5 分鐘後再試`,
     });
   } finally {
     if (btn) btn.disabled = false;
@@ -972,7 +972,7 @@ function loadBranchesData() {
     return Promise.resolve(state.branches);
   }
 
-  return fetch(`data/branches.json?v=1.16.0`, { cache: "no-store" })
+  return fetch(`data/branches.json?v=1.16.1`, { cache: "no-store" })
     .then((res) => {
       if (!res.ok) throw new Error(`branches.json HTTP ${res.status}`);
       return res.json();
