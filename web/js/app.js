@@ -542,10 +542,76 @@ async function loadMyIp() {
   }
 }
 
-async function init() {
-  // Secure context check for clipboard
+/* ---------- Simple password gate (SHA-256 hash in config.js) ---------- */
+async function sha256Hex(text) {
+  const data = new TextEncoder().encode(text);
+  const buf = await crypto.subtle.digest("SHA-256", data);
+  return [...new Uint8Array(buf)]
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
+}
+
+function authConfig() {
+  return window.PARKLAND_AUTH || {};
+}
+
+function isAuthed() {
+  const { SESSION_KEY, SITE_PASSWORD_SHA256 } = authConfig();
+  if (!SESSION_KEY || !SITE_PASSWORD_SHA256) return false;
+  try {
+    return sessionStorage.getItem(SESSION_KEY) === SITE_PASSWORD_SHA256;
+  } catch {
+    return false;
+  }
+}
+
+function setAuthed(hash) {
+  const { SESSION_KEY } = authConfig();
+  try {
+    sessionStorage.setItem(SESSION_KEY, hash);
+  } catch (e) {
+    console.warn(e);
+  }
+}
+
+function clearAuthed() {
+  const { SESSION_KEY } = authConfig();
+  try {
+    sessionStorage.removeItem(SESSION_KEY);
+  } catch (e) {
+    /* ignore */
+  }
+}
+
+function unlockApp() {
+  document.body.classList.remove("locked");
+  const gate = $("#auth-gate");
+  const shell = $("#app-shell");
+  if (gate) gate.hidden = true;
+  if (shell) shell.hidden = false;
+}
+
+function lockApp() {
+  clearAuthed();
+  document.body.classList.add("locked");
+  const gate = $("#auth-gate");
+  const shell = $("#app-shell");
+  if (shell) shell.hidden = true;
+  if (gate) {
+    gate.hidden = false;
+    const input = $("#auth-password");
+    const err = $("#auth-error");
+    if (err) err.classList.add("hidden");
+    if (input) {
+      input.value = "";
+      setTimeout(() => input.focus(), 50);
+    }
+  }
+}
+
+async function initApp() {
   if (location.protocol === "file:") {
-    $("#file-warning").classList.remove("hidden");
+    $("#file-warning")?.classList.remove("hidden");
   }
 
   const [tplRes, assetRes] = await Promise.all([
@@ -569,12 +635,61 @@ async function init() {
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeLightbox();
   });
+  $("#logout-btn")?.addEventListener("click", () => {
+    lockApp();
+  });
 
   setTab("templates");
   loadMyIp();
 }
 
-init().catch((e) => {
-  console.error(e);
-  toast("載入失敗：" + e.message, true);
-});
+(async function main() {
+  try {
+    const expected = (authConfig().SITE_PASSWORD_SHA256 || "").toLowerCase();
+    if (!expected) {
+      console.error("Missing password hash in config.js");
+    }
+
+    if (isAuthed()) {
+      unlockApp();
+      await initApp();
+      return;
+    }
+
+    const form = $("#auth-form");
+    const input = $("#auth-password");
+    const err = $("#auth-error");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const pw = (input.value || "").trim();
+      if (!pw) return;
+      const btn = form.querySelector('button[type="submit"]');
+      if (btn) btn.disabled = true;
+      try {
+        const hash = await sha256Hex(pw);
+        if (hash === expected) {
+          setAuthed(hash);
+          err?.classList.add("hidden");
+          unlockApp();
+          await initApp();
+        } else {
+          err.textContent = "密碼不正確，請再試";
+          err.classList.remove("hidden");
+          input.select();
+        }
+      } catch (ex) {
+        console.error(ex);
+        err.textContent = "無法驗證（請用 Chrome 開 https 網址）";
+        err.classList.remove("hidden");
+      } finally {
+        if (btn) btn.disabled = false;
+      }
+    });
+
+    setTimeout(() => input?.focus(), 100);
+  } catch (e) {
+    console.error(e);
+    alert("載入失敗：" + e.message);
+  }
+})();

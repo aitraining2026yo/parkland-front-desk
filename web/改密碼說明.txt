@@ -1,0 +1,29 @@
+Parkland 前台工具箱 — 點改密碼
+
+而家密碼：
+  parkland2026barry
+
+網站只儲存密碼嘅 SHA-256 hash（喺 js/config.js），唔會明文寫喺網頁。
+
+── 改密碼步驟 ──
+1. 想好新密碼（例如 MyNewPass123）
+2. 喺 Terminal 跑（將引號入面換成你嘅新密碼）：
+
+   python3 -c "import hashlib; print(hashlib.sha256(b'MyNewPass123').hexdigest())"
+
+3. 打開檔案：
+   web/js/config.js
+4. 將 SITE_PASSWORD_SHA256 後面嗰串，換成第 2 步印出嚟嘅字
+5. 存檔後 push 上 GitHub：
+
+   cd ~/front-desk-kit
+   git add web/js/config.js
+   git commit -m "Update site password hash"
+   git push
+
+6. 等約 1 分鐘，用新密碼開網站
+
+── 注意 ──
+· 唔使喺分校部電腦改；改 GitHub 上面嘅設定就得
+· 呢個係前端簡單鎖，擋一般人；懂開原始碼嘅人仍有機會繞過
+· 登入狀態用 sessionStorage：閂晒瀏覽器分頁後要再入密碼
