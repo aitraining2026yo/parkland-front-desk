@@ -2,7 +2,7 @@
 
 const STORAGE_KEY = "parkland-front-desk-drafts-v2";
 const THEME_KEY = "parkland-theme";
-const THEME_CSS_VER = "1.13.0";
+const THEME_CSS_VER = "1.14.0";
 const THEME_CSS = {
   light: `css/theme-light.css?v=${THEME_CSS_VER}`, // v1.11 亮綠
   dark: `css/theme-dark.css?v=${THEME_CSS_VER}`, // v1.8 青橘
@@ -894,7 +894,9 @@ function paintHoursTable() {
   const std = data.standard || {};
   const list = data.branches.filter((b) =>
     matchSearch(
-      [b.name, b.region, b.mf, b.sat, b.sun, b.search].filter(Boolean).join(" "),
+      [b.name, b.addr, b.phone, b.region, b.mf, b.sat, b.sun, b.search]
+        .filter(Boolean)
+        .join(" "),
       q
     )
   );
@@ -929,6 +931,7 @@ function paintHoursTable() {
       <thead>
         <tr>
           <th>分校</th>
+          <th>地址</th>
           <th>一至五</th>
           <th>六</th>
           <th>日</th>
@@ -937,8 +940,21 @@ function paintHoursTable() {
       <tbody>`;
     for (const b of rows) {
       const rowHi = b.mfHi || b.satHi || b.sunHi;
+      const addr = b.addr || "—";
+      const mapsQ = encodeURIComponent(addr);
+      const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${mapsQ}`;
       html += `<tr class="${rowHi ? "hours-row-hi" : ""}">
         <td class="hours-name">${escapeHtml(b.name)}</td>
+        <td class="hours-addr">
+          <span class="hours-addr-text">${escapeHtml(addr)}</span>
+          ${
+            b.addr
+              ? `<a class="hours-maps" href="${escapeAttr(
+                  mapsUrl
+                )}" target="_blank" rel="noopener noreferrer">地圖</a>`
+              : ""
+          }
+        </td>
         <td class="${b.mfHi ? "hours-cell-hi" : ""}">${escapeHtml(b.mf)}</td>
         <td class="${b.satHi ? "hours-cell-hi" : ""}">${escapeHtml(b.sat)}</td>
         <td class="${b.sunHi ? "hours-cell-hi" : ""}">${escapeHtml(b.sun)}</td>

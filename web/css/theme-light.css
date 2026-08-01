@@ -916,3 +916,31 @@ main {
   justify-content: center;
 }
 
+
+.hours-addr {
+  max-width: 280px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--muted);
+  font-weight: 500;
+}
+.hours-addr-text {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--text);
+  font-weight: 500;
+}
+.hours-maps {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+}
+.hours-maps:hover {
+  text-decoration: underline;
+}
+.hours-table th:nth-child(2),
+.hours-table td.hours-addr {
+  min-width: 12em;
+}
+
