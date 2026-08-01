@@ -25,24 +25,46 @@
         <button type="submit" class="btn btn-primary auth-submit">進入</button>
       </form>
       <p id="auth-error" class="auth-error hidden" role="alert">密碼不正確，請再試</p>
-      <p class="auth-meta">by Barry · v1.4.0</p>
+      <p class="auth-meta">by Barry · v1.5.0</p>
     </div>
   </div>
 
   <div id="app-shell" class="app-shell" hidden>
-    <header class="topbar">
-      <div class="brand">Parkland <span>前台工具箱</span></div>
-      <div class="search-wrap">
-        <input id="search" type="search" placeholder="搜尋：請假、學費、POS、結他…" autocomplete="off" />
+    <div class="sticky-header">
+      <!-- 香港天文台天氣警告條：每 5 分鐘自動更新 -->
+      <div
+        id="weather-bar"
+        class="weather-bar weather-bar--loading"
+        role="status"
+        aria-live="polite"
+        title="資料來源：香港天文台 Open Data"
+      >
+        <div class="weather-bar-main">
+          <span class="weather-bar-icon" aria-hidden="true">⏳</span>
+          <span id="weather-bar-text" class="weather-bar-text">正在讀取天文台天氣警告…</span>
+        </div>
+        <div class="weather-bar-meta">
+          <span id="weather-bar-source" class="weather-bar-source">香港天文台</span>
+          <span class="weather-bar-sep" aria-hidden="true">·</span>
+          <span id="weather-bar-updated" class="weather-bar-updated">—</span>
+          <button type="button" id="weather-bar-refresh" class="weather-bar-refresh" title="立即重新整理">重新整理</button>
+        </div>
       </div>
-      <div class="meta-right" title="by Barry · Version 1.4.0 · Last update 2026-08-01">
-        <span class="meta-by">by Barry</span>
-        <span class="meta-dot" aria-hidden="true">·</span>
-        <span class="meta-ver">v1.4.0</span>
-        <span class="meta-dot" aria-hidden="true">·</span>
-        <span class="meta-update">updated 01 Aug 2026</span>
-      </div>
-    </header>
+
+      <header class="topbar">
+        <div class="brand">Parkland <span>前台工具箱</span></div>
+        <div class="search-wrap">
+          <input id="search" type="search" placeholder="搜尋：請假、學費、POS、結他…" autocomplete="off" />
+        </div>
+        <div class="meta-right" title="by Barry · Version 1.5.0 · Last update 2026-08-01">
+          <span class="meta-by">by Barry</span>
+          <span class="meta-dot" aria-hidden="true">·</span>
+          <span class="meta-ver">v1.5.0</span>
+          <span class="meta-dot" aria-hidden="true">·</span>
+          <span class="meta-update">updated 01 Aug 2026</span>
+        </div>
+      </header>
+    </div>
 
     <div id="file-warning" class="hidden" style="background:#3a2010;color:#ffb020;padding:10px 20px;font-size:13px;border-bottom:1px solid #5a3a10">
       ⚠ 請用網頁網址開啟（GitHub Pages），唔好雙擊本機檔案。複製圖片需要 https。

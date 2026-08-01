@@ -124,6 +124,99 @@ body:not(.locked) .auth-gate { display: none !important; }
 }
 .footer-sep { color: #3d4558; margin: 0 2px; }
 
+/* Sticky stack: weather bar + topbar */
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+/* HKO weather warning strip */
+.weather-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 20px;
+  padding: 9px 16px;
+  font-size: 13px;
+  line-height: 1.35;
+  border-bottom: 1px solid transparent;
+  flex-wrap: wrap;
+}
+.weather-bar-main {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  min-width: 0;
+  flex: 1;
+}
+.weather-bar-icon {
+  flex-shrink: 0;
+  font-size: 15px;
+  line-height: 1.3;
+}
+.weather-bar-text {
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+.weather-bar-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  font-size: 11px;
+  font-weight: 500;
+  opacity: 0.92;
+  white-space: nowrap;
+}
+.weather-bar-sep { opacity: 0.55; }
+.weather-bar-refresh {
+  margin-left: 4px;
+  padding: 3px 9px;
+  border-radius: 6px;
+  border: 1px solid currentColor;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  opacity: 0.9;
+}
+.weather-bar-refresh:hover { opacity: 1; background: rgba(255,255,255,0.12); }
+.weather-bar-refresh:disabled { opacity: 0.5; cursor: wait; }
+
+/* severity colours — 紅／黃條 */
+.weather-bar--loading,
+.weather-bar--idle {
+  background: #1e2433;
+  color: #aeb6c8;
+  border-bottom-color: #2a3040;
+}
+.weather-bar--ok {
+  background: linear-gradient(90deg, #0f3d2a, #145c3a);
+  color: #c8f5dc;
+  border-bottom-color: #1f7a4d;
+}
+.weather-bar--ok .weather-bar-text { font-weight: 600; }
+.weather-bar--yellow {
+  background: linear-gradient(90deg, #7a5a00, #b8860b 40%, #c9a227);
+  color: #1a1400;
+  border-bottom-color: #8a6a00;
+}
+.weather-bar--yellow .weather-bar-meta { color: rgba(26, 20, 0, 0.85); }
+.weather-bar--red {
+  background: linear-gradient(90deg, #8b1010, #c62828 45%, #e53935);
+  color: #fff8f8;
+  border-bottom-color: #7a0c0c;
+}
+.weather-bar--red .weather-bar-meta { color: rgba(255, 248, 248, 0.9); }
+.weather-bar--error {
+  background: #2a2e3a;
+  color: #ffb020;
+  border-bottom-color: #4a4030;
+}
+
 /* Header */
 .topbar {
   display: flex;
@@ -132,9 +225,6 @@ body:not(.locked) .auth-gate { display: none !important; }
   padding: 12px 20px;
   background: var(--panel);
   border-bottom: 1px solid var(--border);
-  position: sticky;
-  top: 0;
-  z-index: 50;
 }
 .brand {
   font-weight: 700;

@@ -2,6 +2,205 @@
 
 const STORAGE_KEY = "parkland-front-desk-drafts-v2";
 
+/** 香港天文台 Open Data — 天氣警告一覽（每 5 分鐘 refresh） */
+const HKO_WARNSUM_URL =
+  "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=warnsum&lang=tc";
+const HKO_REFRESH_MS = 5 * 60 * 1000;
+
+/** 將 HKO type 代碼轉成可讀文字（例如 WRAINR → 紅色） */
+function hkoTypeLabel(type) {
+  if (!type) return "";
+  const t = String(type).toUpperCase();
+  const map = {
+    WRAINA: "黃色",
+    WRAINR: "紅色",
+    WRAINB: "黑色",
+    TC1: "一號戒備",
+    TC3: "三號強風",
+    TC8NE: "八號東北烈風",
+    TC8NW: "八號西北烈風",
+    TC8SE: "八號東南烈風",
+    TC8SW: "八號西南烈風",
+    TC9: "九號烈風或暴風風力增強",
+    TC10: "十號颶風",
+    CANCEL: "取消",
+  };
+  if (map[t]) return map[t];
+  if (/^TC8/.test(t)) return "八號烈風或暴風";
+  // 已是中文或 Amber/Red/Black
+  if (/黃|紅|黑|一號|三號|八號|九號|十號/.test(type)) return type;
+  if (t === "AMBER" || t === "YELLOW") return "黃色";
+  if (t === "RED") return "紅色";
+  if (t === "BLACK") return "黑色";
+  return type;
+}
+
+/**
+ * 警報嚴重程度（影響頂部條紅／黃）
+ * red: 黑雨、紅雨、八號或以上風球等
+ * yellow: 黃雨、一／三號、雷暴、酷熱、寒冷等
+ */
+function hkoSeverity(item) {
+  const code = (item.code || "").toUpperCase();
+  const type = String(item.type || "").toUpperCase();
+  const name = item.name || "";
+  const blob = `${code} ${type} ${name}`;
+
+  // 熱帶氣旋
+  if (code === "WTCSGNL" || /TC\d/.test(type) || name.includes("熱帶氣旋")) {
+    if (/TC8|TC9|TC10|八號|九號|十號/.test(blob)) return "red";
+    return "yellow"; // TC1 / TC3
+  }
+  // 暴雨
+  if (code === "WRAIN" || name.includes("暴雨")) {
+    if (/WRAINB|BLACK|黑色/.test(blob)) return "red";
+    if (/WRAINR|RED|紅色/.test(blob) && !/WRAINA/.test(type)) return "red";
+    return "yellow"; // 黃色 WRAINA
+  }
+  // 其他偏嚴重
+  if (code === "WL" || name.includes("山泥傾瀉")) return "red";
+  if (code === "WTMW" || name.includes("海嘯")) return "red";
+  if (code === "WFNTSA" || name.includes("水浸")) return "yellow";
+  // 雷暴、酷熱、寒冷、季候風、火災、霜凍
+  return "yellow";
+}
+
+function formatHkoTime(iso) {
+  if (!iso) return "";
+  try {
+    const d = new Date(iso);
+    if (Number.isNaN(d.getTime())) return iso;
+    return d.toLocaleString("zh-HK", {
+      month: "numeric",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    });
+  } catch {
+    return iso;
+  }
+}
+
+function formatLocalNow() {
+  return new Date().toLocaleString("zh-HK", {
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  });
+}
+
+function setWeatherBar({ level, text, updatedLabel }) {
+  const bar = $("#weather-bar");
+  const textEl = $("#weather-bar-text");
+  const updatedEl = $("#weather-bar-updated");
+  if (!bar || !textEl) return;
+
+  bar.className = `weather-bar weather-bar--${level}`;
+  const icons = {
+    loading: "⏳",
+    ok: "✅",
+    yellow: "⚠️",
+    red: "🚨",
+    error: "📡",
+    idle: "⏳",
+  };
+  const iconEl = bar.querySelector(".weather-bar-icon");
+  if (iconEl) iconEl.textContent = icons[level] || "ℹ️";
+  textEl.textContent = text;
+  if (updatedEl) updatedEl.textContent = updatedLabel || "—";
+}
+
+async function fetchHkoWarnings() {
+  const res = await fetch(HKO_WARNSUM_URL, { cache: "no-store" });
+  if (!res.ok) throw new Error(`HKO HTTP ${res.status}`);
+  const data = await res.json();
+  // warnsum: object keyed by code, or empty {}
+  const items = Object.values(data || {}).filter(
+    (x) => x && typeof x === "object" && (x.name || x.code)
+  );
+  return items;
+}
+
+async function refreshWeatherBar({ manual = false } = {}) {
+  const btn = $("#weather-bar-refresh");
+  if (btn) btn.disabled = true;
+  if (manual) {
+    setWeatherBar({
+      level: "loading",
+      text: "正在重新讀取天文台天氣警告…",
+      updatedLabel: "更新中…",
+    });
+  }
+
+  try {
+    const items = await fetchHkoWarnings();
+    const fetchedAt = formatLocalNow();
+
+    if (!items.length) {
+      setWeatherBar({
+        level: "ok",
+        text: "而家冇天氣警告（香港天文台）",
+        updatedLabel: `已更新 ${fetchedAt} · 每 5 分鐘自動更新`,
+      });
+      return;
+    }
+
+    // 顯示名稱；若有 type（例如黃色／紅色暴雨、幾號風球）一併顯示
+    const labels = items.map((it) => {
+      const name = it.name || it.code || "警告";
+      const typeLabel = hkoTypeLabel(it.type);
+      if (typeLabel && !name.includes(typeLabel)) {
+        return `${name}（${typeLabel}）`;
+      }
+      return name;
+    });
+
+    const severities = items.map(hkoSeverity);
+    const level = severities.includes("red") ? "red" : "yellow";
+
+    // 用天文台 updateTime 做「資料時間」
+    let hkoUpdated = "";
+    for (const it of items) {
+      if (it.updateTime) {
+        hkoUpdated = formatHkoTime(it.updateTime);
+        break;
+      }
+    }
+
+    setWeatherBar({
+      level,
+      text: `生效警告：${labels.join("　·　")}`,
+      updatedLabel: hkoUpdated
+        ? `天文台 ${hkoUpdated} · 本機 ${fetchedAt} · 每 5 分鐘`
+        : `已更新 ${fetchedAt} · 每 5 分鐘自動更新`,
+    });
+  } catch (e) {
+    console.warn("HKO weather fetch failed", e);
+    setWeatherBar({
+      level: "error",
+      text: "未能讀取天文台警告（請檢查網絡；以天文台最新公布為準）",
+      updatedLabel: `失敗 ${formatLocalNow()} · 將自動再試`,
+    });
+  } finally {
+    if (btn) btn.disabled = false;
+  }
+}
+
+function startWeatherBar() {
+  refreshWeatherBar();
+  // clear old timer if re-init
+  if (startWeatherBar._timer) clearInterval(startWeatherBar._timer);
+  startWeatherBar._timer = setInterval(() => refreshWeatherBar(), HKO_REFRESH_MS);
+
+  const btn = $("#weather-bar-refresh");
+  if (btn && !btn.dataset.bound) {
+    btn.dataset.bound = "1";
+    btn.addEventListener("click", () => refreshWeatherBar({ manual: true }));
+  }
+}
+
 const EMOJI_QUICK = [
   "😊", "🙂", "😅", "🙏", "‼️", "✅", "✔️", "❌",
   "👍", "👌", "🎉", "✨", "⚠️", "📌", "🔔", "💬",
@@ -706,6 +905,7 @@ async function initApp() {
 
   setTab("templates");
   loadMyIp();
+  startWeatherBar();
 }
 
 (async function main() {
