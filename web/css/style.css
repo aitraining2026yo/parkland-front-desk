@@ -1,17 +1,17 @@
-/* 青橘能量 dopamine 配色（只改外觀；功能色語意保留） */
+/* 電光紫粉 dopamine 配色（只改外觀；功能色語意保留） */
 :root {
-  --bg: #0a0f14;
-  --panel: #121a22;
-  --panel2: #1a2530;
-  --border: #2a3a48;
-  --text: #eef6fa;
-  --muted: #8aa0b0;
-  --accent: #22d3ee;      /* 電青 */
-  --accent2: #fb923c;     /* 亮橙 */
-  --accent-soft: #fde047; /* 檸檬高亮（小面積） */
-  --ok: #4ade80;
+  --bg: #0c0e14;
+  --panel: #161a28;
+  --panel2: #1e2436;
+  --border: #2e3548;
+  --text: #eef0f7;
+  --muted: #9aa3b8;
+  --accent: #a78bfa;      /* 電紫 */
+  --accent2: #f472b6;     /* 亮粉 */
+  --accent-soft: #f0abfc; /* 淺紫粉高亮 */
+  --ok: #34d399;
   --warn: #fbbf24;
-  --danger: #f87171;
+  --danger: #f472b6;
   --radius: 12px;
   --font: "Segoe UI", "PingFang HK", "Hiragino Sans GB", "Microsoft JhengHei",
     "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Twemoji Mozilla",
@@ -58,9 +58,9 @@ body:not(.locked) .auth-gate { display: none !important; }
   align-items: center;
   justify-content: center;
   background:
-    radial-gradient(ellipse at 28% 18%, rgba(34, 211, 238, 0.18), transparent 52%),
-    radial-gradient(ellipse at 75% 78%, rgba(251, 146, 60, 0.14), transparent 48%),
-    radial-gradient(ellipse at 50% 100%, rgba(253, 224, 71, 0.06), transparent 40%),
+    radial-gradient(ellipse at 28% 18%, rgba(167, 139, 250, 0.22), transparent 52%),
+    radial-gradient(ellipse at 75% 78%, rgba(244, 114, 182, 0.16), transparent 48%),
+    radial-gradient(ellipse at 50% 100%, rgba(240, 171, 252, 0.08), transparent 40%),
     var(--bg);
   padding: 24px;
 }
@@ -121,11 +121,11 @@ body:not(.locked) .auth-gate { display: none !important; }
 .auth-meta {
   margin: 18px 0 0;
   font-size: 11px;
-  color: #6b8090;
+  color: #7a8298;
   text-align: center;
   letter-spacing: 0.03em;
 }
-.footer-sep { color: #3d5160; margin: 0 2px; }
+.footer-sep { color: #3d4558; margin: 0 2px; }
 
 /* Sticky stack: weather bar + topbar */
 .sticky-header {
@@ -266,17 +266,17 @@ body:not(.locked) .auth-gate { display: none !important; }
   font-size: 11px;
   font-weight: 400;
   letter-spacing: 0.04em;
-  color: #7a90a0;
+  color: #7a8298;
   font-variant-numeric: tabular-nums;
 }
 .meta-by {
   font-style: italic;
   font-weight: 500;
-  color: #8ec8d8;
+  color: #c4b5ff;
   letter-spacing: 0.02em;
 }
 .meta-dot {
-  color: #3d5160;
+  color: #3d4558;
   font-weight: 300;
   user-select: none;
 }
@@ -284,12 +284,12 @@ body:not(.locked) .auth-gate { display: none !important; }
   font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   font-size: 10.5px;
   letter-spacing: 0.06em;
-  color: #67c8dc;
+  color: #a78bfa;
 }
 .meta-update {
   font-size: 10.5px;
   letter-spacing: 0.03em;
-  color: #6b8090;
+  color: #7a8298;
 }
 
 /* Tabs */
@@ -358,7 +358,7 @@ main {
 .chip:hover, .chip.active {
   border-color: var(--accent);
   color: var(--text);
-  background: #163038;
+  background: #241f3a;
 }
 
 .template-list {
@@ -413,9 +413,9 @@ main {
   border-radius: 999px;
   font-size: 11px;
   font-weight: 600;
-  color: #fde047;
-  background: #2a2818;
-  border: 1px solid #6b5a20;
+  color: #f0abfc;
+  background: #2a2440;
+  border: 1px solid #5b3d70;
   vertical-align: middle;
 }
 
@@ -471,7 +471,7 @@ main {
 }
 .emoji-btn:hover {
   border-color: var(--accent);
-  background: #163038;
+  background: #241f3a;
 }
 .card-actions {
   display: flex;
@@ -492,13 +492,13 @@ main {
   font-weight: 600;
   font-size: 13px;
 }
-.btn:hover { border-color: #4a6a7a; }
+.btn:hover { border-color: #5a5570; }
 .btn-primary {
   background: linear-gradient(135deg, var(--accent), var(--accent2));
   border: none;
-  color: #0a0f14;
+  color: white;
   font-weight: 700;
-  box-shadow: 0 4px 16px rgba(34, 211, 238, 0.28);
+  box-shadow: 0 4px 16px rgba(167, 139, 250, 0.32);
 }
 .btn-primary:hover { filter: brightness(1.08); }
 .btn-ghost { background: transparent; }
@@ -578,9 +578,9 @@ main {
   width: 14px;
   height: 14px;
   border-radius: 4px;
-  background: linear-gradient(135deg, #22d3ee, #fb923c);
-  border: 1px solid #22d3ee;
-  box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.3);
+  background: linear-gradient(135deg, #a78bfa, #f472b6);
+  border: 1px solid #a78bfa;
+  box-shadow: 0 0 0 1px rgba(167, 139, 250, 0.3);
 }
 .hours-table-wrap {
   overflow-x: auto;
@@ -616,28 +616,28 @@ main {
   border-bottom: none;
 }
 .hours-table tbody tr:hover td {
-  background: rgba(34, 211, 238, 0.07);
+  background: rgba(167, 139, 250, 0.08);
 }
 .hours-name {
   font-weight: 600;
   white-space: nowrap;
   min-width: 9em;
 }
-/* 非常規時間：青橘 highlight，唔使文字註明 */
+/* 非常規時間：紫粉 highlight，唔使文字註明 */
 .hours-cell-hi {
-  background: linear-gradient(90deg, rgba(251, 146, 60, 0.32), rgba(34, 211, 238, 0.12));
-  color: #fdba74;
+  background: linear-gradient(90deg, rgba(244, 114, 182, 0.28), rgba(167, 139, 250, 0.14));
+  color: #f0abfc;
   font-weight: 700;
   border-radius: 4px;
-  box-shadow: inset 0 0 0 1px rgba(251, 146, 60, 0.45);
+  box-shadow: inset 0 0 0 1px rgba(240, 171, 252, 0.4);
 }
 .hours-row-hi .hours-name {
-  color: #67e8f9;
+  color: #e9d5ff;
 }
 .hours-source {
   margin: 4px 0 20px;
   font-size: 11px;
-  color: #6b8090;
+  color: #7a8298;
 }
 
 /* PDF / policy */
@@ -806,23 +806,23 @@ main {
   border-top: 1px solid var(--border);
   background: var(--panel);
   font-size: 11px;
-  color: #6b8090;
+  color: #7a8298;
 }
-.footer-note { color: #5a7080; }
+.footer-note { color: #5c6478; }
 .my-ip {
   font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.04em;
-  color: #7dd3e8;
+  color: #c4b5ff;
   user-select: all;
 }
-.my-ip.err { color: #f87171; font-weight: 500; }
+.my-ip.err { color: #f472b6; font-weight: 500; }
 .copy-ip-btn {
   appearance: none;
   border: 1px solid var(--border);
   background: var(--panel2);
-  color: #8aa0b0;
+  color: #9aa3b8;
   font-size: 10px;
   padding: 3px 8px;
   border-radius: 6px;
@@ -830,5 +830,5 @@ main {
 }
 .copy-ip-btn:hover {
   color: var(--text);
-  border-color: #4a6a7a;
+  border-color: #5a5570;
 }
