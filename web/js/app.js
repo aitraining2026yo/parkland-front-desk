@@ -794,7 +794,7 @@ function loadBranchesData() {
     return Promise.resolve(state.branches);
   }
 
-  return fetch(`data/branches.json?v=1.9.0`, { cache: "no-store" })
+  return fetch(`data/branches.json?v=1.10.0`, { cache: "no-store" })
     .then((res) => {
       if (!res.ok) throw new Error(`branches.json HTTP ${res.status}`);
       return res.json();
