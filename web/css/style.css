@@ -1,15 +1,17 @@
+/* 蜜桃日落 dopamine 配色（只改外觀；功能色語意保留） */
 :root {
-  --bg: #0f1117;
-  --panel: #181b24;
-  --panel2: #1e2230;
-  --border: #2a3040;
-  --text: #e8eaef;
-  --muted: #9aa3b5;
-  --accent: #7c5cff;
-  --accent2: #5b8cff;
-  --ok: #3dd68c;
-  --warn: #ffb020;
-  --danger: #ff6b6b;
+  --bg: #121018;
+  --panel: #1c1624;
+  --panel2: #261c30;
+  --border: #3d2f45;
+  --text: #fdf4f8;
+  --muted: #b5a3b8;
+  --accent: #fb7185;      /* 珊瑚粉 */
+  --accent2: #c084fc;     /* 柔紫 */
+  --accent-soft: #fdba74; /* 蜜桃高亮（小面積） */
+  --ok: #4ade80;
+  --warn: #fbbf24;
+  --danger: #fb7185;
   --radius: 12px;
   --font: "Segoe UI", "PingFang HK", "Hiragino Sans GB", "Microsoft JhengHei",
     "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Twemoji Mozilla",
@@ -56,8 +58,9 @@ body:not(.locked) .auth-gate { display: none !important; }
   align-items: center;
   justify-content: center;
   background:
-    radial-gradient(ellipse at 30% 20%, rgba(124, 92, 255, 0.18), transparent 50%),
-    radial-gradient(ellipse at 70% 80%, rgba(91, 140, 255, 0.12), transparent 45%),
+    radial-gradient(ellipse at 28% 18%, rgba(251, 113, 133, 0.22), transparent 52%),
+    radial-gradient(ellipse at 75% 78%, rgba(192, 132, 252, 0.16), transparent 48%),
+    radial-gradient(ellipse at 50% 100%, rgba(253, 186, 116, 0.08), transparent 40%),
     var(--bg);
   padding: 24px;
 }
@@ -118,11 +121,11 @@ body:not(.locked) .auth-gate { display: none !important; }
 .auth-meta {
   margin: 18px 0 0;
   font-size: 11px;
-  color: #5c6478;
+  color: #8a7388;
   text-align: center;
   letter-spacing: 0.03em;
 }
-.footer-sep { color: #3d4558; margin: 0 2px; }
+.footer-sep { color: #5a4560; margin: 0 2px; }
 
 /* Sticky stack: weather bar + topbar */
 .sticky-header {
@@ -263,17 +266,17 @@ body:not(.locked) .auth-gate { display: none !important; }
   font-size: 11px;
   font-weight: 400;
   letter-spacing: 0.04em;
-  color: #6b7385;
+  color: #9a8499;
   font-variant-numeric: tabular-nums;
 }
 .meta-by {
   font-style: italic;
   font-weight: 500;
-  color: #8b93a7;
+  color: #c4a8c8;
   letter-spacing: 0.02em;
 }
 .meta-dot {
-  color: #3d4558;
+  color: #5a4560;
   font-weight: 300;
   user-select: none;
 }
@@ -281,12 +284,12 @@ body:not(.locked) .auth-gate { display: none !important; }
   font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   font-size: 10.5px;
   letter-spacing: 0.06em;
-  color: #757e92;
+  color: #b894b0;
 }
 .meta-update {
   font-size: 10.5px;
   letter-spacing: 0.03em;
-  color: #5c6478;
+  color: #8a7388;
 }
 
 /* Tabs */
@@ -355,7 +358,7 @@ main {
 .chip:hover, .chip.active {
   border-color: var(--accent);
   color: var(--text);
-  background: #241f3a;
+  background: #3a2438;
 }
 
 .template-list {
@@ -410,9 +413,9 @@ main {
   border-radius: 999px;
   font-size: 11px;
   font-weight: 600;
-  color: #c4b5ff;
-  background: #2a2440;
-  border: 1px solid #3d3560;
+  color: #fdba74;
+  background: #3a2830;
+  border: 1px solid #6b4550;
   vertical-align: middle;
 }
 
@@ -435,7 +438,7 @@ main {
   color: var(--ok);
   font-weight: 600;
 }
-.save-status.flash { color: #7dffb8; }
+.save-status.flash { color: #86efac; }
 .save-hint {
   font-size: 11px;
   color: var(--muted);
@@ -468,7 +471,7 @@ main {
 }
 .emoji-btn:hover {
   border-color: var(--accent);
-  background: #241f3a;
+  background: #3a2438;
 }
 .card-actions {
   display: flex;
@@ -489,11 +492,12 @@ main {
   font-weight: 600;
   font-size: 13px;
 }
-.btn:hover { border-color: #4a5570; }
+.btn:hover { border-color: #7a5a70; }
 .btn-primary {
   background: linear-gradient(135deg, var(--accent), var(--accent2));
   border: none;
   color: white;
+  box-shadow: 0 4px 16px rgba(251, 113, 133, 0.28);
 }
 .btn-primary:hover { filter: brightness(1.08); }
 .btn-ghost { background: transparent; }
@@ -542,7 +546,7 @@ main {
   min-height: 2.7em;
 }
 .img-card .price {
-  color: #c4b5ff;
+  color: var(--accent-soft);
   font-weight: 700;
   font-size: 14px;
 }
@@ -566,16 +570,16 @@ main {
   align-items: center;
   gap: 6px;
   font-weight: 600;
-  color: #ffd28a;
+  color: var(--accent-soft);
 }
 .hours-legend-hi::before {
   content: "";
   width: 14px;
   height: 14px;
   border-radius: 4px;
-  background: linear-gradient(135deg, #5a3a10, #c48a20);
-  border: 1px solid #e0a84a;
-  box-shadow: 0 0 0 1px rgba(224, 168, 74, 0.25);
+  background: linear-gradient(135deg, #fb7185, #fdba74);
+  border: 1px solid #fdba74;
+  box-shadow: 0 0 0 1px rgba(253, 186, 116, 0.3);
 }
 .hours-table-wrap {
   overflow-x: auto;
@@ -611,28 +615,28 @@ main {
   border-bottom: none;
 }
 .hours-table tbody tr:hover td {
-  background: rgba(124, 92, 255, 0.06);
+  background: rgba(251, 113, 133, 0.07);
 }
 .hours-name {
   font-weight: 600;
   white-space: nowrap;
   min-width: 9em;
 }
-/* 非常規時間：琥珀色 highlight，唔使文字註明 */
+/* 非常規時間：蜜桃琥珀 highlight，唔使文字註明 */
 .hours-cell-hi {
-  background: linear-gradient(90deg, rgba(196, 138, 32, 0.28), rgba(196, 138, 32, 0.12));
-  color: #ffd28a;
+  background: linear-gradient(90deg, rgba(253, 186, 116, 0.32), rgba(251, 113, 133, 0.12));
+  color: #fdba74;
   font-weight: 700;
   border-radius: 4px;
-  box-shadow: inset 0 0 0 1px rgba(224, 168, 74, 0.35);
+  box-shadow: inset 0 0 0 1px rgba(253, 186, 116, 0.4);
 }
 .hours-row-hi .hours-name {
-  color: #e8c48a;
+  color: #f9a8d4;
 }
 .hours-source {
   margin: 4px 0 20px;
   font-size: 11px;
-  color: #5c6478;
+  color: #8a7388;
 }
 
 /* PDF / policy */
@@ -801,23 +805,23 @@ main {
   border-top: 1px solid var(--border);
   background: var(--panel);
   font-size: 11px;
-  color: #5c6478;
+  color: #8a7388;
 }
-.footer-note { color: #4a5163; }
+.footer-note { color: #6b5568; }
 .my-ip {
   font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.04em;
-  color: #a8b0c4;
+  color: #e8c4d4;
   user-select: all;
 }
-.my-ip.err { color: #c47a7a; font-weight: 500; }
+.my-ip.err { color: #fb7185; font-weight: 500; }
 .copy-ip-btn {
   appearance: none;
   border: 1px solid var(--border);
   background: var(--panel2);
-  color: #8b93a7;
+  color: #c4a8c8;
   font-size: 10px;
   padding: 3px 8px;
   border-radius: 6px;
@@ -825,5 +829,5 @@ main {
 }
 .copy-ip-btn:hover {
   color: var(--text);
-  border-color: #4a5570;
+  border-color: #7a5a70;
 }
