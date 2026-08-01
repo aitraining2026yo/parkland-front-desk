@@ -628,14 +628,14 @@ main {
 }
 /* 非常規時間：淺青 highlight，唔使文字註明 */
 .hours-cell-hi {
-  background: linear-gradient(90deg, rgba(244, 114, 182, 0.28), rgba(167, 139, 250, 0.14));
-  color: #bae6fd;
+  background: linear-gradient(90deg, rgba(94, 234, 212, 0.28), rgba(125, 211, 252, 0.14));
+  color: #a5f3fc;
   font-weight: 700;
   border-radius: 4px;
-  box-shadow: inset 0 0 0 1px rgba(240, 171, 252, 0.4);
+  box-shadow: inset 0 0 0 1px rgba(125, 211, 252, 0.4);
 }
 .hours-row-hi .hours-name {
-  color: #e9d5ff;
+  color: #99f6e4;
 }
 .hours-source {
   margin: 4px 0 20px;
