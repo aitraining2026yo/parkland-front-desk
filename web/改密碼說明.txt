@@ -1,9 +1,7 @@
 Parkland 前台工具箱 — 點改密碼
 
-而家密碼：
-  parkland2026barry
-
-網站只儲存密碼嘅 SHA-256 hash（喺 js/config.js），唔會明文寫喺網頁。
+網站只儲存密碼嘅 SHA-256 hash（web/js/config.js），唔放明文。
+（而家用緊嘅密碼請睇 Barry 自己備註，唔好寫入呢個公開檔。）
 
 ── 改密碼步驟 ──
 1. 想好新密碼（例如 MyNewPass123）
