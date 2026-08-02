@@ -1,8 +1,8 @@
 /* Parkland front desk toolkit — desktop only */
 
-const STORAGE_KEY = "parkland-front-desk-drafts-v2";
+const STORAGE_KEY = "parkland-front-desk-drafts-v3";
 const THEME_KEY = "parkland-theme";
-const THEME_CSS_VER = "1.17.0";
+const THEME_CSS_VER = "1.18.0";
 const THEME_CSS = {
   light: `css/theme-light.css?v=${THEME_CSS_VER}`, // v1.11 亮綠
   dark: `css/theme-dark.css?v=${THEME_CSS_VER}`, // v1.8 青橘
@@ -972,7 +972,7 @@ function loadBranchesData() {
     return Promise.resolve(state.branches);
   }
 
-  return fetch(`data/branches.json?v=1.17.0`, { cache: "no-store" })
+  return fetch(`data/branches.json?v=1.18.0`, { cache: "no-store" })
     .then((res) => {
       if (!res.ok) throw new Error(`branches.json HTTP ${res.status}`);
       return res.json();
