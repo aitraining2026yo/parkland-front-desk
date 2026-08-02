@@ -2,7 +2,8 @@
 
 const STORAGE_KEY = "parkland-front-desk-drafts-v3";
 const THEME_KEY = "parkland-theme";
-const THEME_CSS_VER = "1.18.0";
+const THEME_CSS_VER = "1.18.1";
+const DATA_VER = THEME_CSS_VER; // templates/assets 一齊 bust cache
 const THEME_CSS = {
   light: `css/theme-light.css?v=${THEME_CSS_VER}`, // v1.11 亮綠
   dark: `css/theme-dark.css?v=${THEME_CSS_VER}`, // v1.8 青橘
@@ -728,9 +729,9 @@ function renderTemplates() {
         <span id="save-status" class="save-status">${
           draftCount
             ? `已儲存 ${draftCount} 條修改（本機）`
-            : "未有修改 · 改字會自動儲存"
+            : `共 ${state.templates.length} 條模板 · 未有修改 · 改字會自動儲存`
         }</span>
-        <span class="save-hint">只保存在呢部電腦嘅呢個瀏覽器；換電腦唔會跟住</span>
+        <span class="save-hint">只保存在呢部電腦嘅呢個瀏覽器；換電腦唔會跟住 · 搜尋「開學」可搵優惠</span>
       </div>
       <div class="emoji-bar" title="撳文字框後再揀 emoji">
         <span class="emoji-label">Emoji</span>
@@ -1392,20 +1393,23 @@ async function initApp() {
   }
 
   const [tplRes, assetRes] = await Promise.all([
-    fetch("data/templates.json"),
-    fetch("data/assets.json"),
+    fetch(`data/templates.json?v=${DATA_VER}`, { cache: "no-store" }),
+    fetch(`data/assets.json?v=${DATA_VER}`, { cache: "no-store" }),
   ]);
   if (!tplRes.ok) throw new Error(`templates.json HTTP ${tplRes.status}`);
   if (!assetRes.ok) throw new Error(`assets.json HTTP ${assetRes.status}`);
   const tplData = await tplRes.json();
-  state.templates = tplData.templates;
-  state.policySnippets = tplData.policySnippets;
+  state.templates = tplData.templates || [];
+  state.policySnippets = tplData.policySnippets || [];
   state.assets = await assetRes.json();
   // 分校時間：背景預載，失敗唔阻其他 tab；開 hours tab 會再試
   loadBranchesData().catch((e) => console.warn("preload branches failed", e));
   ensureLinksData();
   state.templates.forEach((t) => state.originals.set(t.id, t.body));
   loadDraftsFromStorage();
+  console.info(
+    `[Parkland] templates loaded: ${state.templates.length} · v${DATA_VER}`
+  );
 
   $$(".tab").forEach((btn) => {
     btn.addEventListener("click", () => setTab(btn.dataset.tab));
