@@ -2,7 +2,7 @@
 
 const STORAGE_KEY = "parkland-front-desk-drafts-v3";
 const THEME_KEY = "parkland-theme";
-const THEME_CSS_VER = "1.18.2";
+const THEME_CSS_VER = "1.19.0";
 const DATA_VER = THEME_CSS_VER; // templates/assets 一齊 bust cache
 const THEME_CSS = {
   light: `css/theme-light.css?v=${THEME_CSS_VER}`, // v1.11 亮綠
@@ -1001,7 +1001,18 @@ function paintHoursTable() {
   const std = data.standard || {};
   const list = data.branches.filter((b) =>
     matchSearch(
-      [b.name, b.addr, b.phone, b.region, b.mf, b.sat, b.sun, b.search]
+      [
+        b.name,
+        b.name_en,
+        b.addr,
+        b.addr_en,
+        b.phone,
+        b.region,
+        b.mf,
+        b.sat,
+        b.sun,
+        b.search,
+      ]
         .filter(Boolean)
         .join(" "),
       q
@@ -1038,7 +1049,7 @@ function paintHoursTable() {
       <thead>
         <tr>
           <th>分校</th>
-          <th>地址</th>
+          <th>地址 Address</th>
           <th>一至五</th>
           <th>六</th>
           <th>日</th>
@@ -1048,17 +1059,31 @@ function paintHoursTable() {
     for (const b of rows) {
       const rowHi = b.mfHi || b.satHi || b.sunHi;
       const addr = b.addr || "—";
-      const mapsQ = encodeURIComponent(addr);
+      const addrEn = b.addr_en || "";
+      const nameEn = b.name_en || "";
+      const mapsQ = encodeURIComponent(addrEn || addr);
       const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${mapsQ}`;
       html += `<tr class="${rowHi ? "hours-row-hi" : ""}">
-        <td class="hours-name">${escapeHtml(b.name)}</td>
+        <td class="hours-name">
+          <span class="hours-name-zh">${escapeHtml(b.name)}</span>
+          ${
+            nameEn
+              ? `<span class="hours-name-en">${escapeHtml(nameEn)}</span>`
+              : ""
+          }
+        </td>
         <td class="hours-addr">
           <span class="hours-addr-text">${escapeHtml(addr)}</span>
           ${
-            b.addr
+            addrEn
+              ? `<span class="hours-addr-en">${escapeHtml(addrEn)}</span>`
+              : ""
+          }
+          ${
+            b.addr || addrEn
               ? `<a class="hours-maps" href="${escapeAttr(
                   mapsUrl
-                )}" target="_blank" rel="noopener noreferrer">地圖</a>`
+                )}" target="_blank" rel="noopener noreferrer">地圖 Maps</a>`
               : ""
           }
         </td>

@@ -1,5 +1,5 @@
 {
-  "source": "https://www.parklandmusic.com.hk/contact-us/",
+  "source": "https://www.parklandmusic.com.hk/contact-us/ + /en/contact-us/",
   "updated": "2026-08-03",
   "standard": {
     "mf": "12:00–21:00",
@@ -19,7 +19,9 @@
       "mfHi": true,
       "satHi": true,
       "sunHi": false,
-      "search": "九龍城 九龍城太子道西348-352號薈學坊5樓5D 2327 2128 11:30–20:30 09:00–19:00 09:00–18:00"
+      "search": "九龍城 Kowloon city 九龍城太子道西348-352號薈學坊5樓5D Shop D, 5/F, Smart A 348-352 Prince Edward Road West. Kowloon City, Kowloon, Hong Kong 2327 2128 11:30–20:30 09:00–19:00 09:00–18:00",
+      "name_en": "Kowloon city",
+      "addr_en": "Shop D, 5/F, Smart A 348-352 Prince Edward Road West. Kowloon City, Kowloon, Hong Kong"
     },
     {
       "name": "九龍灣",
@@ -32,7 +34,9 @@
       "mfHi": false,
       "satHi": false,
       "sunHi": false,
-      "search": "九龍灣 九龍灣宏開道16號德福大廈7樓11室 2702 1828 12:00–21:00 09:00–18:00 09:00–18:00"
+      "search": "九龍灣 Kowloon Bay 九龍灣宏開道16號德福大廈7樓11室 Room11, 7/F, Telford House, 16 Wang Hoi Road, Kowloon Bay (Next to Telford Plaza) 2702 1828 12:00–21:00 09:00–18:00 09:00–18:00",
+      "name_en": "Kowloon Bay",
+      "addr_en": "Room11, 7/F, Telford House, 16 Wang Hoi Road, Kowloon Bay (Next to Telford Plaza)"
     },
     {
       "name": "何文田",
@@ -45,7 +49,9 @@
       "mfHi": false,
       "satHi": true,
       "sunHi": false,
-      "search": "何文田 九龍何文田忠孝街60號愛民廣場1樓22A舖 2614 0198 12:00–21:00 09:00–19:00 09:00–18:00"
+      "search": "何文田 Ho Man Tin 九龍何文田忠孝街60號愛民廣場1樓22A舖 Shop 22A, 1/F, Oi Man Plaza, 60 Chung Hau Street, Ho Man Tin, Kowloon 2614 0198 12:00–21:00 09:00–19:00 09:00–18:00",
+      "name_en": "Ho Man Tin",
+      "addr_en": "Shop 22A, 1/F, Oi Man Plaza, 60 Chung Hau Street, Ho Man Tin, Kowloon"
     },
     {
       "name": "土瓜灣",
@@ -58,7 +64,9 @@
       "mfHi": true,
       "satHi": true,
       "sunHi": false,
-      "search": "土瓜灣 土瓜灣馬頭圍道207-211號Spark City 俊薈 (舊址海悅廣場) 105B-F 2326 7055 一 13:00–21:00　二至五 12:00–21:00 09:00–19:00 09:00–18:00"
+      "search": "土瓜灣 To Kwa Wan 土瓜灣馬頭圍道207-211號Spark City 俊薈 (舊址海悅廣場) 105B-F 105 B-F, 1/F, Spark City (Old Address: Horae Plaza), 207-211 Ma Tau Wai Road, To Kwa Wan 2326 7055 一 13:00–21:00　二至五 12:00–21:00 09:00–19:00 09:00–18:00",
+      "name_en": "To Kwa Wan",
+      "addr_en": "105 B-F, 1/F, Spark City (Old Address: Horae Plaza), 207-211 Ma Tau Wai Road, To Kwa Wan"
     },
     {
       "name": "大圍",
@@ -71,7 +79,9 @@
       "mfHi": false,
       "satHi": true,
       "sunHi": false,
-      "search": "大圍 沙田大圍村第10街4號2樓(近積富街休憩處) 2785 2468 12:00–21:00 09:00–19:00 09:00–18:00"
+      "search": "大圍 Tai Wai 沙田大圍村第10街4號2樓(近積富街休憩處) 2/F, 4 Tenth Street, Tai Wai Tsuen, Sha Tin, New Territories (near Chik Fu Street Rest Garden) 2785 2468 12:00–21:00 09:00–19:00 09:00–18:00",
+      "name_en": "Tai Wai",
+      "addr_en": "2/F, 4 Tenth Street, Tai Wai Tsuen, Sha Tin, New Territories (near Chik Fu Street Rest Garden)"
     },
     {
       "name": "彩虹",
@@ -84,7 +94,9 @@
       "mfHi": false,
       "satHi": true,
       "sunHi": false,
-      "search": "彩虹 牛池灣清水灣道45號彩雲商場2期地下上層A112號舖 (馬會下層 近麥當勞) 3741 0838 12:00–21:00 09:00–19:00 09:00–18:00"
+      "search": "彩虹 Choi Hung 牛池灣清水灣道45號彩雲商場2期地下上層A112號舖 (馬會下層 近麥當勞) A112, U UG/F, Phase 2, Choi Wan Commercial Complex, 45 Clear Water Bay Road, Choi Hung 3741 0838 12:00–21:00 09:00–19:00 09:00–18:00",
+      "name_en": "Choi Hung",
+      "addr_en": "A112, U UG/F, Phase 2, Choi Wan Commercial Complex, 45 Clear Water Bay Road, Choi Hung"
     },
     {
       "name": "慈雲山",
@@ -97,7 +109,9 @@
       "mfHi": true,
       "satHi": true,
       "sunHi": false,
-      "search": "慈雲山 慈雲山毓華街23號慈雲山中心606店 3751 3631 11:00–20:00 09:00–19:00 09:00–18:00"
+      "search": "慈雲山 Tsz Wan Shan 慈雲山毓華街23號慈雲山中心606店 Shop 606, Tsz Wan Shan Shopping Centre, 23 Yuk Wah St, Tsz Wan Shan 3751 3631 11:00–20:00 09:00–19:00 09:00–18:00",
+      "name_en": "Tsz Wan Shan",
+      "addr_en": "Shop 606, Tsz Wan Shan Shopping Centre, 23 Yuk Wah St, Tsz Wan Shan"
     },
     {
       "name": "旺角總校",
@@ -110,7 +124,9 @@
       "mfHi": true,
       "satHi": true,
       "sunHi": true,
-      "search": "旺角總校 旺角彌敦道574～576號和富商業大廈9樓(全層) 2660 9138 10:00–22:00 09:00–21:00 10:00–19:00"
+      "search": "旺角總校 Mongkok (Main School) 旺角彌敦道574～576號和富商業大廈9樓(全層) 9/F, Wo Foo Commercial Building, 574-576 Nathan Road, Mongkok 2660 9138 10:00–22:00 09:00–21:00 10:00–19:00",
+      "name_en": "Mongkok (Main School)",
+      "addr_en": "9/F, Wo Foo Commercial Building, 574-576 Nathan Road, Mongkok"
     },
     {
       "name": "油塘",
@@ -123,7 +139,9 @@
       "mfHi": false,
       "satHi": true,
       "sunHi": false,
-      "search": "油塘 油塘高超道38號大本型2樓210號舖 3709 2145 12:00–21:00 09:00–19:00 09:00–18:00"
+      "search": "油塘 Yau Tong 油塘高超道38號大本型2樓210號舖 Shop 210, 2/F, Domain-mall, 38 Ko Chiu Road, Yau Tong, Kowloon 3709 2145 12:00–21:00 09:00–19:00 09:00–18:00",
+      "name_en": "Yau Tong",
+      "addr_en": "Shop 210, 2/F, Domain-mall, 38 Ko Chiu Road, Yau Tong, Kowloon"
     },
     {
       "name": "秀茂坪",
@@ -136,7 +154,9 @@
       "mfHi": false,
       "satHi": true,
       "sunHi": false,
-      "search": "秀茂坪 秀茂坪曉光街21號曉麗商場102號 2628 3078 12:00–21:00 09:00–19:00 09:00–18:00"
+      "search": "秀茂坪 Sau Mau Ping 秀茂坪曉光街21號曉麗商場102號 Shop 102, Hiu Lai Shopping Centre, 21 Hiu Kwong St, Sau Mau Ping 2628 3078 12:00–21:00 09:00–19:00 09:00–18:00",
+      "name_en": "Sau Mau Ping",
+      "addr_en": "Shop 102, Hiu Lai Shopping Centre, 21 Hiu Kwong St, Sau Mau Ping"
     },
     {
       "name": "紅磡",
@@ -149,7 +169,9 @@
       "mfHi": false,
       "satHi": true,
       "sunHi": false,
-      "search": "紅磡 紅磡都會道6-10 號置富都會8樓845號 2180 2018 12:00–21:00 09:00–19:00 09:00–18:00"
+      "search": "紅磡 Hung Hom 紅磡都會道6-10 號置富都會8樓845號 Shop 845, 8/F, Fortune Metropolis, 6-10 Metropolis Drive, Hung Hom 2180 2018 12:00–21:00 09:00–19:00 09:00–18:00",
+      "name_en": "Hung Hom",
+      "addr_en": "Shop 845, 8/F, Fortune Metropolis, 6-10 Metropolis Drive, Hung Hom"
     },
     {
       "name": "荔枝角",
@@ -162,7 +184,9 @@
       "mfHi": false,
       "satHi": true,
       "sunHi": true,
-      "search": "荔枝角 荔枝角宇晴軒商場 2/F 50號舖 2528 1885 12:00–21:00 10:00–20:00 10:00–19:00"
+      "search": "荔枝角 Lai Chi Kok 荔枝角宇晴軒商場 2/F 50號舖 Shop No 50, 2/F, The Pacifica Mall, 9 Sham Shing Rd, Lai Chi Kok 2528 1885 12:00–21:00 10:00–20:00 10:00–19:00",
+      "name_en": "Lai Chi Kok",
+      "addr_en": "Shop No 50, 2/F, The Pacifica Mall, 9 Sham Shing Rd, Lai Chi Kok"
     },
     {
       "name": "藍田",
@@ -175,7 +199,9 @@
       "mfHi": false,
       "satHi": false,
       "sunHi": false,
-      "search": "藍田 藍田碧雲道223號德田商場3樓313舖 3499 1018 12:00–21:00 09:00–18:00 09:00–18:00"
+      "search": "藍田 Lam Tin 藍田碧雲道223號德田商場3樓313舖 Shop No.313, 3/F Tak Tin Plaza, Tak Tin Estate, 223 Pik Wan Road, Kowloon, Hong Kong 3499 1018 12:00–21:00 09:00–18:00 09:00–18:00",
+      "name_en": "Lam Tin",
+      "addr_en": "Shop No.313, 3/F Tak Tin Plaza, Tak Tin Estate, 223 Pik Wan Road, Kowloon, Hong Kong"
     },
     {
       "name": "觀塘",
@@ -188,7 +214,9 @@
       "mfHi": false,
       "satHi": true,
       "sunHi": false,
-      "search": "觀塘 觀塘成業街6號泓富廣場18樓1806A 2111 0867 12:00–21:00 10:00–20:00 09:00–18:00"
+      "search": "觀塘 Kwun Tong 觀塘成業街6號泓富廣場18樓1806A Unit No: 1806A, 18/F, Prosperity Place, 6 Shing Yip Street, Kwun Tong, Hong Kong 2111 0867 12:00–21:00 10:00–20:00 09:00–18:00",
+      "name_en": "Kwun Tong",
+      "addr_en": "Unit No: 1806A, 18/F, Prosperity Place, 6 Shing Yip Street, Kwun Tong, Hong Kong"
     },
     {
       "name": "長沙灣",
@@ -201,7 +229,9 @@
       "mfHi": false,
       "satHi": true,
       "sunHi": false,
-      "search": "長沙灣 九龍長沙灣東京街 12 號麗閣商場地下 G20A 3460 3181 12:00–21:00 09:00–19:00 09:00–18:00"
+      "search": "長沙灣 Cheung Sha Wan 九龍長沙灣東京街 12 號麗閣商場地下 G20A G20A, Ground Floor, Lai Kok Shopping Centre, 12 Tonkin Street, Cheung Sha Wan, Kowloon 3460 3181 12:00–21:00 09:00–19:00 09:00–18:00",
+      "name_en": "Cheung Sha Wan",
+      "addr_en": "G20A, Ground Floor, Lai Kok Shopping Centre, 12 Tonkin Street, Cheung Sha Wan, Kowloon"
     },
     {
       "name": "黃埔",
@@ -214,7 +244,9 @@
       "mfHi": false,
       "satHi": false,
       "sunHi": false,
-      "search": "黃埔 黃埔天地家居庭(12期 )地庫 Home100 62號舖 2713 2663 12:00–21:00 09:00–18:00 09:00–18:00"
+      "search": "黃埔 Whampoa 黃埔天地家居庭(12期 )地庫 Home100 62號舖 Shop 62, Home 100 basement of Home World (Site 12), The Whampoa, Kowloon, Hong Kong 2713 2663 12:00–21:00 09:00–18:00 09:00–18:00",
+      "name_en": "Whampoa",
+      "addr_en": "Shop 62, Home 100 basement of Home World (Site 12), The Whampoa, Kowloon, Hong Kong"
     },
     {
       "name": "黃大仙／鑽石山",
@@ -227,7 +259,9 @@
       "mfHi": false,
       "satHi": true,
       "sunHi": false,
-      "search": "黃大仙／鑽石山 黃大仙現祟山商場 106號舖 2111 9930 12:00–21:00 09:00–19:00 09:00–18:00"
+      "search": "黃大仙／鑽石山 Wong Tai Sin / Diamond Hill 黃大仙現祟山商場 106號舖 Shop 106, Lions Rise Mall, 8 Muk Lun Street, Wong Tai Sin 2111 9930 12:00–21:00 09:00–19:00 09:00–18:00",
+      "name_en": "Wong Tai Sin / Diamond Hill",
+      "addr_en": "Shop 106, Lions Rise Mall, 8 Muk Lun Street, Wong Tai Sin"
     },
     {
       "name": "中環",
@@ -240,7 +274,9 @@
       "mfHi": false,
       "satHi": false,
       "sunHi": false,
-      "search": "中環 中環擺花街18-20號嘉寶商業大廈12樓06室 3568 9346 12:00–21:00 09:00–18:00 09:00–18:00"
+      "search": "中環 Central 中環擺花街18-20號嘉寶商業大廈12樓06室 Unit 6, 12/F, Car Po Commercial Building, 18-20 Lyndhurst Terrace, Central 3568 9346 12:00–21:00 09:00–18:00 09:00–18:00",
+      "name_en": "Central",
+      "addr_en": "Unit 6, 12/F, Car Po Commercial Building, 18-20 Lyndhurst Terrace, Central"
     },
     {
       "name": "北角",
@@ -253,7 +289,9 @@
       "mfHi": false,
       "satHi": true,
       "sunHi": false,
-      "search": "北角 北角琴行街4號W Business Center 7樓全層(北角雞蛋仔側) 2503 2382 12:00–21:00 09:00–19:00 09:00–18:00"
+      "search": "北角 North Point 北角琴行街4號W Business Center 7樓全層(北角雞蛋仔側) 7/F, W Business Center, 4 Kam Hong Street, North Point 2503 2382 12:00–21:00 09:00–19:00 09:00–18:00",
+      "name_en": "North Point",
+      "addr_en": "7/F, W Business Center, 4 Kam Hong Street, North Point"
     },
     {
       "name": "堅尼地城",
@@ -266,7 +304,9 @@
       "mfHi": false,
       "satHi": true,
       "sunHi": true,
-      "search": "堅尼地城 堅尼地城吉席街18號地下E舖 (北街電車站) 2855 8599 12:00–21:00 10:00–20:00 10:00–20:00"
+      "search": "堅尼地城 Kennedy Town 堅尼地城吉席街18號地下E舖 (北街電車站) Shop E, G/F., 18 Catchick Street, Kennedy Town, Hong Kong 2855 8599 12:00–21:00 10:00–20:00 10:00–20:00",
+      "name_en": "Kennedy Town",
+      "addr_en": "Shop E, G/F., 18 Catchick Street, Kennedy Town, Hong Kong"
     },
     {
       "name": "太古",
@@ -279,7 +319,9 @@
       "mfHi": false,
       "satHi": true,
       "sunHi": false,
-      "search": "太古 太古康怡廣場1304室 2890 9088 12:00–21:00 09:00–19:00 09:00–18:00"
+      "search": "太古 Tai Koo 太古康怡廣場1304室 Room Nos. 1304, 13/F, Kornhill Plaza, Taikoo 2890 9088 12:00–21:00 09:00–19:00 09:00–18:00",
+      "name_en": "Tai Koo",
+      "addr_en": "Room Nos. 1304, 13/F, Kornhill Plaza, Taikoo"
     },
     {
       "name": "柴灣",
@@ -292,7 +334,9 @@
       "mfHi": true,
       "satHi": true,
       "sunHi": false,
-      "search": "柴灣 柴灣環翠商場106號舖  13:00–22:00 09:00–19:00 09:00–18:00"
+      "search": "柴灣 Chai Wan 柴灣環翠商場106號舖 Shop 106 ,Wan Tsui Shopping Centre, 2 Wah Ha Street, Chai Wan  13:00–22:00 09:00–19:00 09:00–18:00",
+      "name_en": "Chai Wan",
+      "addr_en": "Shop 106 ,Wan Tsui Shopping Centre, 2 Wah Ha Street, Chai Wan"
     },
     {
       "name": "西營盤",
@@ -305,7 +349,9 @@
       "mfHi": false,
       "satHi": true,
       "sunHi": false,
-      "search": "西營盤 西營盤般咸道64號嘉麗苑4號地舖(港鐵站C出口對面) 2803 2997 12:00–21:00 09:00–19:00 09:00–18:00"
+      "search": "西營盤 Sai Ying Pun 西營盤般咸道64號嘉麗苑4號地舖(港鐵站C出口對面) G/F, Skylight Tower, 64 Bonham Road, Sai Ying Pun 2803 2997 12:00–21:00 09:00–19:00 09:00–18:00",
+      "name_en": "Sai Ying Pun",
+      "addr_en": "G/F, Skylight Tower, 64 Bonham Road, Sai Ying Pun"
     },
     {
       "name": "銅鑼灣",
@@ -318,7 +364,9 @@
       "mfHi": false,
       "satHi": true,
       "sunHi": true,
-      "search": "銅鑼灣 銅鑼灣駱克道447-449號中威商業大廈 8樓(全層) 2893 8929 12:00–21:00 09:00–19:00 09:00–19:00"
+      "search": "銅鑼灣 Causeway Bay 銅鑼灣駱克道447-449號中威商業大廈 8樓(全層) 8/F, Chung Wai Commercial Bldg., Nos447-449 Lockhart Rd., Causeway Bay 2893 8929 12:00–21:00 09:00–19:00 09:00–19:00",
+      "name_en": "Causeway Bay",
+      "addr_en": "8/F, Chung Wai Commercial Bldg., Nos447-449 Lockhart Rd., Causeway Bay"
     },
     {
       "name": "香港仔",
@@ -331,7 +379,9 @@
       "mfHi": false,
       "satHi": true,
       "sunHi": true,
-      "search": "香港仔 香港仔中心2期2樓A19號舖 2890 8970 12:00–21:00 10:00–20:00 10:00–19:00"
+      "search": "香港仔 Aberdeen 香港仔中心2期2樓A19號舖 Shop A19, 2/F, Site 2, Aberdeen Centre, 7-11 Nam Ning Street, Aberdeen, Hong Kong 2890 8970 12:00–21:00 10:00–20:00 10:00–19:00",
+      "name_en": "Aberdeen",
+      "addr_en": "Shop A19, 2/F, Site 2, Aberdeen Centre, 7-11 Nam Ning Street, Aberdeen, Hong Kong"
     },
     {
       "name": "上水",
@@ -344,7 +394,9 @@
       "mfHi": false,
       "satHi": false,
       "sunHi": false,
-      "search": "上水 新界上水龍琛路48號上水匯4樓412店 2975 4833 12:00–21:00 09:00–18:00 09:00–18:00"
+      "search": "上水 Sheung Shui 新界上水龍琛路48號上水匯4樓412店 No. 412 on 4/F Spot, 48 Lung Sum Avenue, Sheung Shui, New Territories, Hong Kong 2975 4833 12:00–21:00 09:00–18:00 09:00–18:00",
+      "name_en": "Sheung Shui",
+      "addr_en": "No. 412 on 4/F Spot, 48 Lung Sum Avenue, Sheung Shui, New Territories, Hong Kong"
     },
     {
       "name": "元朗",
@@ -357,7 +409,9 @@
       "mfHi": false,
       "satHi": true,
       "sunHi": false,
-      "search": "元朗 元朗大馬路109號元朗貿易中心10樓01室(大馬路麥當勞樓上) 2250 7399 12:00–21:00 09:00–19:00 09:00–18:00"
+      "search": "元朗 Yuen Long 元朗大馬路109號元朗貿易中心10樓01室(大馬路麥當勞樓上) Unit 01, 10/F, Yuen Long Trade Centre, 109 Castle Peak Rd (Above McDonald’s, Main Rd) 2250 7399 12:00–21:00 09:00–19:00 09:00–18:00",
+      "name_en": "Yuen Long",
+      "addr_en": "Unit 01, 10/F, Yuen Long Trade Centre, 109 Castle Peak Rd (Above McDonald’s, Main Rd)"
     },
     {
       "name": "大埔（寶湖）",
@@ -370,7 +424,9 @@
       "mfHi": false,
       "satHi": true,
       "sunHi": false,
-      "search": "大埔（寶湖） 大埔寶湖道3號寶湖花園商場2樓208B舖 2638 3988 12:00–21:00 09:00–19:00 09:00–18:00"
+      "search": "大埔（寶湖） Tai Po 大埔寶湖道3號寶湖花園商場2樓208B舖 Shop 208B, Level 2, Plover Cove Garden, No. 3 Plover Cove Rd (Next to Choi Fook Rest.) 2638 3988 12:00–21:00 09:00–19:00 09:00–18:00",
+      "name_en": "Tai Po",
+      "addr_en": "Shop 208B, Level 2, Plover Cove Garden, No. 3 Plover Cove Rd (Next to Choi Fook Rest.)"
     },
     {
       "name": "大埔（運頭塘）",
@@ -383,7 +439,9 @@
       "mfHi": true,
       "satHi": true,
       "sunHi": true,
-      "search": "大埔（運頭塘） 香港大埔運頭塘新城6A鋪 2667 7181 11:00–20:00 10:00–19:00 10:00–19:00"
+      "search": "大埔（運頭塘） Tai Po (Wan Tau Tong Shopping Centre) 香港大埔運頭塘新城6A鋪 Shop 6A Wan Tau Tong Shopping Centre, Tai Po, New Territories, Hong Kong 2667 7181 11:00–20:00 10:00–19:00 10:00–19:00",
+      "name_en": "Tai Po (Wan Tau Tong Shopping Centre)",
+      "addr_en": "Shop 6A Wan Tau Tong Shopping Centre, Tai Po, New Territories, Hong Kong"
     },
     {
       "name": "天水圍天澤",
@@ -396,7 +454,9 @@
       "mfHi": false,
       "satHi": false,
       "sunHi": false,
-      "search": "天水圍天澤 天水圍天瑞路天澤商場303號 3705 9734 12:00–21:00 09:00–18:00 09:00–18:00"
+      "search": "天水圍天澤 Tin Shui Wai (Tin Chak) 天水圍天瑞路天澤商場303號 Shop 303, Tin Chak Shopping Centre, Tin Chak Estate,71, 73, 75 & 77 Tin Shui Road, Tin Shui Wai, Hong Kong 3705 9734 12:00–21:00 09:00–18:00 09:00–18:00",
+      "name_en": "Tin Shui Wai (Tin Chak)",
+      "addr_en": "Shop 303, Tin Chak Shopping Centre, Tin Chak Estate,71, 73, 75 & 77 Tin Shui Road, Tin Shui Wai, Hong Kong"
     },
     {
       "name": "天水圍（嘉湖）",
@@ -409,7 +469,9 @@
       "mfHi": false,
       "satHi": false,
       "sunHi": false,
-      "search": "天水圍（嘉湖） 天水圍嘉湖一期154b號鋪 2877 9377 12:00–21:00 09:00–18:00 09:00–18:00"
+      "search": "天水圍（嘉湖） Tin Shui Wai (Fortune Kingswood) 天水圍嘉湖一期154b號鋪 154b, Fortune Kingswood Phase 1, Tin Yan Rd, Tin Shui Wai 2877 9377 12:00–21:00 09:00–18:00 09:00–18:00",
+      "name_en": "Tin Shui Wai (Fortune Kingswood)",
+      "addr_en": "154b, Fortune Kingswood Phase 1, Tin Yan Rd, Tin Shui Wai"
     },
     {
       "name": "將軍澳（坑口）",
@@ -422,7 +484,9 @@
       "mfHi": false,
       "satHi": true,
       "sunHi": false,
-      "search": "將軍澳（坑口） 將軍澳坑口南豐廣場商場一樓B10舖 2328 3128 12:00–21:00 09:00–19:00 09:00–18:00"
+      "search": "將軍澳（坑口） Tseung Kwan O (Hang Hau) 將軍澳坑口南豐廣場商場一樓B10舖 Unit B10, Nan Fung Plaza, 8 Pui Shing Road, Tseung Kwan O, New Territories 2328 3128 12:00–21:00 09:00–19:00 09:00–18:00",
+      "name_en": "Tseung Kwan O (Hang Hau)",
+      "addr_en": "Unit B10, Nan Fung Plaza, 8 Pui Shing Road, Tseung Kwan O, New Territories"
     },
     {
       "name": "將軍澳（天晉）",
@@ -435,7 +499,9 @@
       "mfHi": false,
       "satHi": true,
       "sunHi": false,
-      "search": "將軍澳（天晉） 將軍澳唐俊街12號, Popwalk 一樓109號鋪（近地鐵A2出口，天晉匯一期） 5110 5329 12:00–21:00 09:00–19:00 09:00–18:00"
+      "search": "將軍澳（天晉） Tsuen Kwan O (The Wings) 將軍澳唐俊街12號, Popwalk 一樓109號鋪（近地鐵A2出口，天晉匯一期） Shop 109,1/F, PopWalk, 12 Tong Chun Street, Tseung Kwan O 5110 5329 12:00–21:00 09:00–19:00 09:00–18:00",
+      "name_en": "Tsuen Kwan O (The Wings)",
+      "addr_en": "Shop 109,1/F, PopWalk, 12 Tong Chun Street, Tseung Kwan O"
     },
     {
       "name": "將軍澳（新都城）",
@@ -448,7 +514,9 @@
       "mfHi": false,
       "satHi": false,
       "sunHi": false,
-      "search": "將軍澳（新都城） 將軍澳運享路1號新都城中心一期商場 G/F 87號舖 3499 1926 12:00–21:00 09:00–18:00 09:00–18:00"
+      "search": "將軍澳（新都城） Tsuen Kwan O (Metro City) 將軍澳運享路1號新都城中心一期商場 G/F 87號舖 Shop No. G87, G/F, Metro City Phase I, 1 Wan Hang Road, Tseung Kwan O, New Territories, Hong Kong 3499 1926 12:00–21:00 09:00–18:00 09:00–18:00",
+      "name_en": "Tsuen Kwan O (Metro City)",
+      "addr_en": "Shop No. G87, G/F, Metro City Phase I, 1 Wan Hang Road, Tseung Kwan O, New Territories, Hong Kong"
     },
     {
       "name": "屯門（建生商場）",
@@ -461,7 +529,9 @@
       "mfHi": false,
       "satHi": false,
       "sunHi": false,
-      "search": "屯門（建生商場） 新界屯門良運街3號建生商場地下114號鋪（大快活對面） 3489 0133 12:00–21:00 09:00–18:00 09:00–18:00"
+      "search": "屯門（建生商場） Tuen Mun (Kin Sang Shopping Centre) 新界屯門良運街3號建生商場地下114號鋪（大快活對面） Shop No. 114, Ground Floor, Kin Sang Shopping Centre, Kin Sang Estate, 3 LEUNG WAN STREET,Tuen Mun, New Territories, Hong Kong 3489 0133 12:00–21:00 09:00–18:00 09:00–18:00",
+      "name_en": "Tuen Mun (Kin Sang Shopping Centre)",
+      "addr_en": "Shop No. 114, Ground Floor, Kin Sang Shopping Centre, Kin Sang Estate, 3 LEUNG WAN STREET,Tuen Mun, New Territories, Hong Kong"
     },
     {
       "name": "屯門（柏麗）",
@@ -474,7 +544,9 @@
       "mfHi": false,
       "satHi": true,
       "sunHi": true,
-      "search": "屯門（柏麗） 屯門屯喜路2號柏麗廣場20樓11室 2953 0268 12:00–21:00 09:00–19:00 09:00–19:00"
+      "search": "屯門（柏麗） Tuen Mun (Parklane) 屯門屯喜路2號柏麗廣場20樓11室 Unit 11 20/F, Parklane Square, 2 Tuen Hi Road, Tuen Mun 2953 0268 12:00–21:00 09:00–19:00 09:00–19:00",
+      "name_en": "Tuen Mun (Parklane)",
+      "addr_en": "Unit 11 20/F, Parklane Square, 2 Tuen Hi Road, Tuen Mun"
     },
     {
       "name": "朗屏",
@@ -487,7 +559,9 @@
       "mfHi": false,
       "satHi": true,
       "sunHi": false,
-      "search": "朗屏 元朗朗屏商場石屏樓平台11號舖 3620 3136 12:00–21:00 09:00–19:00 09:00–18:00"
+      "search": "朗屏 Long Ping 元朗朗屏商場石屏樓平台11號舖 No. M11, M/F, Shek Ping House, Long Ping Estate, Yuen Long, NT 3620 3136 12:00–21:00 09:00–19:00 09:00–18:00",
+      "name_en": "Long Ping",
+      "addr_en": "No. M11, M/F, Shek Ping House, Long Ping Estate, Yuen Long, NT"
     },
     {
       "name": "沙田瀝源",
@@ -500,7 +574,9 @@
       "mfHi": false,
       "satHi": true,
       "sunHi": false,
-      "search": "沙田瀝源 沙田瀝源街6號瀝源廣場2樓209室 3563 8424 12:00–21:00 09:00–19:00 09:00–18:00"
+      "search": "沙田瀝源 Sha Tin (Lek Yuen) 沙田瀝源街6號瀝源廣場2樓209室 Shop 209, Second Floor,Lek Yuen Plaza, No. 6 Lek Yuen Street, Shatin, New Territories 3563 8424 12:00–21:00 09:00–19:00 09:00–18:00",
+      "name_en": "Sha Tin (Lek Yuen)",
+      "addr_en": "Shop 209, Second Floor,Lek Yuen Plaza, No. 6 Lek Yuen Street, Shatin, New Territories"
     },
     {
       "name": "沙田（第一城）",
@@ -513,7 +589,9 @@
       "mfHi": false,
       "satHi": true,
       "sunHi": false,
-      "search": "沙田（第一城） 沙田第一城23座地下A舖 2623 9988 12:00–21:00 09:00–19:00 09:00–18:00"
+      "search": "沙田（第一城） Sha Tin 沙田第一城23座地下A舖 Shop A, G/F., Tower Block 23, City One Shatin, Shatin, New Territories 2623 9988 12:00–21:00 09:00–19:00 09:00–18:00",
+      "name_en": "Sha Tin",
+      "addr_en": "Shop A, G/F., Tower Block 23, City One Shatin, Shatin, New Territories"
     },
     {
       "name": "粉嶺",
@@ -526,7 +604,9 @@
       "mfHi": false,
       "satHi": true,
       "sunHi": false,
-      "search": "粉嶺 粉嶺帝庭軒商場地下15AB舖 3621 0858 12:00–21:00 09:00–19:00 09:00–18:00"
+      "search": "粉嶺 Fanling 粉嶺帝庭軒商場地下15AB舖 Shop 15AB, Regentville Shopping Mall, 8 Wo Mun Street, Fanling 3621 0858 12:00–21:00 09:00–19:00 09:00–18:00",
+      "name_en": "Fanling",
+      "addr_en": "Shop 15AB, Regentville Shopping Mall, 8 Wo Mun Street, Fanling"
     },
     {
       "name": "粉嶺中心",
@@ -539,7 +619,9 @@
       "mfHi": false,
       "satHi": true,
       "sunHi": true,
-      "search": "粉嶺中心 香港粉嶺新運路33號粉嶺中心1樓253A舖 2881 9977 12:00–21:00 10:00–19:00 10:00–19:00"
+      "search": "粉嶺中心 Fanling Centre 香港粉嶺新運路33號粉嶺中心1樓253A舖 Shop No. 253A, 1/F, Fanling Centre, 33 San Wan Road, Fanling, New Territories, Hong Kong 2881 9977 12:00–21:00 10:00–19:00 10:00–19:00",
+      "name_en": "Fanling Centre",
+      "addr_en": "Shop No. 253A, 1/F, Fanling Centre, 33 San Wan Road, Fanling, New Territories, Hong Kong"
     },
     {
       "name": "荃灣",
@@ -552,7 +634,9 @@
       "mfHi": false,
       "satHi": true,
       "sunHi": false,
-      "search": "荃灣 荃灣青山公路 264-298 號南豐中心9樓907室 2439 6628 12:00–21:00 09:00–19:00 09:00–18:00"
+      "search": "荃灣 Tsuen Wan 荃灣青山公路 264-298 號南豐中心9樓907室 Room 907, 9/F, Nan Fung Centre, 264-298 Castle Peak Road, Tsuen Wan 2439 6628 12:00–21:00 09:00–19:00 09:00–18:00",
+      "name_en": "Tsuen Wan",
+      "addr_en": "Room 907, 9/F, Nan Fung Centre, 264-298 Castle Peak Road, Tsuen Wan"
     },
     {
       "name": "荃灣 Plaza 88",
@@ -565,7 +649,9 @@
       "mfHi": false,
       "satHi": false,
       "sunHi": false,
-      "search": "荃灣 Plaza 88 新界荃灣西楊屋道88號 Plaza 88 5樓509舖 2393 3188 12:00–21:00 09:00–18:00 09:00–18:00"
+      "search": "荃灣 Plaza 88 Tsuen Wan West(Plaza 88) 新界荃灣西楊屋道88號 Plaza 88 5樓509舖 Shop 9, 5/F., Plaza 88, 88 Yeung Uk Road, Tsuen Wan West, New Territories, Hong Kong 2393 3188 12:00–21:00 09:00–18:00 09:00–18:00",
+      "name_en": "Tsuen Wan West(Plaza 88)",
+      "addr_en": "Shop 9, 5/F., Plaza 88, 88 Yeung Uk Road, Tsuen Wan West, New Territories, Hong Kong"
     },
     {
       "name": "葵芳",
@@ -578,7 +664,9 @@
       "mfHi": false,
       "satHi": true,
       "sunHi": false,
-      "search": "葵芳 葵芳 葵芳廣場1樓118號舖 2321 0608 12:00–21:00 09:00–19:00 09:00–18:00"
+      "search": "葵芳 Kwai Fong 葵芳 葵芳廣場1樓118號舖 Shop No. 118, 1/F, Kwai Fong Plaza, 177 Hing Fong Road, Kwai Chung 2321 0608 12:00–21:00 09:00–19:00 09:00–18:00",
+      "name_en": "Kwai Fong",
+      "addr_en": "Shop No. 118, 1/F, Kwai Fong Plaza, 177 Hing Fong Road, Kwai Chung"
     },
     {
       "name": "青衣",
@@ -591,7 +679,9 @@
       "mfHi": false,
       "satHi": true,
       "sunHi": false,
-      "search": "青衣 青衣青綠街7-19號青怡廣場地下25舖 2561 2050 12:00–21:00 09:00–19:00 09:00–18:00"
+      "search": "青衣 Tsing Yi 青衣青綠街7-19號青怡廣場地下25舖 Shop 25 on ground floor of Tsing Yi Square, Tsing Yi Garden, Nos. 7-19 Tsing Luk Street, Tsing Yi, New Territories 2561 2050 12:00–21:00 09:00–19:00 09:00–18:00",
+      "name_en": "Tsing Yi",
+      "addr_en": "Shop 25 on ground floor of Tsing Yi Square, Tsing Yi Garden, Nos. 7-19 Tsing Luk Street, Tsing Yi, New Territories"
     },
     {
       "name": "馬鞍山",
@@ -604,7 +694,9 @@
       "mfHi": false,
       "satHi": true,
       "sunHi": false,
-      "search": "馬鞍山 馬鞍山頌安商場121號舖 (酒樓對面) 2698 8498 12:00–21:00 09:00–19:00 09:00–18:00"
+      "search": "馬鞍山 Ma On Shan 馬鞍山頌安商場121號舖 (酒樓對面) Shop 121 ,Chung On Shopping Centre , 632 Sai Sha Road , Ma On Shan 2698 8498 12:00–21:00 09:00–19:00 09:00–18:00",
+      "name_en": "Ma On Shan",
+      "addr_en": "Shop 121 ,Chung On Shopping Centre , 632 Sai Sha Road , Ma On Shan"
     },
     {
       "name": "台北",
@@ -617,7 +709,9 @@
       "mfHi": false,
       "satHi": true,
       "sunHi": true,
-      "search": "台北 台北市中正區南昌路一段33號2樓 02-2395-9138 12:00–21:00 10:00–19:00 10:00–19:00"
+      "search": "台北 Taipei (Main School) 台北市中正區南昌路一段33號2樓 2F., No. 33, Sec. 1, Nanchang Rd., Zhongzheng Dist., Taipei City 02-2395-9138 12:00–21:00 10:00–19:00 10:00–19:00",
+      "name_en": "Taipei (Main School)",
+      "addr_en": "2F., No. 33, Sec. 1, Nanchang Rd., Zhongzheng Dist., Taipei City"
     },
     {
       "name": "曼城",
@@ -630,7 +724,9 @@
       "mfHi": false,
       "satHi": true,
       "sunHi": true,
-      "search": "曼城 21 Stamford Street, Altrincham England,WA14 1EX 07778602283 12:00–21:00 09:00–19:00 09:00–16:00"
+      "search": "曼城 Manchester (Main School) 21 Stamford Street, Altrincham England,WA14 1EX 21 Stamford St, Altrincham, WA14 1EX 07778602283 12:00–21:00 09:00–19:00 09:00–16:00",
+      "name_en": "Manchester (Main School)",
+      "addr_en": "21 Stamford St, Altrincham, WA14 1EX"
     }
   ]
 }
