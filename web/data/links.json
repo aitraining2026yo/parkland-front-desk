@@ -1,6 +1,6 @@
 {
   "source": "常用連結/常用連結.rtf",
-  "updated": "2026-08-01",
+  "updated": "2026-08-03",
   "links": [
     {
       "id": "pt-checkin",
@@ -25,6 +25,14 @@
       "desc": "YouTube Shorts",
       "group": "其他",
       "search": "youtube shorts kobe emotions 情緒"
+    },
+    {
+      "id": "deepl",
+      "title": "DeepL 翻譯",
+      "url": "https://www.deepl.com/zh/translator",
+      "desc": "中英／多語言翻譯",
+      "group": "工具",
+      "search": "deepl 翻譯 translate english 中英"
     }
   ]
 }
