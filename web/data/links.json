@@ -33,6 +33,14 @@
       "desc": "中英／多語言翻譯",
       "group": "工具",
       "search": "deepl 翻譯 translate english 中英"
+    },
+    {
+      "id": "shop-receipt-upload",
+      "title": "分店入數紙上傳",
+      "url": "https://form.jotform.com/260109107182044",
+      "desc": "分店入數紙上傳（Jotform）",
+      "group": "行政",
+      "search": "入數紙 上傳 分店 jotform 收據 receipt"
     }
   ]
 }
