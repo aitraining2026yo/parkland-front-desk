@@ -2,7 +2,7 @@
 
 const STORAGE_KEY = "parkland-front-desk-drafts-v3";
 const THEME_KEY = "parkland-theme";
-const THEME_CSS_VER = "1.19.2";
+const THEME_CSS_VER = "1.19.3";
 const DATA_VER = THEME_CSS_VER; // templates/assets 一齊 bust cache
 const THEME_CSS = {
   light: `css/theme-light.css?v=${THEME_CSS_VER}`, // v1.11 亮綠
