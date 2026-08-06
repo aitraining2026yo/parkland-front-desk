@@ -2,7 +2,9 @@
 
 const STORAGE_KEY = "parkland-front-desk-drafts-v3";
 const THEME_KEY = "parkland-theme";
-const THEME_CSS_VER = "1.19.3";
+// 版本跟 index.html 最頂 PARKLAND_APP（唯一來源）；唔好喺呢度再 hardcode
+const THEME_CSS_VER =
+  (window.PARKLAND_APP && window.PARKLAND_APP.version) || "0.0.0";
 const DATA_VER = THEME_CSS_VER; // templates/assets 一齊 bust cache
 const THEME_CSS = {
   light: `css/theme-light.css?v=${THEME_CSS_VER}`, // v1.11 亮綠

@@ -4,6 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Parkland 前台工具箱</title>
+  <!--
+    ⚠️ 版本唯一來源：只改下面 PARKLAND_APP（version / updated）
+    登入頁、header、CSS/JS cache bust、app.js DATA_VER 全部跟呢度。
+  -->
+  <script>
+    window.PARKLAND_APP = {
+      version: "1.19.4",
+      updated: "06 Aug 2026",
+      author: "Barry",
+    };
+  </script>
   <!-- 先讀本機主題，避免閃一下錯誤 mode -->
   <script>
     (function () {
@@ -18,22 +29,22 @@
       }
     })();
   </script>
-  <!-- 深色 = v1.8 青橘；淺色 = v1.11 亮綠 -->
-  <link
-    id="theme-stylesheet"
-    rel="stylesheet"
-    href="css/theme-light.css?v=1.19.3"
-  />
+  <!-- 深色 = v1.8 青橘；淺色 = v1.11 亮綠；?v= 跟 PARKLAND_APP.version -->
+  <link id="theme-stylesheet" rel="stylesheet" href="css/theme-light.css" />
+  <link id="responsive-stylesheet" rel="stylesheet" href="css/responsive.css" />
   <script>
     (function () {
+      var v = (window.PARKLAND_APP && window.PARKLAND_APP.version) || "0";
       var t = window.__PARKLAND_THEME__ || "light";
-      var link = document.getElementById("theme-stylesheet");
-      if (link && t === "dark") {
-        link.href = "css/theme-dark.css?v=1.19.3";
+      var theme = document.getElementById("theme-stylesheet");
+      if (theme) {
+        theme.href =
+          "css/theme-" + (t === "dark" ? "dark" : "light") + ".css?v=" + v;
       }
+      var resp = document.getElementById("responsive-stylesheet");
+      if (resp) resp.href = "css/responsive.css?v=" + v;
     })();
   </script>
-  <link rel="stylesheet" href="css/responsive.css?v=1.19.3" />
 </head>
 <body class="locked">
   <!-- 登入門 -->
@@ -60,7 +71,7 @@
           <span class="theme-toggle-label">深色</span>
         </button>
       </div>
-      <p class="auth-meta">by Barry · v1.19.3</p>
+      <p class="auth-meta" data-app-meta="auth">by Barry</p>
     </div>
   </div>
 
@@ -95,12 +106,12 @@
           <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
           <span class="theme-toggle-label">深色</span>
         </button>
-        <div class="meta-right" title="by Barry · Version 1.19.3 · 深色=青橘 v1.8 · 淺色=亮綠 v1.11">
-          <span class="meta-by">by Barry</span>
+        <div class="meta-right" data-app-meta="header-title">
+          <span class="meta-by" data-app-meta="author">by Barry</span>
           <span class="meta-dot" aria-hidden="true">·</span>
-          <span class="meta-ver">v1.19.3</span>
+          <span class="meta-ver" data-app-meta="version">v</span>
           <span class="meta-dot" aria-hidden="true">·</span>
-          <span class="meta-update">updated 06 Aug 2026</span>
+          <span class="meta-update" data-app-meta="updated">updated</span>
         </div>
       </header>
     </div>
@@ -145,9 +156,47 @@
     </footer>
   </div>
 
-  <script src="js/config.js?v=1.19.3"></script>
-  <script src="js/branches-data.js?v=1.19.3"></script>
-  <script src="js/links-data.js?v=1.19.3"></script>
-  <script src="js/app.js?v=1.19.3"></script>
+  <!-- 由 PARKLAND_APP.version 填 UI + 載入 JS（只改最頂嗰個 object） -->
+  <script>
+    (function () {
+      var app = window.PARKLAND_APP || { version: "0", updated: "", author: "Barry" };
+      var ver = app.version || "0";
+      var author = app.author || "Barry";
+      var updated = app.updated || "";
+
+      function fillMeta() {
+        var auth = document.querySelector('[data-app-meta="auth"]');
+        if (auth) auth.textContent = "by " + author + " · v" + ver;
+        var a = document.querySelector('[data-app-meta="author"]');
+        if (a) a.textContent = "by " + author;
+        var vEl = document.querySelector('[data-app-meta="version"]');
+        if (vEl) vEl.textContent = "v" + ver;
+        var uEl = document.querySelector('[data-app-meta="updated"]');
+        if (uEl) uEl.textContent = updated ? "updated " + updated : "";
+        var title = document.querySelector('[data-app-meta="header-title"]');
+        if (title) {
+          title.title =
+            "by " +
+            author +
+            " · Version " +
+            ver +
+            " · 深色=青橘 v1.8 · 淺色=亮綠 v1.11";
+        }
+      }
+      fillMeta();
+
+      var files = [
+        "js/config.js",
+        "js/branches-data.js",
+        "js/links-data.js",
+        "js/app.js",
+      ];
+      for (var i = 0; i < files.length; i++) {
+        document.write(
+          '<script src="' + files[i] + "?v=" + ver + '"><\/script>'
+        );
+      }
+    })();
+  </script>
 </body>
 </html>
